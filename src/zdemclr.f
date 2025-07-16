@@ -11,17 +11,18 @@ c                 max_iin_specs is 5 and max_elem_parms is 12. The size
 c                 of the iin array is set in zdemcomm.h to max_iin_specs
 c 2019-01-28 RBS: add include 'zdemout' and init scale_out
 c
+c
+c Include the files specifying the array dimensions and the common blocks.
+c
+      use zdemmax
+      include 'zdemcomm.h'
+      include 'zdemwork.h'
+      include 'zdemout.h'
+c
 c Include the files with the various keywords and integer flags.
 c
       include 'zdemparm.h'
 c
-c Include the files specifying the array dimensions and the common blocks.
-c
-      include 'zdemmax.h'
-      include 'zdemcomm.h'
-      include 'zdemwork.h'
-      include 'zdemout.h'
-
       do i=1,max_elem_parms
         do j=1,max_blocks
           do k=1,max_branches

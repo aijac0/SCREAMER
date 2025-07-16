@@ -3,17 +3,18 @@ c
 c  December 10, 1992;     hnw
 c  2014-02-06 RBS: Changed real*4 to real
 c
+c Include files
+c Include the common block for plotting so that we can set some
+c initial plotting values.
+c
+      use zdemmax
+      include   'zdemout.h'
+c
 c Define passed variables
 c
       real       parms(*)
       integer    nparms
 c
-c Include files
-c Include the common block for plotting so that we can set some
-c initial plotting values.
-c
-      include   'zdemmax.h'
-      include   'zdemout.h'
 c
 c Sets up the parameters needed for the foil implosion model and
 c returns them in parms(i).

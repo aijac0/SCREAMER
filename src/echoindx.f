@@ -10,13 +10,14 @@ c                      longer than 72 characters
 c       07/19/95, MLK, redo format statements
 c -----------------------------------------------------------------------
 c
-      character  indexln*80
-      parameter (indexln = 'SCREAMER Setup Indicies (for debugging)')
-c
-      include 'zdemmax.h'
+      use zdemmax
       include 'zdemcomm.h'
       include 'zdemwork.h'
       include 'zdemout.h'
+c
+      character  indexln*80
+      parameter (indexln = 'SCREAMER Setup Indicies (for debugging)')
+c
 c
 c Write out a banner page and another page with the title.
 c

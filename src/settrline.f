@@ -17,17 +17,18 @@ c ----------------------------------------------------------------------
 c
 c Set up for a transmission line or MITL.
 c
+c
+c Include files
+c
+      use zdemmax
+      include 'zdemparm.h'
+      include 'zdemcomm.h'
+      include 'zdemwork.h'
+c
 c Define passed variables
 c
       integer  ib, ibk, icounter, na, iflgs, switch,
      &         ic_type, ic_counter
-c
-c Include files
-c
-      include 'zdemparm.h'
-      include 'zdemmax.h'
-      include 'zdemcomm.h'
-      include 'zdemwork.h'
 c
 c Define internal variables
 c

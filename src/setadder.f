@@ -3,15 +3,16 @@ c
 c Modifications
 c 2015-06-23 RBS: ibktmp added to eliminate compiler warning
 c
+c Setup for adder block.
+c
+      use zdemmax
+      include 'zdemcomm.h'
+      include 'zdemwork.h'
+c
 c Define passed variables
 c
       integer  ib, ibk, na, iflgs
 c
-c Setup for adder block.
-c
-      include 'zdemmax.h'
-      include 'zdemcomm.h'
-      include 'zdemwork.h'
 c
 c ibk used to prevent a compiler warning
 c

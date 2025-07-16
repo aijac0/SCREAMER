@@ -7,6 +7,9 @@ c Modifications
 c
 c 2015-06-23 RBS: Declared time_flag, half_step, whole_step internal to
 c                 function to eliminate compiler warnings
+      use zdemmax
+      include 'zdemparm.h'
+      include 'zdemwork.h'
 c
 c Declare passed variables
 c
@@ -22,9 +25,6 @@ c
 c
 c Calculates the flux in L2 (series).
 c
-      include 'zdemparm.h'
-      include 'zdemmax.h'
-      include 'zdemwork.h'
 c
 c    *If (time on the half step was requested)
       if (time_flag .eq. half_step) then

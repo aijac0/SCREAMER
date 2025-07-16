@@ -8,13 +8,12 @@ c  Modified:
 c    07/19/95, MLK, Redo format statements
 c 2019-11-29 RBS: Adjusted the output formation for the blocks
 c -----------------------------------------------------------------------
+      use zdemmax
+      include 'zdemcomm.h'
+      include 'zdemout.h'
 c
       character  setupln*80
       parameter (setupln = 'SCREAMER Setup Parameters (for debugging)')
-c
-      include 'zdemmax.h'
-      include 'zdemcomm.h'
-      include 'zdemout.h'
 c
 c Put up a banner page and another page with the title.
 c

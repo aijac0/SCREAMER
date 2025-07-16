@@ -33,22 +33,22 @@ c Purpose: This subroutines performs the calculations.
 c     
 c Called by: Program ZDEM
 c    
-c Include the files with the various keywords and integer flags.
-c
-      include 'zdemparm.h'
-      include 'zdempprm.h'
 c
 c Include the files specifying the array dimensions and the common
 c blocks.
 c
-      include 'zdemmax.h'
+      use zdemmax
       include 'zdemcomm.h'
       include 'zdemwork.h'
       include 'zdemout.h'
       include 'zdemenv.h'
       include 'zdemvars.h'
       include 'zdemloop.h'
-
+c
+c Include the files with the various keywords and integer flags.
+c
+      include 'zdemparm.h'
+      include 'zdempprm.h'
 c
 c Define internal variables
 c

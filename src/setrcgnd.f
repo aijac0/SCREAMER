@@ -1,17 +1,18 @@
       subroutine setup_rcground (ib, ibk, na, iflgs,
      &                           ic_type, ic_counter)
 c
+c
+      use zdemmax
+      include 'zdemparm.h'
+      include 'zdemcomm.h'
+      include 'zdemwork.h'
+c
 c Define passed variables
 c
       integer  ib, ibk, na, iflgs, ic_type, ic_counter
 c
 c  December 10, 1992;     hnw
 c Setup for RC to ground.
-c
-      include 'zdemparm.h'
-      include 'zdemmax.h'
-      include 'zdemcomm.h'
-      include 'zdemwork.h'
 c
 c Set for one node.
 c

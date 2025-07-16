@@ -34,16 +34,16 @@ c
 c      gvar       The time-varying conductance in mhos
 c      calczflow  The calculated zflow in ohms, available in user output
 c
+c Include files
+c
+      use zdemmax
+      include 'zdemwork.h'
+      include 'zdemcomm.h'
+c
 c Define passed variables
 c
       real       time, parms(*), gvar
       integer    node, ib
-c
-c Include files
-c
-      include 'zdemmax.h'
-      include 'zdemwork.h'
-      include 'zdemcomm.h'
 c
 c Define internal variables
 c

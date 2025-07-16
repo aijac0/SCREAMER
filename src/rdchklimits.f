@@ -12,7 +12,7 @@ c---------------------------------------------------------------------
 
       subroutine checkscreamerlimits
       
-      include 'zdemmax.h'
+      use zdemmax
       include 'zdemcomm.h'
       include 'zdemout.h'
       include 'zdemparm.h'

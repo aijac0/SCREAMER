@@ -15,7 +15,7 @@ c---------------------------------------------------------------------
 
       subroutine printscreamerparameters
       
-      include 'zdemmax.h'
+      use zdemmax
       include 'zdemcomm.h'
       include 'zdemparm.h'
       include 'rdscrdat.h'

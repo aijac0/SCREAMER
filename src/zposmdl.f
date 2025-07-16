@@ -49,17 +49,17 @@ c
 c      A note on convention:  Any variable starting with a "g" is a
 c      conductance, and any variable starting with a "z" is a resistance
 c      or impedance.
-c 
+c
+c Include common variable definitions
+c
+      use zdemmax             !parameters
+      include   'zdemout.h'   !common blocks
+      include   'zdemwork.h'  !working arrays in Zdem 
+c
 c Define passed variables
 c
       real time, parms(*), gvar
       integer node, ib
-c
-c Include common variable definitions
-c
-      include   'zdemmax.h'   !parameters
-      include   'zdemout.h'   !common blocks
-      include   'zdemwork.h'  !working arrays in Zdem
 c
 c Define internal variables
 c

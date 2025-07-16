@@ -17,7 +17,7 @@ c  Calls       : None
 c
 c-------Include Files---------------------------------------------------
 c
-      include 'zdemmax.h'
+      use zdemmax
       include 'zdemout.h'
 c
 c-------Input Parameters------------------------------------------------

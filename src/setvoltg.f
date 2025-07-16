@@ -7,17 +7,18 @@ c  2014-05-04 RBS: Changed integer*4 to integer
 c
 c Voltage source as a function of time.
 c
+c
+c Include files
+c
+      use zdemmax
+      include 'zdemparm.h'
+      include 'zdemcomm.h'
+      include 'zdemwork.h'
+c
 c Define passed variables
 c
       real       time, voltage
       integer    index
-c
-c Include files
-c
-      include 'zdemparm.h'
-      include 'zdemmax.h'
-      include 'zdemcomm.h'
-      include 'zdemwork.h'
 c
 c Sort out the function describing the source.
 c

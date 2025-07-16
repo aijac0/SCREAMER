@@ -5,17 +5,18 @@ c
 c 2014-02-06 RBS: Changed real*4 to real
 c 2014-05-02 RBS: Changed integer*4 to integer
 c
+c
+      use zdemmax
+      include 'zdemparm.h'
+      include 'zdemcomm.h'
+      include 'zdemwork.h'
+c
 c Define passed variables
 c
       real       time, volt, current
       integer    index
 c
 c SCL current source as a function of time.
-c
-      include 'zdemparm.h'
-      include 'zdemmax.h'
-      include 'zdemcomm.h'
-      include 'zdemwork.h'
 c
 c Use the table lookup routine to find the current, given the delayed time and
 c voltage produced.

@@ -10,16 +10,16 @@ c
 c  2016-04-01 RBS: Created from gaspfprm.f
 c  2016-07-01 RBS: Included the sheath angle in the inputs
 c
+c Include the common block for plotting so that we can set some
+c initial plotting values.
+c
+      use zdemmax
+      include   'zdemout.h'
+c
 c Declare the passed variables
 c
       real       parms(*)
       integer    nparms
-c
-c Include the common block for plotting so that we can set some
-c initial plotting values.
-c
-      include   'zdemmax.h'
-      include   'zdemout.h'
 c
 c Define internal variables, dimension to 16 for dpf
 c

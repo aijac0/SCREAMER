@@ -21,8 +21,8 @@ c Calls:  Function CALC_RESISTANCE
 c
 c-------Include Files---------------------------------------------------
 c
+      use zdemmax
       include 'zdemparm.h'
-      include 'zdemmax.h'
       include 'zdemcomm.h'
       include 'zdemwork.h'
 c

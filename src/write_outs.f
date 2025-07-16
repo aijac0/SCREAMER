@@ -8,20 +8,21 @@ c                 warnings.
 c 2016-03-16 RBS: Cleaned up a single write format statement
 c ----------------------------------------------------------------------
 c
-c Include the files with the various keywords and integer flags.
-c
-      include 'zdemparm.h'
-      include 'zdempprm.h'
 c
 c Include the files specifying the array dimensions and the common
 c blocks.
 c
-      include 'zdemmax.h'
+      use zdemmax
       include 'zdemcomm.h'
       include 'zdemwork.h'
       include 'zdemout.h'
       include 'zdemenv.h'
       include 'zdemvars.h'
+c
+c Include the files with the various keywords and integer flags.
+c
+      include 'zdemparm.h'
+      include 'zdempprm.h'
 c
 c Constants
 c

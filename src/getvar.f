@@ -44,6 +44,16 @@ c   for energy calculations (all energy requests) or for
 c   power calculations (capacitors and inductors if variable).
 c   This is updated and returned if necessary.
 c
+c
+c Include files
+c
+      use zdemmax
+      include 'zdemcomm.h'
+      include 'zdemwork.h'
+      include 'zdemout.h'
+      include 'zdempprm.h'
+      include 'zdemparm.h'
+c
 c Define passed variables
 c
       integer    vtype, branch, node, lastnode, blktype
@@ -56,16 +66,6 @@ c
 
       integer time_flag, half_step,     whole_step
       parameter         (half_step = 1, whole_step = 2)
-
-c
-c Include files
-c
-      include 'zdemmax.h'
-      include 'zdemcomm.h'
-      include 'zdemwork.h'
-      include 'zdemout.h'
-      include 'zdempprm.h'
-      include 'zdemparm.h'
 c
 c Define internal variables
 c

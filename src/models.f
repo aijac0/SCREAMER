@@ -29,8 +29,8 @@ c ----------------------------------------------------------------------
 c
 c Include files
 c
+      use zdemmax
       include 'zdemparm.h'
-      include 'zdemmax.h'
       include 'zdemwork.h'
       include 'zdemout.h'
       include 'zdemcomm.h'

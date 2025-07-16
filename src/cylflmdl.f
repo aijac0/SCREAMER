@@ -50,6 +50,11 @@ c
 c
 c ----------------------------------------------------------------------
 c
+c Include files
+c
+      use zdemmax             !parameters
+      include   'zdemout.h'   !common blocks
+c
 c Declare passed variables
 c
       real       time     !simulation time, t=i
@@ -61,10 +66,6 @@ c
       real       lt1      !inductance at t=i-1/2
 c ----------------------------------------------------------------------
 c
-c Include files
-c
-      include   'zdemmax.h'   !parameters
-      include   'zdemout.h'   !common blocks
 c
 c ----------------------------------------------------------------------
 c

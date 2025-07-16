@@ -1,16 +1,17 @@
       subroutine setup_pisection (ib, ibk, na, iflgs,
      &                            ic_type, ic_counter)
 c
+c
+      use zdemmax
+      include 'zdemparm.h'
+      include 'zdemcomm.h'
+      include 'zdemwork.h'
+c
 c Define passed variables
 c
       integer  ib, ibk, na, iflgs, ic_type, ic_counter
 c
 c Setup for pi section.
-c
-      include 'zdemparm.h'
-      include 'zdemmax.h'
-      include 'zdemcomm.h'
-      include 'zdemwork.h'
 c
 c Set for 2 nodes.
 c

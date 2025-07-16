@@ -48,7 +48,7 @@ c
 c Include the file which has a common block for storing some unusual
 c parameters from this model
 c
-      include   'zdemmax.h'   !parameters
+      use zdemmax             !parameters
       include   'zdemout.h'   !common blocks
 c
 c ------------------------------------------------------------------------------

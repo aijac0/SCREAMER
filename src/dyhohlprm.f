@@ -21,16 +21,18 @@ c  2014-10-23 RBS: Added peak current init, nparms to 24
 c
 c ------------------------------------------------------------------------------
 c
-c Define passed variables
-c
-      real       parms(*)
-      integer    nparms
 c
 c Include the common block for plotting so that we can set some
 c initial plotting values.
 c
-      include   'zdemmax.h'
+      use zdemmax
       include   'zdemout.h'
+c
+c
+c Define passed variables
+c
+      real       parms(*)
+      integer    nparms
 c
 c Define internal variables
 c

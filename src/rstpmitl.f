@@ -7,15 +7,16 @@ c
 c Resets the conductances in an MITL.  Uses the perveance value.
 c Per LXS and DHM SCEPTRE model.
 c
-c Define passed variables
-c
-      integer  index
 c
 c Include files
 c
-      include 'zdemmax.h'
+      use zdemmax
       include 'zdemcomm.h'
       include 'zdemwork.h'
+c
+c Define passed variables
+c
+      integer  index
 c
 c Define internal variables
 c

@@ -6,15 +6,15 @@ c 2015-06-23 RBS: ibktmp used to eliminate a compiler error, ibk unused
 c
 c Setup for Measure Zflow Block.
 c
+c Include files
+c
+      use zdemmax
+      include 'zdemcomm.h'
+      include 'zdemwork.h'
+c
 c Define passed variables
 c
       integer  ib, ibk, na, iflgs
-c
-c Include files
-c
-      include 'zdemmax.h'
-      include 'zdemcomm.h'
-      include 'zdemwork.h'
 c
 c ibk used to prevent a compiler warning
 c

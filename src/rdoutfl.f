@@ -22,6 +22,11 @@ c                 whole_step were removed from zdemparm it failed
 c 2015-06-23 RBS: Declared time_flag, half_step, whole_step internal to
 c                 function to eliminate compiler warnings
 c
+c-----Include Files-----------------------------------------------------
+c
+      use zdemmax
+      include 'zdemparm.h'
+c
 c-----Input Parameters--------------------------------------------------
 c
       integer iunit,     ! Logical unit number of SCREAMER param file
@@ -41,11 +46,6 @@ c
       real    ttime,     ! Time value of record read
      +        value      ! Value of parameter specified by ipoint
       integer ierr       ! Error flag
-c
-c-----Include Files-----------------------------------------------------
-c
-      include 'zdemmax.h'
-      include 'zdemparm.h'
 c
 c-----Local Variables---------------------------------------------------
 c

@@ -8,13 +8,14 @@ c This routine sets up arrays for the nshellmodel.
 c Include the common block for plotting so that we can set some
 c initial plotting values.
 c
+c
+      use zdemmax
+      include   'zdemout.h'
+c
 c Define passed variables
 c
       real       parms(*)
       integer    nparms
-c
-      include   'zdemmax.h'
-      include   'zdemout.h'
 c
 c Sets up the parameters needed for the nshell implosion model and
 c returns them in parms(i).

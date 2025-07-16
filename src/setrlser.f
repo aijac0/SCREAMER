@@ -4,17 +4,18 @@ c
 c  December 10, 1992;     hnw
 c Setup for RL in series.
 c
-c Define passed variables
-c
-      integer  ib, ibk, na, iflgs, ic_type, ic_counter
 c
 c Include files
 c
+      use zdemmax
       include 'zdemparm.h'
-      include 'zdemmax.h'
       include 'zdemcomm.h'
       include 'zdemwork.h'
 c
+c
+c Define passed variables
+c
+      integer  ib, ibk, na, iflgs, ic_type, ic_counter
 c Set for 2 nodes.
 c
       n1  = nr(ib) + 1

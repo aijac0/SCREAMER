@@ -8,6 +8,10 @@ c
 c 2015-06-23 RBS: Declared time_flag, half_step, whole_step internal to
 c                 function to eliminate compiler warnings
 c
+      use zdemmax
+      include 'zdemparm.h'
+      include 'zdemwork.h'
+c
 c Declare passed variables
 c
       integer    inod, ibrn
@@ -21,10 +25,6 @@ c
 
 c
 c Calculates the 0.5(dL/dt)I**2 power put into an inductor.
-c
-      include 'zdemparm.h'
-      include 'zdemmax.h'
-      include 'zdemwork.h'
 c
       curr = fiout (inod,ibrn,time_flag)
       fpl2 = 0.5 * zlrdot(inod,ibrn) * curr * curr

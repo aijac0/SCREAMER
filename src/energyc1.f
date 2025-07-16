@@ -8,6 +8,10 @@ c
 c 2015-06-23 RBS: Declared time_flag, half_step, whole_step internal to
 c                 function to eliminate compiler warnings
 c
+      use zdemmax
+      include 'zdemparm.h'
+      include 'zdemwork.h'
+c
 c Declare passed variables
 c
       integer    inod, ibrn
@@ -22,9 +26,6 @@ c
 c
 c Calculates the 0.5CV**2 energy stored in a capacitor.
 c
-      include 'zdemparm.h'
-      include 'zdemmax.h'
-      include 'zdemwork.h'
 c
       volt = fvblk (inod,ibrn,time_flag)
       fec1 = 0.5 * cechk(inod,ibrn) * volt * volt

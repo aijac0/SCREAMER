@@ -45,7 +45,7 @@ c
 c Include the common blocks which are to be filled by the
 c this subroutine.
 c
-      include 'zdemmax.h'
+      use zdemmax
       include 'zdemcomm.h'
       include 'zdemout.h'
 c

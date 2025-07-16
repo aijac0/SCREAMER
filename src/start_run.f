@@ -31,6 +31,19 @@ c          It does it by reading the input deck
 c
 c Called by: Program ZDEM
 c
+c Include files
+c
+      use zdemmax
+      include 'zdemparm.h'
+      include 'zdempprm.h'
+      include 'zdemcomm.h'
+      include 'zdemwork.h'
+      include 'zdemout.h'
+      include 'zdemvars.h'
+      include 'zdemloop.h'
+c
+c
+c
 c Calls:  Subroutines setup_trline,setup_rcground,setup_rlseries,
 c setup_pisection,setup_rlseries,setup_rlseries,setup_rlseries,
 c setup_voltsource,setup_vendsource,setup_currsource,
@@ -41,17 +54,6 @@ c
 c Define passed variables
 c
       integer    status
-c
-c Include files
-c
-      include 'zdemparm.h'
-      include 'zdempprm.h'
-      include 'zdemmax.h'
-      include 'zdemcomm.h'
-      include 'zdemwork.h'
-      include 'zdemout.h'
-      include 'zdemvars.h'
-      include 'zdemloop.h'
 c
 c Internal Variables
 c

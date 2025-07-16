@@ -7,6 +7,13 @@ c                 function to eliminate compiler warnings
 c
 c Calculates the voltage across R2 (series).
 c
+c
+c Include files
+c
+      use zdemmax
+      include 'zdemparm.h'
+      include 'zdemwork.h'
+c
 c Declare passed variables
 c
       integer    inod, ibrn
@@ -17,13 +24,6 @@ c
 
       integer time_flag, half_step,     whole_step
       parameter         (half_step = 1, whole_step = 2)
-
-c
-c Include files
-c
-      include 'zdemparm.h'
-      include 'zdemmax.h'
-      include 'zdemwork.h'
 c
 c    *If (time on the half step was requested)
       if (time_flag .eq. half_step) then

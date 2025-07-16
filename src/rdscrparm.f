@@ -12,7 +12,7 @@ c---------------------------------------------------------------------
 
       subroutine readscreamerparameters(status)
       
-      include 'zdemmax.h'
+      use zdemmax
       include 'zdemcomm.h'
       include 'zdemout.h'
 c

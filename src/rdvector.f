@@ -19,7 +19,7 @@ c                 get_next_line. Declared currline_lc*120
 c
 c-------Include Files---------------------------------------------------
 c
-      include  'zdemmax.h'
+      use zdemmax
       include  'zdemparm.h'    ! Contains keywords
 c
 c-------Input Parameters------------------------------------------------

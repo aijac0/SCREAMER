@@ -27,9 +27,9 @@ c                 Added output scaling to the final write statement
 c
 c-------Include Files---------------------------------------------------
 c
+      use zdemmax
       include 'zdemparm.h'
       include 'zdempprm.h'
-      include 'zdemmax.h'
       include 'zdemout.h'
       include 'zdemcomm.h'
       include 'zdemenv.h'

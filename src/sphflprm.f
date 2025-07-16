@@ -12,6 +12,12 @@ c
 c parms is sent with the basic parameters needed to rearrange and fill
 c the actual parms array.
 c
+c Include the common block for plotting so that we can set some
+c initial plotting values.
+c
+      use zdemmax
+      include   'zdemout.h'
+c
 c Define passed variables
 c
       real       parms(*)
@@ -20,12 +26,6 @@ c
 c ----------------------------------------------------------------------
 c
       real       temp(4)
-c
-c Include the common block for plotting so that we can set some
-c initial plotting values.
-c
-      include   'zdemmax.h'
-      include   'zdemout.h'
 c
 c ----------------------------------------------------------------------
 c Fill temp with parms.

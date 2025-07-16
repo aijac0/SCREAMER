@@ -42,9 +42,9 @@ c 2019-12-01 RBS: Increased the length of the lblout to 25 from 22
 c
 c-------Include Files---------------------------------------------------
 c
+      use zdemmax
       include 'zdemparm.h'
       include 'zdempprm.h'
-      include 'zdemmax.h'
       include 'zdemout.h'
       include 'zdemcomm.h'
       include 'zdemenv.h'

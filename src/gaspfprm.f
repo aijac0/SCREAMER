@@ -12,16 +12,18 @@ c  December 10, 1992;     hnw
 c  2014-02-06 RBS: Changed real*4 to real
 c  2014-05-02 RBS: Changed interger*4 to integer
 c
+c Include the common block for plotting so that we can set some
+c initial plotting values.
+c
+      use zdemmax
+      include   'zdemout.h'
+
+
 c Define passed variables
 c
       real       parms(*)
       integer    nparms
 c
-c Include the common block for plotting so that we can set some
-c initial plotting values.
-c
-      include   'zdemmax.h'
-      include   'zdemout.h'
 c
 c Define internal variables
 c

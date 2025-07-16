@@ -5,7 +5,14 @@ c
 c 2015-06-23 RBS: Declared time_flag, half_step, whole_step internal to
 c                 function to eliminate compiler warnings
 c
-c Calculates the charge on C1 or C3 (shunt).
+c Calculates the charge on C1 or C3 (shunt).c
+c
+c Include files
+c
+      use zdemmax
+      include 'zdemparm.h'
+      include 'zdemwork.h'
+
 c
 c Declare passed variables
 c
@@ -18,12 +25,6 @@ c
       integer time_flag, half_step,     whole_step
       parameter         (half_step = 1, whole_step = 2)
 
-c
-c Include files
-c
-      include 'zdemparm.h'
-      include 'zdemmax.h'
-      include 'zdemwork.h'
 c
 c Define internal variables
 c

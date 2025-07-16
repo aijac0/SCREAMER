@@ -5,6 +5,10 @@ c
 c 2015-06-23 RBS: Declared time_flag, half_step, whole_step internal to
 c                 function to eliminate compiler warnings
 c
+      use zdemmax
+      include 'zdemparm.h'
+      include 'zdemwork.h'
+c
 c Declare passed variables
 c
       integer  inod, ibrn
@@ -18,10 +22,6 @@ c
 
 c
 c Calculates the power dissipated in R1 or R3 (shunt).
-c
-      include 'zdemparm.h'
-      include 'zdemmax.h'
-      include 'zdemwork.h'
 c
 c    *If (time on the half step was requested)
       if (time_flag .eq. half_step) then

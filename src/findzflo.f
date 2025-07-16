@@ -12,13 +12,12 @@ c                 that is only used in the diagnostic write, which is
 c                 commented out at this time.
 c
 c-----------------------------------------------------------------------
-c
+      use zdemmax
+      include 'zdemout.h'
+
 c Define passed variables
 c
       real time, ianode, V, Z, icathode, iplasma, zflow
-c
-      include 'zdemmax.h'
-      include 'zdemout.h'
 c
 c Define internal variables
 c

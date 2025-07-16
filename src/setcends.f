@@ -1,17 +1,17 @@
       subroutine setup_cendsource (ib, ibk, ics_counter, na, iflgs,
      &                             ic_type, ic_counter, itypcs)
 c
+      use zdemmax
+      include 'zdemparm.h'
+      include 'zdemcomm.h'
+      include 'zdemwork.h'
+c
 c Define passed variables
 c
       integer  ib, ibk, ics_counter, na, iflgs, ic_type, ic_counter
       integer  itypcs
 c
 c Setup for end-of-branch current source or end-of-branch SCL current source.
-c
-      include 'zdemparm.h'
-      include 'zdemmax.h'
-      include 'zdemcomm.h'
-      include 'zdemwork.h'
 c
 c Set for 1 node.
 c

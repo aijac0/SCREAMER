@@ -6,17 +6,18 @@ c  2014-02-06 RBS: Changed real*4 to real
 c
 c current source as a function of time.
 c
+c
+c Include files
+c
+      use zdemmax
+      include 'zdemparm.h'
+      include 'zdemcomm.h'
+      include 'zdemwork.h'
+c
 c Define passed variables
 c
       real       time, current
       integer    index
-c
-c Include files
-c
-      include 'zdemparm.h'
-      include 'zdemmax.h'
-      include 'zdemcomm.h'
-      include 'zdemwork.h'
 c
 c Sort the functions describing this source.
 c

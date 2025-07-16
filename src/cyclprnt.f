@@ -13,18 +13,18 @@ c  2020-22-04 RBS: Changed the output energy formats to 1pe12.4
 c --------------------------------------------------------
 c
 c
+c Include files
+c
+      use zdemmax
+      include 'zdemcomm.h'
+      include 'zdemwork.h'
+      include 'zdemparm.h'
+c
 c Define passed variables
 c
       integer    icycle
       real       time, esour, eind, ecap, econ, eres,
      &           elossind, elosscap, error
-c
-c Include files
-c
-      include 'zdemmax.h'
-      include 'zdemcomm.h'
-      include 'zdemwork.h'
-      include 'zdemparm.h'
 c
 c Define internal variables
 c

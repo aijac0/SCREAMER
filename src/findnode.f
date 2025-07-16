@@ -1,4 +1,8 @@
       integer function ifnodreq (otype, lastnode, numnodes)
+
+      use zdemmax
+      include 'zdempprm.h'
+      include 'zdemout.h'
 c
 c Define passed variables
 c
@@ -15,9 +19,6 @@ c
 c
 c Include variable definitions
 c
-      include 'zdemmax.h'
-      include 'zdempprm.h'
-      include 'zdemout.h'
 c
 c Define internal variables
 c

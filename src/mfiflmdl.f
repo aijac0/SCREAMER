@@ -52,15 +52,16 @@ c      bfld  =  B field at the insulator  (wb/m2)
 c      xmfi  =  the mfi switch criterion
 c      gvar  =  the conductance of the insulator
 c
+c Define included variables
+c
+      use zdemmax             !parameters
+      include   'zdemout.h'   !common blocks
+c
 c
 c Define passed variables
 c
       real   time, cin, cout, vin, parms(*), gvar
 c
-c Define included variables
-c
-      include   'zdemmax.h'   !parameters
-      include   'zdemout.h'   !common blocks
 c
 c Define internal variables
 c

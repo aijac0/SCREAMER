@@ -21,21 +21,21 @@ c  2014-02-06 RBS: Changed real*4 to real
 c 2015-06-23 RBS: Declared time_flag, half_step, whole_step internal to
 c                 function to eliminate compiler warnings
 c
+c
+c-------Include Files---------------------------------------------------
+c
+      use zdemmax
+      include 'zdemparm.h'
+      include 'zdempprm.h'
+      include 'zdemcomm.h'
+      include 'zdemwork.h'
+      include 'zdemout.h'
 c-------Define Passed Variables-----------------------------------------
 c
       real      tim,      ! Current problem time at whole time step
      +          timehalf, ! Current problem time at half time step
      +          timestep, ! delta t
      +          rtimstep  ! 1/delta t
-c
-c-------Include Files---------------------------------------------------
-c
-      include 'zdemparm.h'
-      include 'zdempprm.h'
-      include 'zdemmax.h'
-      include 'zdemcomm.h'
-      include 'zdemwork.h'
-      include 'zdemout.h'
 c
 c-------Output Parameters-----------------------------------------------
 c

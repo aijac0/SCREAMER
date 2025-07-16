@@ -11,7 +11,7 @@ c  model, so that there is no cross-talk between different uses.
 c 2014-05-02 RBS: Change real*4 to real
 c 2015-06-23 RBS: diel1 explicit integer math in line 54. dcm1n unused
 c
-      include 'zdemmax.h'   ! parameters
+      use zdemmax           ! parameters
       include 'zdemout.h'   ! common blocks
 c
 c Declare passed variables
