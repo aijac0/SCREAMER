@@ -1,0 +1,48 @@
+LTD Cavity Model for Imperial College 
+!        28 June 2009
+!
+TIME-STEP          0.1E-9
+RESOLUTION-TIME    1.0E-9
+END-TIME           1.0E-6
+NUMBER-PRINTS      1
+EXECUTE-CYCLES     ALL
+ECHO               YES
+GRIDS              NO
+MAX-POINTS         8000
+DETAIL-PRINTS      FULL
+!
+BRANCH
+!
+!    We begin with a model of 1 LTD cavity
+!    We assume each LTD cavity has a capacitance of 280 nF X 20 bricks = 5.6 µF.
+!
+RCG  1.0E12    5.6e-6
+!
+!    We assume each cavity is charged to 100 kV.
+!
+INITIAL    VC1    100E3
+UFO VC1
+$V_cap
+!
+!    We assume each cavity has a resistance of (0.03 Ohm + 0.02 ohms)/20 = 0.0025 Ohms
+!    We assume each cavity has an inductance of (20 nH + 15 nH + 15 nh)/20 = 2.5 nH.
+!
+RLS  0.0025  2.5E-9
+!
+! We want the stack to flash on reversal - use a time constraint
+! 
+RCG 1e6 0
+! Use var resistor
+!    We assume each cavity has a core loss that can be modeled as a shunt resistance of
+!    4 ohms.
+!
+RCG  4   0
+UFO VR1
+$V_cavity
+!
+!    Total Load inductance
+!
+RLseries  0  4e-9
+RCground  1.5E-2  0
+UFO IR1
+$I_load

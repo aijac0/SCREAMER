@@ -1,0 +1,96 @@
+PRE-CONCEPTUAL DESIGN OF THE Z-15 ACCELERATOR
+!
+!
+! AS_rev2 based on AS_rev1 but with a sine wave drive.
+!
+! AS_rev1 is based on z15_rev4_z51. Changes are a constant gap TL and no MITLs on either level.
+!  The load will be a static load.
+!
+!    Rev 4 is based on Rev 3 with multi-disk feed and a better representation of the MITL power flow
+!    The design presented below is a single-line model of the machine.
+!    Rev 3 is a more accurate representation of the inductance in the
+!    water and the vacuum
+!
+!
+!
+TIME-STEP          0.10E-12
+RESOLUTION-TIME    100E-12
+END-TIME           0.4E-6
+NUMBER-PRINTS      5
+EXECUTE-CYCLES     ALL
+ECHO               YES
+GRIDS              NO
+MAX-POINTS         5001
+
+!
+!   *********   sin wave drive  ****************************************
+!
+! ******** Main Branch **********
+
+BRANCH
+
+VOLsource SIN 0.25 0.0
+1.0e6 400e-09 0.0
+
+!
+!   *****************************   Constant gap MITLs   ********************************
+! Router=1.5 m, Rinner=0.10 m,  gap of 1 cm
+!  4.67 ns long, L = 2*1*ln(ro/ri) = 5.416 nH
+!
+! I will divide the spacing between Router and Rinner into 5 TL segments of equal length
+! The starting impedance and the ending impedance will be determined based on starting radius
+! and ending radius of each segment.
+! 0.467 ns segments, each segment is 0.28 m long
+!
+! Radii - 1.5, 1.22, 0.94, 0.66, 0.38, 0.1
+! Impedances Ω - 0.4, 0.49, 0.638, 0.908, 1.579,  6.0
+! Inductances of each segment nH - 0.413, 0.521, 0.707, 1.104, 2.67
+!
+
+TRL LIN 0.934E-9  0.4  0.49  5e-12
+
+TXT VIN SCALE 1e-6
+$V_tl1_in_B (MV)
+TXT IIN SCALE 1e-6
+$I_tl1_in_B (MA)
+
+TXT VOUT SCALE 1e-6
+$V_tl1_out_B (MV)
+TXT IOUT SCALE 1e-6
+$I_tl1_out_B (MA)
+ 
+TRL LIN 0.934E-9  0.49  0.638  5e-12
+
+TXT VOUT SCALE 1e-6
+$V_tl2_out_B (MV)
+TXT IOUT SCALE 1e-6
+$I_tl2_out_B (MA)
+
+TRL LIN 0.934E-9  0.638  0.908  5e-12
+
+TXT VOUT SCALE 1e-6
+$V_tl3_out_B (MV)
+TXT IOUT SCALE 1e-6
+$I_tl3_out_B (MA)
+
+TRL EXP 0.934E-9  0.908 1.579  5e-12
+
+TXT VOUT SCALE 1e-6
+$V_tl4_out_B (MV)
+TXT IOUT SCALE 1e-6
+$I_tl4_out_B (MA)
+
+TRL EXP 0.934E-9  1.579  6.0  5e-12
+
+TXT VOUT SCALE 1e-6
+$V_tl5_out_B (MV)
+TXT IOUT SCALE 1e-6
+$I_tl5_out_B (MA)
+
+!
+!   ********   Tie it all back to ground   ********************************
+!
+
+RCG  1.0E-12  1.0E-12
+
+!! End Main Branch (Branch #1)!

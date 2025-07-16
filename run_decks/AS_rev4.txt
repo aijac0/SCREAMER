@@ -1,0 +1,134 @@
+PRE-CONCEPTUAL DESIGN OF THE Z-15 ACCELERATOR
+!
+!
+! AS_rev3 based on AS_rev3 but a constant impedance.
+!
+! AS_rev1 is based on z15_rev4_z51. Changes are a constant gap TL and no MITLs on either level.
+!  The load will be a static load.
+!
+!    Rev 4 is based on Rev 3 with multi-disk feed and a better representation of the MITL power flow
+!    The design presented below is a single-line model of the machine.
+!    Rev 3 is a more accurate representation of the inductance in the
+!    water and the vacuum
+!
+!
+!
+TIME-STEP          0.10E-12
+RESOLUTION-TIME    100E-12
+END-TIME           0.4E-6
+NUMBER-PRINTS      5
+EXECUTE-CYCLES     ALL
+ECHO               YES
+GRIDS              NO
+MAX-POINTS         5001
+
+!
+!   *********   sin wave drive  ****************************************
+!
+! ******** Main Branch **********
+
+BRANCH
+
+VOLsource SIN 0.25 0.0
+1.0e6 400e-09 0.0
+
+TRL LIN 200e-9 0.25 0.25 1e-9
+
+!
+!   *****************************   Constant Impedance MITLs   ********************************
+! Router=1.5 m, Rinner=0.10 m,  gap = (2/59.96) * r
+!  4.67 ns long, L = 2*4.67 = 9.34 nH
+!
+! I will divide the spacing between Router and Rinner into 10 TL segments of equal length
+! The starting impedance and the ending impedance will be determined based on starting radius
+! and ending radius of each segment.
+! 0.467 ns segments, each segment is 0.28 m long
+!
+! Radii - 1.5, 1.36, 1.22, 1.08, 0.94,     0.80, 0.66, 0.52, 0.38, 0.24,  0.1
+! Impedances Ω - 2 Ω
+! Enclosed Inductances by segment - 0.934 nH
+! 
+!
+
+TRL LIN 0.467E-9  2.0  2.0  2e-12
+
+TXT VIN SCALE 1e-6
+$V_tl1_in_B (MV)
+TXT IIN SCALE 1e-6
+$I_tl1_in_B (MA)
+
+TXT VOUT SCALE 1e-6
+$V_tl1_out_B (MV)
+TXT IOUT SCALE 1e-6
+$I_tl1_out_B (MA)
+ 
+TRL LIN 0.467E-9  2.0  2.0  2e-12
+
+TXT VOUT SCALE 1e-6
+$V_tl2_out_B (MV)
+TXT IOUT SCALE 1e-6
+$I_tl2_out_B (MA)
+ 
+TRL LIN 0.467E-9  2.0  2.0  2e-12
+
+TXT VOUT SCALE 1e-6
+$V_tl3_out_B (MV)
+TXT IOUT SCALE 1e-6
+$I_tl3_out_B (MA)
+ 
+TRL LIN 0.467E-9  2.0  2.0  2e-12
+
+TXT VOUT SCALE 1e-6
+$V_tl4_out_B (MV)
+TXT IOUT SCALE 1e-6
+$I_tl4_out_B (MA)
+ 
+TRL LIN 0.467E-9  2.0  2.0  2e-12
+
+TXT VOUT SCALE 1e-6
+$V_tl5_out_B (MV)
+TXT IOUT SCALE 1e-6
+$I_tl5_out_B (MA)
+ 
+TRL LIN 0.467E-9  2.0  2.0  2e-12
+
+TXT VOUT SCALE 1e-6
+$V_tl6_out_B (MV)
+TXT IOUT SCALE 1e-6
+$I_tl6_out_B (MA)
+ 
+TRL LIN 0.467E-9  2.0  2.0  2e-12
+
+TXT VOUT SCALE 1e-6
+$V_tl7_out_B (MV)
+TXT IOUT SCALE 1e-6
+$I_tl7_out_B (MA)
+
+TRL LIN 0.467E-9  2.0  2.0  2e-12
+
+TXT VOUT SCALE 1e-6
+$V_tl8_out_B (MV)
+TXT IOUT SCALE 1e-6
+$I_tl8_out_B (MA)
+
+TRL LIN 0.467E-9  2.0  2.0  2e-12
+
+TXT VOUT SCALE 1e-6
+$V_tl9_out_B (MV)
+TXT IOUT SCALE 1e-6
+$I_tl9_out_B (MA)
+
+TRL LIN 0.467E-9  2.0  2.0  2e-12
+
+TXT VOUT SCALE 1e-6
+$V_tl10_out_B (MV)
+TXT IOUT SCALE 1e-6
+$I_tl10_out_B (MA)
+
+!
+!   ********   Tie it all back to ground   ********************************
+!
+
+RCG  1.0E-12  1.0E-12
+
+!! End Main Branch (Branch #1)!

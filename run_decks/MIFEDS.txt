@@ -1,0 +1,71 @@
+Capacitor Discharge
+! 2017-12-21 RBS
+!
+Time-step 0.5e-9
+Resolution-time 5e-9
+End-time 4e-6
+Number-prints 5
+Execute-cycles all
+Grids no
+Echo-setup no
+Max-points 3001
+!
+!Start ciruit definition
+!
+BRANCH
+RCG 1e+12 5e-6
+Initial VC1 30e3
+
+UFO VC1
+$V_cap
+UFO EC1
+$E_cap
+!
+! Inductance - 25 nH of two SARA caps in parallel + 0.13 Ω ESR of 2 caps in parallel
+!
+
+RLSeries 0.065 12.5e-9
+
+!
+! Inductance of the switch, 100 nH per switch, two in parallel, resistance 0.05 Ω two in parallel
+!
+
+Rlseries 0.025 50e-9
+
+!
+! Inductance of the header - WAG
+!
+
+Rlseries 0.0 10e-9
+
+!
+! Inductance of the conical TL - WAG
+!
+
+Rlseries 0.0 15e-9
+
+!
+! Inductance of the Coil, resistance of the coil
+!
+
+Rlseries 0.05 60e-9
+
+UFO VR2
+$V_coil_R
+UFO VL2
+$V_coil_L
+
+!
+! Load to ground, R is adjusted to match the circuit
+!
+
+Rcground 0.03 0.0
+
+UFO IR1
+$I_load
+UFO ER1
+$E_load
+UFO PR1
+$P_load
+
+! End circuit

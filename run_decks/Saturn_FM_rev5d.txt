@@ -1,0 +1,218 @@
+Saturn Fast Marx Module Option 2
+!
+! Rick Spielman 2018-11-30
+!
+! Screamer setup parameters
+!
+Time-step 4.0e-12
+Resolution-time 100e-12
+End-time 1.0e-6
+Number-prints 5
+Execute-cycles all
+Grids no
+Echo-setup no
+Max-points 5001
+!
+!Start circuit definition
+!
+!Saturn_FM_rev5d.txt is based on Saturn_FM_rev4d.txt. We are using the exact old Saturn
+! L1 dimensions and using 2 sub-Marxes. The number of stages is 16.
+!
+! Gas switch dimensions from drawings
+!
+! We have a sub Marx with 32 caps in series and 16 switches. Vch = 2.72 MV
+! Each sub-Marx cap is 2, 105.44 nF caps in parallel. Sub-Marx capacitance - 6.59 nF. 
+! Total Marx capacitance is 13.18 nF.
+! 
+! IESR is 130 m½ individual cap ESR / 2 in parallel X 32 half stages per = 2.08 ½ per sub-Marx.
+! Total Marx ESR is 1.04 ½.
+!
+! Assume that there will be 167 nH every stage. The sub-Marx L = 167 nH * 16 = 2.672 µH.
+! The total switch inductance used is 320 nH/sub-Marx. (20 nH per stage) seem low.
+! The total Marx inductance is 1.336 µH The total Marx switch inductance is 160 nH.
+!
+! Energy per sub-Marx at +/-85kV kV = 24.38 kJ
+! Total Marx energy is 48.76 kJ
+!
+! The matched impedance of a sub-Marx = sqrt(L/C) = 20.14 ½.
+! The matched impedance for the whole Marx is 10.07 ½.
+!  Note, the L1 impedance is 1 ½.
+!  The ESR amounts to ~ 10.3% of the matched impedance.
+!
+! The switch model will have 16x the length of one switch per sub Marx. 
+! The Marx will have 2 switches in parallel.
+! 
+!
+! L1 capacitance used is 9.15 ns/1 ½ = 9.15 nF (C = t/Z )
+!
+! 
+! Main Branch - Branch #1
+!
+BRANCH
+!
+! Marx capacitance and charge voltage
+! two sub-Marx (6.59 each nF each)
+! +/-85 kV charge
+!
+RCGround 1e+12 13.18e-9
+Initial VC1 2.72e6
+
+UFO VC1
+$V_marx
+UFO EC1
+$E_marx
+
+!
+! Cap inductance, case & parasitic inductance, and ESR
+! ESR = 2.08 ½ per sub Marx or 1.04 ½ total, Marx L from above is 1.336e-6 H - 160 nF = 1.176 µF
+!
+
+RLSeries 1.04 1.176e-6
+
+!
+! Switch resistance - Martin Model and switch inductance - the total gap for both sides of a single
+!   switch from DWGs is 0.53Ó (1.3462 cm) gap @ 93 psig air X16 = 21.5392 cm
+! There are two switches in parallel
+!
+! Switch inductance of the Marx from above = 160 nH
+! 
+
+RLSeries 10e9 160e-9
+Var R2 Switch
+!dielectric switchtime gap          pressure     nswitch  nchannels
+AIR           0.0               0.215      7.3                2             1
+
+UFO IR2
+$I_marx
+UFO R2
+$R_switch
+UFO ER2
+$E_switch
+UFO QR2
+$Q_switch
+
+!
+! Output Marx header inductance 75 nH not parallelled (WAG)
+!
+
+RLSeries 0.00 75e-9
+
+!
+! Line 1 , 9.15 ns, 1 ½; 9.15 ns/1= 9.15 nF
+! Include the 1.75" radius transition of the L1, 1.137 ½
+!
+
+TRLine EXP 1.33e-09   1.137  1.0
+TRLine LIN   6.48e-09   1.0      1.0
+TRLine EXP 1.33e-09   1.0      1.137
+
+UFO VOUT
+$V_L1_out
+UFO IOUT
+$I_L1_out
+UFO EOUT
+$E_L1_out
+UFO POUT
+$P_L1_out
+
+!
+! Impedance of the L1 output boss not included
+! L1 water switches
+! 10 output switches, 2.75Ó Saturn gap + switch inductance
+! Est. arc inductance for 10 switches, 6.985-cm long (2 ns) @ Z=44 ½ is 8.8 nH use 10 nH
+!
+
+RLSeries 10e9 10e-9
+Var R2 Switch
+!dielectric switchtime gap            pressure   nswitch  nchannels
+H2O          270e-09     0.06985   1.0              10            1
+
+UFO IR2
+$I_L1_sw
+UFO R2
+$R_L1_sw
+UFO ER2
+$E_L1_sw
+UFO QR2
+$Q_L1_sw
+
+!
+! Line 2, 9.15 ns, 2 ½ constant impedance
+! Line length needs to be the same as L1 to double bounce the pulse.
+! boss edge impedance 2XL1 or 2.275 ½
+!
+
+TRLine EXP 1.33e-09 2.275 2.0
+
+UFO VIN
+$V_L2_in
+UFO IIN
+$I_L2_in
+
+TRLine LIN   6.48e-09      2.0 2.0
+TRLine EXP 1.33e-09      2.0 2.275
+
+UFO VOUT
+$V_L2_out
+UFO IOUT
+$I_L2_out
+UFO POUT
+$P_L2_out
+UFO EOUT
+$E_L2_out
+
+!
+! L2 water switches
+! 10 output switches, 0.5"Ó gap + switch inductance
+! Est. arc inductance for 10 switches, 1.27 cm long, 0.38 ns is 1.59 nH, use 2.5 nH
+!
+
+RLSeries 10e9 2.5e-9
+Var R2 Switch
+!dielectric switchtime    gap         pressure    nswitch  nchannels
+H2O          285.0e-09     0.0127   1.0              10            1
+
+UFO IR2
+$I_L2_sw
+UFO R2
+$R_L2_sw
+UFO ER2
+$E_L2_sw
+UFO QR2
+$Q_L2_sw
+
+!
+! OTL, 50 ns, 2 ½ constant impedance with L2 transitions
+!
+
+TRLine EXP 1.33e-09 2.275 2.0
+TRLine LIN   50.0e-09    2.0 2.0
+
+UFO VOUT
+$V_OTL_in
+UFO IOUT
+$I_OTL_in
+UFO POUT
+$P_OTL_in
+UFO EOUT
+$E_OTL_in
+
+TRLine LIN   50.0e-09    2.0 4.0
+TRLine LIN   75.0e-09    4.0 4.0
+
+UFO VOUT
+$V_OTL_out
+UFO IOUT
+$I_OTL_out
+UFO POUT
+$P_OTL_out
+UFO EOUT
+$E_OTL_out
+
+!
+! Output resistor - 4 ½ matched
+!
+
+RCGround 4.0   0.00
+
+!! End Main Branch (Branch #1)!

@@ -1,0 +1,77 @@
+!GEPI driver with pulse sharpening
+!
+Time-step 1e-10
+Resolution-time 1e-12
+End-time 1000e-9
+Number-prints 5
+Execute-cycles all
+Grids no
+Echo-setup no
+Max-points 1001
+!
+!Start ciruit definition
+!
+BRANCH
+RCG 1e+12 24e-6
+Initial VC1 70000
+Rlseries 1.33e-3 1.66e-9
+!
+!Switch
+!
+Rlseries 1e-3 2e-9
+UFO IR2
+$I_in
+
+Endbranch
+
+!
+!Electrical Feed
+!
+Rlseries 0 4.0e-9
+!
+!Peaking Switch
+!
+Rlseries 0.0 15e-9
+Topbranch
+!
+!Load
+!
+Rlseries 0 0
+Endbranch
+Rlseries 0 0
+Rcground 5e-1 1e-7
+!
+! End circuit
+!
+
+!
+!End Branch for the peaking capacitors
+!
+Branch
+Rlseries 0.33e-3 0.5e-9
+RCG 1e+12 8.4e-6
+UFO VC1
+$V_peak
+!
+!
+!Top branch for peaking switch
+!
+Branch
+RCG 0.20 0
+RCG 0.0 0.0
+Var R1 Dec
+1e12 0.0 350e-9 1e-10
+!
+!End branch for the load
+!
+Branch
+Rlseries 0 0
+Var R2 Dec
+1e12 0.0 150e-9 1e-10
+Rlseries 0 1.2e-9
+Rlseries 0 1.0e-9
+Rcground 5e-3 0
+UFO IR1
+$I_load
+
+

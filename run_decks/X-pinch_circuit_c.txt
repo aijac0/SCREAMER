@@ -1,0 +1,53 @@
+ISU X-Pinch Circuit
+! 2014-03-12 RBS
+!
+Time-step 0.25e-9
+Resolution-time 2e-9
+End-time 1e-6
+Number-prints 5
+Execute-cycles all
+Grids no
+Echo-setup no
+Max-points 3001
+!
+!                      Start circuit definition
+! Two bricks - 140 nF per capacitor, two capacitors per brick
+! 10 nH base inductance per cap
+!    but higher with surrounding epoxy and plastic volume, 16 nH
+!                      One output switch
+!                         X-pinch load
+!
+!
+BRANCH
+! Total capacitance
+RCG 1e+12 280e-9
+Initial VC1 100e3
+UFO VC1
+$V_cap(V)
+UFO EC1
+$E_cap(J)
+!
+! Capacitor inductance and ESR, 4 caps in parallel
+!
+Rlseries 0.004 10e-9
+UFO IR2
+$I_cap(A)
+!
+! Switch resistance and inductance (1 switches, 20 m½/10 nH each)
+!
+Rlseries 0.020 20e-9
+!
+! Header inductance - 10 nH
+!
+Rlseries  0.0 10e-9
+!
+! Vacuum Section Inductance
+!
+Rlseries 0.0 12e-9
+!
+!Load parameters (inductance in zone around load)
+!
+RLseries 0.0 10e-9
+Rcground 0.27 0.0
+!
+! End circuit

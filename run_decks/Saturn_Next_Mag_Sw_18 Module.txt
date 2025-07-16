@@ -1,0 +1,199 @@
+SATURN_Next Magnetically Switched Option -- ALL LEVELS
+! Based on Gene Neau's Comet II experimental results, Bob Turnam's description of PBFAII Marx and Gas Switch, Ken Struve's Saturn TLs and Vac Stack (4 levels in parallel), and Ben Ulmen's and Pace VanDevender's Saturn CSMITL results.
+!Baseline Load is falling impedance = 0.75 Ohms before tfall and = 0.075 exp((t-tfall)/30E-9 Ohm after tfall for tfall = 1234 ns =30 ns before peak power.
+!Diode gives ~9E11 rads/s at end point energy of 0.83 MeV with a 24 ns fwhn radiation pulse 10 cm from the optimum Ta anode (Ref. D. W. Forster, et al. SSWA/JCM/714/162, AWRE (1971) in J. C. Martin on Pulsed Power, eds. T. H. Martin, A. H. Guenter, and M. Kristiansen, Plenum Press, NY, Ch. 11b, page 375(1996).
+!Baseline charge voltage is 85 kV.
+TIME-STEP 0.2E-9
+RESOLUTION-TIME 1.E-9
+END-TIME 1.760E-6
+NUMBER-PRINTS 1
+EXECUTE-CYCLES ALL
+ECHO NO	
+MAX-POINTS 3000
+!
+!
+! Pace VanDevender
+!
+! THE MARX GAPS HAVE 30 UNITS WITH A SPACING OF 2.54 CM
+! PER GAP OR 91.44 CM OF SF6. 9 PARALLEL SWITCHES ARE USED FOR
+! THE SIMULATION HAS 4 CLUSTERS OF 3 MODULES EACH TO SPREAD THE TIMING AND SIMUMATE MODULE JITTER.
+! MARX Values are from Turman PBFA II Paper WITH 60 1.3 UFD CAPS (LIKE COMET II)IN EACH MARX. 
+!
+!PFN Values are from COMET II paper by Gene Neau
+! Prepulse is probably not correct; adjust H values in Mag switches
+!18 Modules total and all 18 are simulated as D Level. ======================================================================
+! D L E V E L 
+! ======================================================================
+!
+BRANCH
+!
+RCG 1E12 405.E-9
+INITIAL VC1 5.37E6
+! 6.00 MV for 100 kV
+! 5.70 MV for 95 kV
+! 5.40 MV for 90 kV
+! 5.37 MV for 89.4 kV for Comet IIB
+! 5.10 MV for 85 kV capacitor charge voltage
+! 4.80 MV for 80 kV
+! 4.50 MV for 75 kV
+!
+CSV IC1
+$IMRX_D
+!
+CSV VC1
+$VMRX_D
+CSV PC1
+$P_MARX
+!
+! THE FIRST PART OF THE MARX INDUCTANCE
+RLS 0.0 0.72E-6
+!
+! MARX RESISTANCE
+RLS 0.08 0.
+!
+! THE PARALLEL MARX RESISTANCE
+RCG 31.5 0
+!
+! NEXT IS THE SECOND PART OF THE MARX INDUCTANCE-THE CONNECTIONS
+RLS 0 0.114E-6
+CSV EOUT
+$EMRX_D
+!
+!
+!
+! **************** INTERMEDIATE STORE **************
+!
+CSV VOUT
+$VIS_IN_D
+!Taper as transformer
+TRL LIN 7.5E-9 0.69 0.26
+TRLINE LINEAR 33.6E-9 0.26
+!
+! WATER RESISTANCE FOR THE TWO MIDDLE SECTIONS
+RCG 270.0 0 
+!
+CSV VR1
+$ VIS_M_D
+!
+TRLINE LINEAR 33.6E-9 0.26
+CSV EOUT
+$EIS_D
+!
+! **************** THE MAIN LASER TRIGGERED SF6 SWITCH AND ITS INDUCTANCE
+!
+! THE SF6 LASER SWITCH
+CSV VOUT
+$VIS_SW_D
+!
+RLS 0.0 22.2E-9
+RLS 1E6 0.0
+VARIABLE R2 EXP MODEL
+! Ropen Rclose Tswitch Tau Zswitch
+1.1E6 0.022 858.E-9 1.2E-8 0.06
+!
+!
+CSV VR2
+$V_LTS
+CSV Vout
+$VL1_IN_D
+CSV IOUT
+$IL1_IN_D
+! *********************** LINE 1 *********************
+!
+TRLINE LINEAR 18.0E-9 0.22
+RCG 141.0 0.0 
+CSV VR1
+$VL1_MID_D
+TRLINE LINEAR 18.0E-9 0.22
+CSV EOUT
+$EPFL1_D
+!
+! ****************** LINE 1 Magnetic SWITCHES ****************
+!THE FOLLOWING IS FOR a Magnetic Switch MS1 with 4 windings of Metglas 2605SC 10 cm wide each and 18 lines in parallel. 
+!One module has r_o = 0.85 m and r_i = .47 m and Bsat = 2.3 T.
+!Match Integral Vdt =dPhi = PF*B_sat,N*[r_o,N-r_i,N]*w, which is independent of N.
+!Match inductance at saturation L = 60*ln(r_o,1/r_i,1)*(w/c)/N.
+!Adjust for N by making r_i,N = (r_i,1)^(1/N) and r_o,N = (r_o,1)^(1/N) and B_sat_N = B_sat_1 * (r_o,1-r_i,1)/(r_o,N-r_i,N).
+!For N=18, ri=0.9589 m and ro=0.9910 m and Bsat = 31.1 and PF =0.386 to give Vt=0.159s
+!Use Gene Neau's values for Hsat from Taccetti data for 2605SC until we get better data for 2605HB1M. 
+!Hsat_N = N * Hsat_1 = 18*3.5E3 = 6.3E4 AT/m.
+!Inductance of this taper = 0 on Comet
+RLS 0.0 0.33E-9 !Inductance of barrier
+CSV Vout
+$V_MSW1
+CSV Iout
+$I_MSW1
+RLS 0.0 2.69E-9
+VAR L2 MSW
+!PF Ri Ro W H1 Hsat Hrev Bsat
+0.386 0.9589 0.991 0.40894 0 63000 0.1 31.1
+RLS 0.0 0.33E-9 !Inductance of barrier
+!Taper as transformer
+TRL LIN 3.E-9 0.28 0.12
+CSV EOUT
+$EMSW1_D
+!
+! ********************* PFL2 ***********************
+!
+TRLINE LINEAR 6.675E-09 0.12
+RCG 35.3 0.0
+CSV VR1
+$VPFL2_MID_D
+TRLINE LINEAR 6.675E-09 0.12
+CSV EOUT
+$EPFL2_D
+!
+!
+! ****************** LINE 2 Magnetic SWITCHES ****************
+!THE FOLLOWING IS FOR a Magnetic Switch MS1 with 1 cores of Metglas 2605SC <=10 cm wide each and 18 lines in parallel. 
+!One module has r_o = 0.85 m and r_i = .47 m and Bsat = 2.3 T.
+!Match Integral Vdt =dPhi = PF*B_sat,N*[r_o,N-r_i,N]*w, which is independent of N.
+!Match inductance at saturation L = 60*ln(r_o,1/r_i,1)*(w/c)/N.
+!Adjust for N by making r_i,N = (r_i,1)^(1/N) and r_o,N = (r_o,1)^(1/N) and B_sat_N = B_sat_1 * (r_o,1-r_i,1)/(r_o,N-r_i,N).
+!For N=18, ri=0.9589 m and ro=0.9910 m and Bsat = 31.1 and PF =0.339 to give Vt=0.053s
+!Use Gene Neau's values for Hsat from Taccetti data for 2605SC until we get better data for 2605HB1M. 
+!Hsat_N = N * Hsat_1 = 18*5.5E3 = 9.9E4 AT/m.
+!Taper as transformer
+TRL LIN 3.E-9 0.12 0.28
+RLS 0.0 0.17E-9 !Inductance of barrier
+CSV Vout
+$V_MagSw2
+CSV Iout
+$I_MagSw2
+RLS 0.0 1.05E-9
+VAR L2 MSW
+!PF Ri Ro W H1 Hsat Hrev Bsat
+0.339 0.9589 0.991 0.159258 0 99000 0.1 31.1
+RLS 0.0 0.17E-9 !Inductance of barrier
+!Taper as transformer
+TRL LIN 3.E-9 0.28 0.12
+!
+!     *** THE WATER TRANSMISSION LINE
+TRL LIN 3.E-9 0.28 0.12
+TRLINE LINEAR 13.25E-09 0.12
+!Taper to Load
+TRL LIN 3.E-9 0.12 0.28
+RLS 0.0 0.33E-9 !Inductance of barrier
+!
+!Load Resistance for 18 modules equivalent to 1.9 Ohms for 1 module
+RCG 0.105555 0
+CSV VR1
+$VLOAD 
+CSV IR1
+$ILOAD
+CSV PR1
+$PLOAD
+CSV ER1
+$ELOAD
+!
+!
+!
+! ==================================================================
+! E N D O F MAIN BRANCH and Level D
+! ==================================================================
+!
+!
+! ==================================================================
+! E N D O F S I M U L A T I O N
+! ==================================================================
+

@@ -1,0 +1,46 @@
+End Branch Test
+!
+! 2014-11-07 RBS
+!
+! This is an RCG/RLS/RCG/RLS/RCG example
+! This is a simple LCR circuit with one end branch
+!
+Time-step 0.25e-9
+Resolution-time 2e-9
+End-time 1e-6
+Number-prints 5
+Execute-cycles all
+Grids no
+Echo-setup no
+Max-points 3001
+!
+!Start ciruit definition
+!
+! Main Branch (Branch #1)
+!
+BRANCH
+RCG 1e+12 1e-6
+Initial VC1 80e3
+UFO VC1
+$Voltage(V)
+!
+Rlseries 0.0 20e-9
+!
+! Branch #2 location
+!
+RCground 2e+6 0.0
+EndBranch
+!
+RLseries 0.0 25e-9
+!
+RCground 0.1 0.0
+!
+!End Main Branch (Branch #1)
+!
+!Level 2 End Branches
+!
+!Branch #2
+Branch
+RLseries 0.1 0.0
+RCground 0.25 0.0
+! End circuit

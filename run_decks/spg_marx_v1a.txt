@@ -1,0 +1,70 @@
+SPG Marx Model Rev a
+!
+! Rick Spielman 2016-05-13
+!
+Time-step 0.05e-9
+Resolution-time 0.5e-9
+End-time 1e-6
+Number-prints 5
+Execute-cycles all
+Grids no
+Echo-setup no
+Max-points 5001
+!
+!Start base circuit definition
+!
+! We start with a lumped marx design.
+! 16 stages X 3*80 nF caps per stage - C = 240 nF / 16  = 15 nF
+! Cap ESR = 0.13 ½/3, Total cap ESR = 0.13 * 16/3 = 0.693 ½
+! L per stage = 20 nH/3 L Marx caps = 20 nH * 16/3 = 104 nH
+! L per switch from SNL = 120 nH, L switch total = 120 nH * 8 = 960 nH
+! L load resistor = 136 nH
+! L total = 1200 nH
+! R load = 10 ½
+!
+! The charge voltage will be 55 kV. The initial cap voltage is 55 * 16 = 880 kV
+! The Marx switch resistance will be a) fixed - best fit, b) exponential - best fit, c) Martin Model
+!
+!#1 Base version - too much damping, zero crossing late
+!#2 Lower R to 8.5 ½ - right damping, zero crossing OK
+!#3 R=9½, C lower by .91, L increased 1/.91
+!#4 R=9.05½, C lower by .9009, L increased 1/.9286 - fits Ip,Iundershoot, tcross
+!
+BRANCH
+!
+! Capacitor capacitance and charge voltage
+!
+RCGround 1e+12 13.5135e-9
+Initial VC1 880e3
+UFO VC1
+$V_marx
+!
+! Cap inductance, case & parasitic inductance, and ESR
+!
+RLSeries 0.693 104e-9
+!
+! Switch resistance and switch inductance - estimated
+!
+RLSeries 0.050 1052.3e-9
+!
+! Output Marx header inductance
+!
+RLSeries 0.00 136e-9
+!
+! Load resistance = 10 ½
+!
+RCGround 9.05 0.0
+!
+UFO IR1
+$I_marx
+UFO VR1
+$V_out
+UFO PR1
+$P_load
+UFO ER1
+$E_load
+!
+! End Branch
+!
+! End circuit
+!

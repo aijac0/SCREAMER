@@ -1,0 +1,39 @@
+Magnetic Switch - Current Gain
+! 2014-06-09 RBS
+!
+Time-step 0.25e-9
+Resolution-time 2e-9
+End-time 10e-6
+Number-prints 5
+Execute-cycles all
+Grids no
+Echo-setup no
+Max-points 3001
+!
+!Start ciruit definition
+!
+BRANCH
+RCG 1e+12 50e-9
+Initial VC1 10e3
+UFO VC1
+$Voltage(V)
+!
+! Capacitor inductance
+!
+Rlseries 0.0 10e-9
+!
+Rlseries 0.0 64e-9
+VARiable L2 MSWitch-model
+0.75 3.5 7.5 10.0 13.5 24.0 10.5 3.4
+UFO IR2
+$I(A)
+UFO EL2
+$E(J)
+!
+!Load to ground
+!
+Rcground 1e3 50e-9
+UFO VR1
+$Voltage(V)
+!
+! End circuit

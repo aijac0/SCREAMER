@@ -1,0 +1,44 @@
+Nshell Test
+TIME-STEP           0.01E-9
+RESOLUTION-TIME     0.5E-9
+END-TIME            0.2E-6
+NUMBER-PRINTS       1
+EXECUTE-CYCLES      ALL
+ECHO                NO	
+MAX-POINTS          2000
+!
+!  Rick Spielman
+!  2014-10-0
+!
+! Start with a simple sin driver, 10 nH and two shells
+!
+BRANCH
+!
+VOLTSOURCE  SIN  0.0  0.0
+3.3e6 200e-9
+!
+UFO VSRC
+$V_in
+!
+!   MITL INDUCTANCE
+!
+RLS  0 10.0E-9
+!     
+! NSHELL  LENGTH    f_radius  ak_gap   trap_time
+! r1 m1
+! LAST ENTRY
+NSHELL    2.0E-2    2e-3      2e-3     50e-09 
+! Shell parameters
+ 2.0e-2 2.0e-6
+ 1.0e-2 2.0e-6
+LAST ENTRY
+!
+UFO SRAD
+$ Shell-rad (m)
+UFO SVEL
+$ Vel(m/s)
+UFO IR2
+$ Cur(A)
+!
+RCG    1E-12    0.
+!

@@ -1,0 +1,47 @@
+Gas Puff Test
+TIME-STEP           0.01E-9
+RESOLUTION-TIME     0.5E-9
+END-TIME            0.2E-6
+NUMBER-PRINTS       1
+EXECUTE-CYCLES      ALL
+ECHO                NO	
+MAX-POINTS          2000
+!
+!  Rick Spielman
+!  2014-10-10
+!
+! Start with a simple sin driver, 0.2 Ohm, 10 nH , gas puff
+!
+BRANCH
+!
+VOLTSOURCE  SIN  0.0  0.0
+4.0e6 200e-9
+!
+UFO VSRC
+$VOC_in
+!
+!   Water line impedance
+!
+RLS 0.20 0
+!
+!   MITL inductance
+!
+RLS 0 10.0E-9
+!
+!   Load inductance
+!
+RLS 0 2.0e-9
+!     
+! GASPUFF rinitial length  density rfinal rinner initialshellmass
+! 
+GasPuff   2.0e-2   2.0e-2  4.0e-2  2.0e-3 1.0e-2 1.0e-6
+!
+UFO GRAD
+$Rad(m)
+UFO GVEL
+$Vel(m/s)
+UFO IR2
+$Cur(A)
+!
+RCG    1E-12    0.
+!

@@ -1,0 +1,167 @@
+Voltage uniformity across a photocathode
+!
+!
+TIME-STEP            0.05E-12
+RESOLUTION-TIME      1.0E-12
+END-TIME             25.0E-9
+NUMBER-PRINTS        5
+EXECUTE-CYCLES       ALL
+ECHO                 YES
+GRIDS                NO
+MAX-POINTS           4001
+DETAIL-PRINTS  FULL
+!
+!
+!   This circuit uses 2, idealized 50-Ω waveforms to couple to each side of a 25-Ω photocathode.
+!
+!   October 2019
+!
+! We have a main branch with a 50-Ω matched driver feeding a long 50-Ω TL as time isolation.
+! The 50-Ω cable feeds a 25-Ω photocathode piece that then feeds another identical 50-Ω TL.
+! There is a end branch at the load end that has identical voltage waveform as the initial 
+! voltage source. It is critical that we examine the voltage uniformity across the PC. Note, 
+! the mismatch will be symmetric so we really only need to look i detal at ½ of the PC TL.
+! --- I need to calculate the exact impedance based on the details of the geometry.
+! 
+! With a 50-ns cable we will have a TL resolution of 0.5 ns (1%) and a time step 
+! that is 1/10 of the TL resolution. Decreasing the Time Step below 1/10 TL Res time makes
+! no difference.
+! Decreasing the TL resolution time below 0.5 ns dramatically increases run time in V4.
+! e.g. 0.5/0.025 - 4.5 sec ; 0.25/0.025 - 91 sec
+! above this point time scales linearly with time step and TL res
+! For a 50-ns cable the TLres increases node count dramatically
+!
+
+! Main Branch - Branch #1
+
+BRANCH
+
+!
+!    *********   voltage driver   *************************
+!
+! I created a voltage table of the desired waveform. This was generated in KG and pasted here.
+!
+
+VOLtsource TABle  50.0  0.0
+2000.0          0.0
+0.0000             0.00002.0000e-11   -0.0788134.0000e-11   -0.148666.0000e-11   -0.210868.0000e-11   -0.266481.0000e-10   -0.316421.2000e-10   -0.361431.4000e-10   -0.402141.6000e-10   -0.439071.8000e-10   -0.472692.0000e-10   -0.503372.2000e-10   -0.531452.4000e-10   -0.557212.6000e-10   -0.580912.8000e-10   -0.602753.0000e-10   -0.622933.2000e-10   -0.641613.4000e-10   -0.658933.6000e-10   -0.675033.8000e-10   -0.690024.0000e-10   -0.703994.2000e-10   -0.717044.4000e-10   -0.729244.6000e-10   -0.740674.8000e-10   -0.751395.0000e-10   -0.761465.2000e-10   -0.770945.4000e-10   -0.779855.6000e-10   -0.788265.8000e-10   -0.796206.0000e-10   -0.803696.2000e-10   -0.810786.4000e-10   -0.817506.6000e-10   -0.823866.8000e-10   -0.829897.0000e-10   -0.835627.2000e-10   -0.841077.4000e-10   -0.846257.6000e-10   -0.851187.8000e-10   -0.855888.0000e-10   -0.860358.2000e-10   -0.864638.4000e-10   -0.868718.6000e-10   -0.872608.8000e-10   -0.876339.0000e-10   -0.879909.2000e-10   -0.883319.4000e-10   -0.886589.6000e-10   -0.889719.8000e-10   -0.892721.0000e-09   -0.895611.0200e-09   -0.898381.0400e-09   -0.901041.0600e-09   -0.903601.0800e-09   -0.906061.1000e-09   -0.908421.1200e-09   -0.910701.1400e-09   -0.912901.1600e-09   -0.915011.1800e-09   -0.917051.2000e-09   -0.919021.2200e-09   -0.920911.2400e-09   -0.922751.2600e-09   -0.924511.2800e-09   -0.926221.3000e-09   -0.927871.3200e-09   -0.929471.3400e-09   -0.931011.3600e-09   -0.932511.3800e-09   -0.933951.4000e-09   -0.935351.4200e-09   -0.936711.4400e-09   -0.938021.4600e-09   -0.939291.4800e-09   -0.940531.5000e-09   -0.941731.5200e-09   -0.942891.5400e-09   -0.944011.5600e-09   -0.945111.5800e-09   -0.946171.6000e-09   -0.947201.6200e-09   -0.948201.6400e-09   -0.949181.6600e-09   -0.950121.6800e-09   -0.951041.7000e-09   -0.951941.7200e-09   -0.952811.7400e-09   -0.953661.7600e-09   -0.954481.7800e-09   -0.955291.8000e-09   -0.956071.8200e-09   -0.956831.8400e-09   -0.957571.8600e-09   -0.958291.8800e-09   -0.959001.9000e-09   -0.959691.9200e-09   -0.960361.9400e-09   -0.961011.9600e-09   -0.961651.9800e-09   -0.962272.0000e-09   -0.9628825.000e-09   -1.00000
+LASt_entry
+
+TXT VOUT SCAle 1.0e-03
+$V_oc_1 (kV)
+TXT IOUT
+$I_oc_1
+
+!
+!    ********   Isolation transmisison line   *************************************
+!
+
+TRL LIN 10.0E-9  50.0  50.0
+
+TXT  VOUT SCAle 1.0e-03
+$V_1_out (kV)
+TXT IOUT
+$I_TR1_out (A)
+
+!
+!    **************  Photocathode 25-Ω TL   *************
+!
+! Divide the 3.336-ns long TL into 10 segments
+
+TRLine LINear 16.68e-12 25.0  25.0
+
+TXT VOUT SCAle 1.0e-03
+$V_2_out (kV)
+
+TRLine LINear 16.68e-12 25.0  25.0
+
+TXT VOUT SCAle 1.0e-03
+$V_3_out (kV)
+
+TRLine LINear 16.68e-12 25.0  25.0
+
+TXT VOUT SCAle 1.0e-03
+$V_4_out (kV)
+
+TRLine LINear 16.68e-12 25.0  25.0
+
+TXT VOUT SCAle 1.0e-03
+$V_5_out (kV)
+
+TRLine LINear 16.68e-12 25.0  25.0
+
+TXT VOUT SCAle 1.0e-03
+$V_6_out (kV)
+
+TRLine LINear 16.68e-12 25.0  25.0
+
+TXT VOUT SCAle 1.0e-03
+$V_7_out (kV)
+
+TRLine LINear 16.68e-12 25.0  25.0
+
+TXT VOUT SCAle 1.0e-03
+$V_8_out (kV)
+
+TRLine LINear 16.68e-12 25.0  25.0
+
+TXT VOUT SCAle 1.0e-03
+$V_9_out (kV)
+
+TRLine LINear 16.68e-12 25.0  25.0
+
+TXT VOUT SCAle 1.0e-03
+$V_10_out (kV)
+
+TRLine LINear 16.68e-12 25.0  25.0
+
+TXT VOUT SCAle 1.0e-03
+$V_11_out (kV)
+
+!
+!    ********   Output Isolation transmisison line   *************************************
+!
+
+TRL LIN 10.0E-9  50.0  50.0
+
+!
+! Branch #2 Location
+!
+
+RCGround 1.0e+06 0.00
+ENDbranch
+
+!
+! Termination of Main Branch
+!
+
+RCGround 1.0e+04 .0
+
+! End Main Branch (Branch #1)
+
+!
+! Level 2 Branches
+!
+! Branch #2
+
+Branch
+
+!
+!    *********   voltage driver   *************************
+!
+! I created a voltage table of the desired waveform. This was generated in KG and pasted here.
+!
+
+VENdsource TABle  50.0  0.0
+2000.0          0.0
+0.0000             0.00002.0000e-11   -0.0788134.0000e-11   -0.148666.0000e-11   -0.210868.0000e-11   -0.266481.0000e-10   -0.316421.2000e-10   -0.361431.4000e-10   -0.402141.6000e-10   -0.439071.8000e-10   -0.472692.0000e-10   -0.503372.2000e-10   -0.531452.4000e-10   -0.557212.6000e-10   -0.580912.8000e-10   -0.602753.0000e-10   -0.622933.2000e-10   -0.641613.4000e-10   -0.658933.6000e-10   -0.675033.8000e-10   -0.690024.0000e-10   -0.703994.2000e-10   -0.717044.4000e-10   -0.729244.6000e-10   -0.740674.8000e-10   -0.751395.0000e-10   -0.761465.2000e-10   -0.770945.4000e-10   -0.779855.6000e-10   -0.788265.8000e-10   -0.796206.0000e-10   -0.803696.2000e-10   -0.810786.4000e-10   -0.817506.6000e-10   -0.823866.8000e-10   -0.829897.0000e-10   -0.835627.2000e-10   -0.841077.4000e-10   -0.846257.6000e-10   -0.851187.8000e-10   -0.855888.0000e-10   -0.860358.2000e-10   -0.864638.4000e-10   -0.868718.6000e-10   -0.872608.8000e-10   -0.876339.0000e-10   -0.879909.2000e-10   -0.883319.4000e-10   -0.886589.6000e-10   -0.889719.8000e-10   -0.892721.0000e-09   -0.895611.0200e-09   -0.898381.0400e-09   -0.901041.0600e-09   -0.903601.0800e-09   -0.906061.1000e-09   -0.908421.1200e-09   -0.910701.1400e-09   -0.912901.1600e-09   -0.915011.1800e-09   -0.917051.2000e-09   -0.919021.2200e-09   -0.920911.2400e-09   -0.922751.2600e-09   -0.924511.2800e-09   -0.926221.3000e-09   -0.927871.3200e-09   -0.929471.3400e-09   -0.931011.3600e-09   -0.932511.3800e-09   -0.933951.4000e-09   -0.935351.4200e-09   -0.936711.4400e-09   -0.938021.4600e-09   -0.939291.4800e-09   -0.940531.5000e-09   -0.941731.5200e-09   -0.942891.5400e-09   -0.944011.5600e-09   -0.945111.5800e-09   -0.946171.6000e-09   -0.947201.6200e-09   -0.948201.6400e-09   -0.949181.6600e-09   -0.950121.6800e-09   -0.951041.7000e-09   -0.951941.7200e-09   -0.952811.7400e-09   -0.953661.7600e-09   -0.954481.7800e-09   -0.955291.8000e-09   -0.956071.8200e-09   -0.956831.8400e-09   -0.957571.8600e-09   -0.958291.8800e-09   -0.959001.9000e-09   -0.959691.9200e-09   -0.960361.9400e-09   -0.961011.9600e-09   -0.961651.9800e-09   -0.962272.0000e-09   -0.9628825.000e-09   -1.00000
+LASt_entry
+
+TXT VOUT SCAle 1.0e-03
+$V_oc_2 (kV)
+TXT IOUT
+$I_oc_2
+
+! End Branch #2
+! End Level 2 branches
+

@@ -1,0 +1,207 @@
+TWA SUBMODULE CIRCUIT --- Corley's version
+TIME-STEP             .5E-9
+RESOLUTION-TIME       .5E-9
+END-TIME              4.5E-6
+NUMBER-PRINTS         1
+EXECUTE-CYCLES        ALL
+MAX-POINTS            3000
+BRANCH
+!
+!*****SHOT 80KV charge PEAKING GAP 4 electrode shorted gap
+!WITH 2.5 OHM LOAD 3 Main gap switch sites 12.7cm**************
+rcg  1e6  43e-9
+INITIAL   VC1     -2.7e6
+CSV VC1
+$CapRev
+!
+!Next is MARX series R&L!
+rls  1.4  11e-6 
+!Next is Marx CVR
+rls .00489
+csv ir2
+$MarxCVR
+CSV pr2
+$Marx p
+!Next is Marx Parallel
+rcg  .6e3
+!Next is Marx Rmon
+rcg   10e3   0
+csv vr1
+$MarxRM
+rls   0   .9e-6
+trl lin    9e-9   95
+Trl lin   6e-9   95
+!
+!  INTERMEDIATE STORAGE CAP
+!!!!!NEXT IS ADDITIONAL C FROM ELECTRO for cone sec!!!!!!
+RCG    1e6    .09E-9
+!!!!!!!!NEXT IS INPUT CONE!!!!!!!!!!!!!!!
+trl lin  1.18e-9     36    64
+!!!!!!NEXT IS INPUT BARRIER!!!!!!!!!!!
+trl lin  .25e-9  36 36  .2e-9
+!!!!!!NEXT IS NECK SECTION!!!!!!!!!
+trl lin  2.275e-9   6   6
+!!!!!NEXT IS TANK HEAD INNER CONDUCTOR!!!!!!!!
+trl lin    7.76e-9   6     3.817  
+TRL LIN 18.27e-9   3.817 
+CSV Vout
+$IS_IN_V
+CSV Iout
+$I_IN
+CSV pout
+$ISC p
+TRL LIN 38e-9   3.817 
+Trl lin 18.27e-9   3.817
+CSV VIN
+$IS_OUT
+CSV IIN
+$I-out
+!!!!!!!!!NEXT IS OUTPUT TANK HEAD INNER CONDUCTOR!!!!!!!!
+trl lin  7.76E-9  3.817   6
+trl lin  2.275e-9  6   6 
+!!!!!NEXT IS OUTPUT BARRIER!!!!!!!!!  
+trl lin  .25e-9  36     36  .2e-9
+!!!!!!!!NEXT IS OUTPUT CONE!!!!!!!
+trl lin 1.9e-9  64   23.6  .1e-9
+!!!!!!NEXT IS ADDITIONAL C FR0M ELECTRO!!!!!!
+Rcg   1e6   .09E-9   
+csv vout
+$swx Voltage
+!!!!END OF ISC
+!
+!ISC SWITCH
+!!!!!TRL FOR ISC SWITCH SPACE!!!!!!!!!!
+ trl lin .5e-9   90   90   .2e-9
+rls   1e6   510e-9
+Var R2 exp
+  1e6  .2   .989e-6   10e-9   6
+CSV Qr2
+$Switch Q
+CSV Vr2
+$ISSWX
+!csv er2
+!$Energy r2 
+!csv ir2
+!$IS_SW_I
+csv qr2
+$QSwx
+!!!!!TRL FOR ISC SWITCH SPACE!!!!!!!!!!
+ trl lin .5e-9   90   90   .2e-9
+!NEXT IS THE PFL OIL SIDE!
+TRL LIN   .46e-9   80   12   .04e-9
+TRL LIN    .46e-9    12    15.4   .04e-9
+Trl lin   1e-9   15.4  15.4   .1e-9
+CSV Vout
+$PFL  V_in
+CSV Iout
+$PFL I-IN
+TRL LIN    .59e-9  15.4   15.4  .1e-9
+TRL LIN   .23e-9   17    28   .02e-9
+TRL LIN   .186e-9   25   25   .01e-9
+Rcg   1e6   .1e-9
+!!!!!!!!NEXT IS PFL BARRIER!!!!!!
+TRL LIN   .23E-9   25   25  .02e-9
+!!!!!!!!NEXT IS PFL WATER SIDE!!!!!!
+TRL LIN  1.5e-9   5   5   .1e-9
+Rcg   1e6   .5e-9
+TRL LIN  2.275e-9  5   2.554
+TRL LIN   27e-9   2.554
+CSV Vout
+$PFL OUTPUT_V
+CSV Iout
+$PFL OUTPUT I
+Trl lin   4e-9   2.554
+!!!!!!!NEXT IS PFL OUTPUT RADIUS!!!!!!!
+Trl lin   6.44e-9   2.554  5
+Rcg 1e6   4e-9
+!CSV Vin
+!$PFL OUTPUT_V
+csv Iin
+$PFL I Swx_in
+CSV pout
+$ PFL p
+!!!!!!NEXT IS 1st Part WATER Gap Spacing!!!!!!!!!!!!
+TRL LIN   4.45e-9  11.2
+CSV Vout
+$SWX V
+!!!!!   
+rls   1e6  50e-9
+!!!!!!NEXT IS WATER GAP!!!!!
+Var R2 exp
+  1e6  .254   1.2096e-6   20e-9   12
+!!!!!!!NEXT IS 2nd Part WATER Gap Spacing!!!!!!!!
+Csv ir2
+$Swx I OUT
+topbranch
+TRL LIN   4.45e-9   11.2
+TRL LIN   4e-9  9
+CSV IOUT
+$SWX I TRIPLATE_in
+!!!!!!
+TRL LIN   1.9e-9   9   4.2
+!!!!!!!NEXT IS LINE 1!!!!!!!
+Trl lin  4.4e-9   4.2
+CSV Vout
+$OTL1N_V
+CSV Iout
+$OTL1N_I
+trl lin 10.7e-9   4.2
+CSV VOUT
+$OTL1 mid V
+CSV IOUT
+$OTL1 mid I
+!endbranch
+trl lin 14.92e-9   4.2
+TRL LIN   1.9e-9   4.2 7  
+!!!!!!NEXT US 1st 1/2 PrePulse Swx Spacing!!!!!
+Trl lin 2.27e-9  11
+!!!!!!
+!!!!!!NEXT IS PrePulse SWX
+RLS  0  6e-9
+!Var R2 exp
+!.25e6   .25   1.375e-6  10e-9   11
+!!!!!!NEXT IS 2nd 1/2 PrePulse Swx Spacing!!!!!
+CSV Ir2
+$PrePulse Swx I
+!topbranch
+Trl lin 2.27e-9  11
+!!!!!!
+TRL LIN   1.9e-9   7  6.4  
+!!!!!!!NEXT IS LINE 2!!!!!!
+Trl lin  4.4e-9   6.4
+CSV VOUT
+$OTL2n_V
+CSV IOUT
+$OTL2n_I
+TRL LIN  18E-9   6.4
+CSV VOUT
+$OTL2 Mid_V
+CSV IOUT
+$OTL2 Mid_I
+TRL LIN 20e-9   6.4
+!!!!NEXT IS FLARE FOR LOAD
+TRL LIN   8e-9   6.4   10.7
+RCG  3  3e-10
+CSV Er1
+$Load Energy
+CSV Vr1
+$Load V
+CSV IR1
+$Load I
+!!!NEXT IS SWX COUPLING CAP!!!!!!
+Branch
+RCG   .5e6    6e-10
+!Var R1 exp
+!   .5e6   40   1.342e-6   20e-9   8
+csv ir1
+$Swx Shunt
+!branch
+!rls   0   48e-9
+!TRL LIN   190E-9   20
+!Rls 0   48e-9
+!CSV IOUT
+!$Inductor
+!RCG   0
+!!!!NEXT IS PEAKING SWX COUPLING C!!!!!
+!Branch
+!Rcg   1e6   4e-10

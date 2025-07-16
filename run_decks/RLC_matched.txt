@@ -1,0 +1,45 @@
+RLC Capacitor Discharge
+! 2022-07-01 RBS
+!
+Time-step 0.5e-9
+Resolution-time 5e-9
+End-time 4e-6
+Number-prints 5
+Execute-cycles all
+Grids no
+Echo-setup no
+Max-points 3001
+!
+!Start ciruit definition
+!
+!
+! Capacior chosen to match the 50 nF in a paper
+!
+BRANCH
+RCG 1e+12 40.0e-9
+Initial VC1 200.0e3
+
+TXT VC1 SCALE 1.0e-3
+$V_cap (kV)
+TXT EC1
+$E_cap
+!
+! Inductance - arbitrary - used 175 nH
+!
+
+Rlseries 0.00 175.0e-9
+
+!
+! Load to ground, R is matched sqrt (175/50) = 1.871 Ω
+!
+
+RCGround 1.871 0.0
+
+TXT IR1 SCALE 1.0e-3
+$I_load (kA)
+TXT ER1
+$E_load
+TXT PR1 SCALE 1.0e-6
+$P_load (MW)
+
+! End circuit

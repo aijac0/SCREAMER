@@ -1,0 +1,80 @@
+Air Core Inductor Loss Calculations
+!
+TIME-STEP          1E-12
+RESOLUTION-TIME    2E-12
+END-TIME           5E-9
+NUMBER-PRINTS      5
+EXECUTE-CYCLES     ALL
+Grids              NO
+ECHO               NO	
+MAX-POINTS         4001
+!
+!
+!   Rick Spielman
+!
+!  A test of a short pulse driver with a parasitic air core loss.
+!
+!  A 200 ps pulse with a short TL coupling to the load 
+!  The series inductance in the Voltsource is added just
+!  to slightly round the signal
+!
+
+BRANCH
+VOLTsource TAB 0 8e-10
+! SF     t-delay
+50e3     0
+!time    voltage
+0.0      0.0
+100e-12  0.0
+125e-12  0.5
+150e-12  1.0
+350e-12  1.0
+375e-12  0.5
+400e-12  0.0
+LAST-entry
+
+!
+! The isolation TL
+!
+!      type  len   impedance
+
+TRLINE Lin   1e-9  50
+
+!
+! The RCG needed to include an endbranch
+!
+
+RCG 1e12 0.0
+
+!
+! First L2 branch after a dummy RCG
+!
+
+endbranch
+
+!
+! Load Resistance
+!
+
+RCG 50.0 0
+UFO IR1
+$I_Load
+UFO VR1
+$V_Load
+
+!end Main branch
+
+!
+! First L2 Branch
+!
+
+BRAnch
+
+!
+! This is the air core inductor with a 1-½ damping resistance
+!
+
+RLS 1 80e-9
+UFO IR2
+$I_loss
+RCG 0.0 0.0

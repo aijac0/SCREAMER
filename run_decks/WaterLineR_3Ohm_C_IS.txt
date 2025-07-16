@@ -1,0 +1,83 @@
+Water Line Calculations
+!
+TIME-STEP          0.1E-9
+RESOLUTION-TIME    1.0E-9
+END-TIME           1E-6
+NUMBER-PRINTS      5
+EXECUTE-CYCLES     ALL
+Grids no
+ECHO               NO	
+MAX-POINTS         3001
+!
+!
+!   Rick Spielman
+!
+!     A fast Marx with 32 stages using the GA FMG
+!     capacitor
+!     32 x 1.5 µF
+!
+!     An IS with 0.5C of the Marx 
+!
+!
+BRANCH
+RCG     1E12    46.9E-9
+INITIAL   VC1    3E6
+CSV VC1
+$V_MARX
+CSV EC1
+$E_Marx
+!
+!    Marx inductance and ESR
+!    32 x the single capacitor value
+!    20 nH and 50 mOhm
+!
+RLS  0.640  640E-9
+!
+!   Marx switch resistance and inductance
+!   16 x 10 mOhm, 16 x 10 nH
+!
+RLS  0.16  160E-9
+CSV IR2
+$I_Marx
+!
+!    The  parallel Marx resistance
+!
+RCG  100.0  0
+CSV VR1
+$V_Marx_out
+!
+!     Marx connection inductance
+!
+RLS  0  0
+!
+!  **************** INTERMEDIATE STORE **************
+!                                  Cis = 0.5 * Cmarx
+!
+RCG 1E12 23.5E-9
+CSV VC1
+$V_IS
+CSV EC1
+$E_IS
+!
+!  **************** IS Gas Switch ***********************
+!
+RLS 1e12 50e-9
+Variable R2 Decay
+1e6 0.1 245e-9 1e-9
+CSV IR2
+$I_Switch
+!
+! Output Water line
+!
+Trline Lin 100e-9 3
+!
+! Load Resistance
+!
+RCG 3.0 0
+CSV IR1
+$I_Out
+CSV VR1
+$V_Out
+CSV ER1
+$E_Out
+!

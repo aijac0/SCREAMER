@@ -1,0 +1,28 @@
+Release 4.2.4, 2017-03-13: List of things that need to be done for next release:
+
+0. **** get_var seems to cycle through twice. I put a print in the martin switch location and it always printed twice. Is this an artifact from start_run.f ? 
+
+1. Check that the rskin model yields the classical result for a cyclic voltage waveform.
+
+2. Can we implement a scaling factor in print outputs? (Y & X)
+
+3. Can we have a linear impedance change in the MITL model?
+
+*There are still format calls in some of the subroutines. Some are tricky to remove. In particular in rdscrelem.f there are a number of writes to the log file that still use formats (e.g. 49).
+   - cyclprnt.f
+   - echoindx.f
+   - echosetp.f
+
+*in some conditions, the output file is NOT closed when exiting the program (problem initialization error -> the output file has been opened and won't be closed). I need to watch for this error.
+
+*Several parameters are defined in zdempprm.h that are not calculated. These values are also in the manual. They are never carefully defined nor are they used anywhere in Screamer. pcdot, ecdot, pccon, eccon, pldot, eldot, plcon, elcon.
+
+* is there a way to prevent the extra leading space in ufo outputs and the trailing spaces. This causes extra columns to show up when inputting space-deliminated data.
+
+*How do we build an app that correctly opens a terminal window and runs correctly?
+
+*How do we implement OpenMP?
+
+*Consider a SourceForge distribution.
+
+

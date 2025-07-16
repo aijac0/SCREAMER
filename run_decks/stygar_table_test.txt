@@ -1,0 +1,184 @@
+Table Test
+! 2018-07-17 WAS
+!
+!
+!
+TIME-STEP          0.1E-9
+RESOLUTION-TIME    0.50E-9
+END-TIME           1.0E-6
+NUMBER-PRINTS      10
+EXECUTE-CYCLES     ALL
+ECHO               YES
+GRIDS              NO
+MAX-POINTS         3001
+DETAIL-PRINTS      FULL
+!
+!
+BRANCH
+!
+!
+RCG      1.00E12   144e-6
+INITIAL    VC1     625
+!
+!
+RLS        1e5     0
+VAR R2 TAB
+1.0      0.0
+0.0       1e5
+10e-9    1e5
+11e-9    1000
+12e-9    10
+13e-9    0.1
+14e-9    0.001
+114e-9   0.001
+115e-9   0.1
+116e-9   10
+117e-9   1000
+118e-9   1e5
+218e-9   1e5
+219e-9   1000
+220e-9   10
+221e-9   0.1
+222e-9   0.001
+322e-9   0.001
+323e-9   0.1
+324e-9   10
+325e-9   1000
+326e-9   1e5
+426e-9   1e5
+427e-9   1000
+428e-9   10
+429e-9   0.1
+430e-9   0.001
+530e-9   0.001
+531e-9   0.1
+532e-9   10
+533e-9   1000
+534e-9   1e5
+634e-9   1e5
+635e-9   1000
+636e-9   10
+637e-9   0.1
+638e-9   0.001
+738e-9   0.001
+739e-9   0.1
+740e-9   10
+741e-9   1000
+742e-9   1e5
+1e-6     1e5
+LASt-entry
+!
+UFO R2
+$RAOUT
+!
+!
+!
+TRL LIN 500e-9   6.25  6.25
+!
+UFO VOUT
+$VTOUT1
+UFO IOUT
+$ITOUT1
+UFO POUT
+$PTOUT1
+UFO EOUT
+$ETOUT1
+!
+! Like a 1e6 ohm resistor in series
+!
+ADDER
+!
+TOPBRANCH
+!
+TRL LIN 10e-9   6.25  6.25             
+!
+UFO VOUT
+$VTOUT2
+UFO IOUT
+$ITOUT2
+UFO POUT
+$PTOUT2
+UFO EOUT
+$ETOUT2
+!
+!
+!
+!
+!   **************  Load   *********************************
+!
+TRL  LIN  10.0e-9   6.25  6.25
+!
+RCG  6.25    0.0
+!
+!
+UFO VIN
+$VLOAD
+UFO IIN
+$ILOAD
+UFO PIN
+$PLOAD
+UFO EIN
+$ELOAD
+!! End Main Branch (Branch #1)!! Level 2 Branch!! Branch #2
+! Note: all elements are in reverse order inside to outside
+!
+
+BRANCH
+
+!
+RLS        1e5     0
+VAR R2 TAB
+1.0      0.0
+0        1e5
+10e-9    1e5
+11e-9    1000
+12e-9    10
+13e-9    0.1
+14e-9    0.001
+114e-9   0.001
+115e-9   0.1
+116e-9   10
+117e-9   1000
+118e-9   1e5
+218e-9   1e5
+219e-9   1000
+220e-9   10
+221e-9   0.1
+222e-9   0.001
+322e-9   0.001
+323e-9   0.1
+324e-9   10
+325e-9   1000
+326e-9   1e5
+426e-9   1e5
+427e-9   1000
+428e-9   10
+429e-9   0.1
+430e-9   0.001
+530e-9   0.001
+531e-9   0.1
+532e-9   10
+533e-9   1000
+534e-9   1e5
+634e-9   1e5
+635e-9   1000
+636e-9   10
+637e-9   0.1
+638e-9   0.001
+738e-9   0.001
+739e-9   0.1
+740e-9   10
+741e-9   1000
+742e-9   1e5
+1.0e-6    1.5e5
+LASt-entry
+!
+UFO R2
+$RBOUT
+!
+RCG    1.00E12   144e-6
+INITIAL    VC1    -625
+
+!
+! End Branch #2
+!

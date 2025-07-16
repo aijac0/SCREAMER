@@ -1,0 +1,61 @@
+Simple Opening Switch Calculations
+!
+TIME-STEP          10E-12
+RESOLUTION-TIME    20E-12
+END-TIME           50E-9
+NUMBER-PRINTS      5
+EXECUTE-CYCLES     ALL
+Grids              NO
+ECHO               NO	
+MAX-POINTS         4001
+!
+!
+!   Rick Spielman
+!
+!  A model of an idealized opening switch looking at losses in the switch and
+!  effects of the load capacitance and resistance.
+!
+
+BRANCH
+RCGround 1e+12 1
+INITial VC1 100
+
+RLSeries 1 0
+
+!
+! The storage inductor
+!
+
+RLSeries 0.0 1.5e-6
+INITial IL2 100
+
+!
+! The RCG acting as the variable resistance for the switch
+!
+
+RCG 1e12 0.0
+VARiable R1 TABle
+1.0 0.0
+0 0.0
+1e-09 0.0
+2e-09 1e6
+50e-09 1e6
+LASt-entry
+
+!
+! Parasitic series L
+!
+
+RLSeries 0 10e-09
+
+!
+! Load Resistance + Parasitic Capacitance
+!
+
+RCG 500.0 5e-12
+UFO IR1
+$I_Load
+UFO VR1
+$V_Load
+
+!end Main branch

@@ -1,0 +1,91 @@
+Brick Model with 50264 switch
+!
+! Rick Spielman 2017-08-15
+!
+Time-step 1e-12
+Resolution-time 1e-9
+End-time 1.5e-6
+Number-prints 5
+Execute-cycles all
+Grids no
+Echo-setup no
+Max-points 20001
+!
+!Start circuit definition
+!
+! Rev. 1 50264 is based on the Z15 rev 4 deck with L higher
+!
+! Rev 4 is the same as Rev 2 EXCEPT I will adjust the length of the switch arc channel 
+! that is the simple way of adjusting the channel conductivity.
+!
+! We start with a capacitor and switch with the parameters based on the
+! Thor II brick with the 80 nF version of the GA 35426M Capacitor 40 nF,
+! 15 nH, start with a 0.13 ½ ESR. We will use a total inductance of 200 nH for the brick
+! that includes the inductance of the feeds leading to the load and the
+! inductance of the load.
+! 
+! At this point we really do not know the time dependent ESR of the capacitor.
+!
+! We will use the Martin Switch model for the 50264 Switch
+!
+! The charge voltage will be 100 kV. This is the operating point for the SNL test brick.
+!
+!
+BRANCH
+!
+! Capacitor capacitance and charge voltage
+!
+RCGround 1e+12 40.0e-9
+Initial VC1 200e3
+TXT VC1
+$V_brick
+TXT EC1
+$E_brick
+! Cap inductance, case & parasitic inductance, and ESR
+!
+RLSeries 0.13 55e-9
+TXT ER2
+$E_ESR
+!
+! Switch resistance - Martin Model and switch inductance - 0.6731 cm gap per side
+! 90 psia air 
+!
+! Initial switch resistance was chosen to be higher than that printed in the first
+! few time steps so as to appear monotonically decreasing in R plots
+! A careful few runs sowed that 10 G½ looked best. In any event by 1 ns all of the 
+! resistance values are the same.
+!
+RLSeries 10e9 60e-9
+Var R2 Switch
+!dielectric switchtime gap              pressure     nswitch nchannels
+AIR           0.0               0.013462    6.0               1            1
+TXT R2
+$R_switch (½)
+TXT ER2
+$E_switch (J)
+TXT FCH
+$Radius_switch (m)
+
+!
+! Output TL header inducatance
+!
+RLSeries 0.00 60.0e-9
+!
+! Load resistance = Rmatched
+! L=200 nH, Rm=2.24½, L=175nH, Rm=2.09½
+! L3 used 2.5 ½ load
+!
+RCGround 2.5 0.0
+TXT IR1
+$I_brick
+TXT QR1
+$Q_brick
+TXT VR1
+$V_out
+TXT PR1
+$P_out
+TXT ER1
+$E_out
+!
+! End circuit
+!

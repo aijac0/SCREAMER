@@ -1,0 +1,85 @@
+Roman 4 Brick Model with a planar switch
+!
+! Rick Spielman 2020-04-13
+!
+Time-step 1e-12
+Resolution-time 1e-9
+End-time 1.5e-6
+Number-prints 5
+Execute-cycles all
+Grids no
+Echo-setup no
+Max-points 20001
+!
+!Start circuit definition
+!
+! Capacitance for a single brick is 2x80 nF = 160 nF
+! The ESR for a single brick is 0.5 x 0.130 = 0.065 ½ (65 m½)
+! The base brick inductance is 90 nH.
+! The matched resistance is ~ 0.75 ½.
+!
+! Capacitance for 4 bricks is 4x160 nF = 640 nF
+! ESR = 0.065/4 = 0.01625 ½
+! Inductance is 90 nH/4 - 22.5 nH
+! Load inductance = 6 nH
+! Rmatched = 0.1875 ½
+! N switch = 4
+!
+! We will use the Martin Switch model for the planar switch
+!
+! The charge voltage will be 100 kV. This is the maximum voltage.
+!
+!
+BRANCH
+!
+! Capacitor capacitance and charge voltage
+!
+RCGround 1e+12 640.0e-9
+Initial VC1 100e3
+TXT VC1
+$V_brick
+TXT EC1
+$E_brick
+!
+! Cap inductance, case & parasitic inductance, and ESR
+!
+RLSeries 0.01625 20e-9
+TXT ER2
+$E_ESR
+!
+! Switch resistance - Martin Model and switch inductance - 
+!
+! 5 channels in parallel, total switch gap is 0.6 cm x 7 (# gaps) = 4.2 cm = 0.042 m 
+!
+RLSeries 10e9 2.5e-9
+Var R2 Switch
+!dielectric switchtime gap              pressure     nswitch nchannels
+AIR           0.0               0.042          1.0               4            5
+TXT R2
+$R_switch (½)
+TXT ER2
+$E_switch (J)
+TXT FCH
+$Radius_switch (m)
+
+!
+! Output TL header inducatance
+!
+RLSeries 0.0 6.0e-9
+!
+! Load resistance = Rmatched
+!
+RCGround 0.0 0.0
+TXT IR1 SCale 1e-3
+$I_brick (kV)
+TXT QR1
+$Q_brick
+TXT VR1
+$V_out
+TXT PR1
+$P_out
+TXT ER1
+$E_out
+!
+! End circuit
+!

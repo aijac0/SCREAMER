@@ -1,0 +1,46 @@
+Lossy T Line Calculations
+!
+TIME-STEP          0.1E-9
+RESOLUTION-TIME    .05E-9
+END-TIME           1E-6
+NUMBER-PRINTS      5
+EXECUTE-CYCLES     ALL
+Grids                NO
+ECHO               NO	
+MAX-POINTS         5001
+!
+!
+!   Rick Spielman
+!
+!  A lossy T line test.
+!
+! First study is the current and voltage output 
+! From a 25 Ohm line
+!
+! As the load resistance increases the peak current from the cable decreases
+! Obviously when the load is matched the voltage is perfectly damped
+! and the current is reduced by 2X
+!
+BRANCH
+LOSsyline 20e-9 25 1e9 0.10
+INITIAL   VTRL    1e5
+UFO VC1
+$V_TL
+UFO IC1
+$I_TL
+!
+!  TL switch resistance and inductance
+!  Even 20 nH has little effect on rise time
+!
+RLS  0.10  20E-9
+!
+! Load Resistance
+!
+RCG 4.0 0
+UFO IR1
+$I_Load
+UFO VR1
+$V_Load
+UFO ER1
+$E_Load
+!

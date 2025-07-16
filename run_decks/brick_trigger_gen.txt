@@ -1,0 +1,75 @@
+Capacitor Trigger Generator With Resistors or Inductors in series with the mid plane
+! 2020-06-12 RBS
+!
+Time-step 1e-12
+Resolution-time 0.1e-9
+End-time 1e-7
+Number-prints 5
+Execute-cycles all
+Grids no
+Echo-setup no
+Max-points 5001
+!
+! 40 nF storage capacitor operating at 70 kV
+!
+!Start ciruit definition
+!
+BRANCH
+RCG 1e+12 40e-9
+Initial VC1 70e3
+
+UFO VC1
+$V_cap
+UFO EC1
+$E_cap
+!
+! Inductance - 25 nH  + 0.13 Ω ESR
+!
+
+RLSeries 0.130 25e-9
+
+!
+! Inductance of the switch, 100 nH per switch, assume constanct arc resistance 0.05 Ω 
+!
+
+Rlseries 0.05 100e-9
+
+!
+! Inductance of the switch header - WAG
+!
+
+Rlseries 0.0 50e-9
+
+! Load resistor 500 Ω - RC decay time 20 µs (way longer than need be)
+
+RCGround 500.0 0.00
+
+UFO VR1
+$V_TLin
+!
+! Transmission Line Output 50-Ω cables attach directly to the cap header.
+! 35-ns-long TL @ 50 Ω ea - 4 cables
+! L/r rise time = 175 nH /12.5 = 14 ns
+!
+
+TRLine LIN 35e-09 12.5 12.5
+
+UFO Vout
+$V_TLout
+
+!
+! Series Load Resistor (or inductor) 10, 1KΩ in parallel
+
+RLSeries 100.0 0.0
+
+!
+! Load to ground - 10 bricks in parallel c = 10•10 pF
+! RC charge time = 100 • 1e-10 = 10 ns
+!
+
+RCGround 1e12  100e-12
+
+UFO VR1
+$V_brick_trig
+
+! End circuit

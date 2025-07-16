@@ -1,0 +1,21 @@
+!
+!
+!
+!   Circuit model of a TM5 solid-state pulse generator.
+!!!TIME-STEP          0.005E-9RESOLUTION-TIME    0.010e-9END-TIME           200E-9NUMBER-PRINTS      1EXECUTE-CYCLES     ALLECHO               YESGRIDS              NOMAX-POINTS         4001DETAIL-PRINTS      FULL!
+!
+!
+!
+!   This is the main branch.
+!BRANCH
+!
+RCG   0.125   1e-12
+!
+UFO VIN
+$VLOAD!
+RLS   1e-12    1.5e-9
+!
+RCG      1.00E12    144e-6INITIAL    VC1       700
+!
+RCG  1e12  1e-12
+!

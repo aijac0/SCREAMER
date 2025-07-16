@@ -1,0 +1,53 @@
+RCOND Loss Model Test
+! RBS: 2020-03-27
+!
+TIME-STEP          0.1E-9
+RESOLUTION-TIME    1.0E-9
+END-TIME           4.0E-6
+NUMBER-PRINTS      5
+EXECUTE-CYCLES     ALL
+GRIDS              NO
+ECHO               NO	
+MAX-POINTS         3001
+!
+! Branch 1
+!
+
+BRANCH
+RCG     1.0e12     2.0e-6
+INITIAL   VC1       40.0e3
+
+TXT VC1 SCAle 1e-3
+$V_Capacitor (kV)
+
+!
+!  **************** Wire load ***********************
+!
+
+RLSeries 0 500.0e-09
+
+RLSeries 0.072 0
+VARiable  R2  RCOND
+!R1           ER1           ER2
+0.072       670.0         1000.0
+! alpha1        alpha2         alpha3
+4.45e-4         1.30e-3         4.45e-4
+
+TXT VR2 SCAle 1.0e-3
+$V_Wire (kV)
+TXT R2
+$R_wire
+TXT ER2
+$Total Action (J)
+
+!
+! Load Resistance
+!
+
+RCG 1e-3 0
+
+TXT IR1 SCAle 1e-3
+$I_Total (kA)
+
+!
+! End Branch 1

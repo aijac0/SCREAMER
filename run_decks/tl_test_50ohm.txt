@@ -1,0 +1,43 @@
+TL Calculations
+! Rick Spielman 2015-12-14
+! An ideal TL circuit looking at basic TL properties.
+!
+TIME-STEP          1.0E-12
+RESOLUTION-TIME    50.0E-12
+END-TIME           40e-09
+NUMBER-PRINTS      5
+EXECUTE-CYCLES     ALL
+Grids                NO
+ECHO               NO
+Detail-print full
+MAX-POINTS         5001
+!
+! Main Branch
+!
+BRANCH
+
+TRLine Lin 10e-9  50
+
+INITIAL   VTRL    1.0
+UFO VC1
+$V_TL
+UFO IC1
+$I_TL
+!
+!  TL switch resistance and inductance
+!  Even 20 nH has little effect on rise time
+!
+RLS  1e-3  1E-9
+!
+! Load Resistance
+!
+RCG 50.0 0
+UFO IR1
+$I_Load
+UFO VR1
+$V_Load
+UFO ER1
+$E_Load
+!
+! End Main Branch
+!
