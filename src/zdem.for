@@ -48,26 +48,26 @@ c 2019-02-01 RBS: Enter the input file name on the command line to allow
 c                 batch processing
 c 2019-11-15 YG:  Added !$ statements for OpenMP version (they do
 c                 not effect the sequential version)
+c 2025-07-10 AJC: Added calls to array alloc/dealloc subroutine
 c ----------------------------------------------------------------------
 
 !$      use omp_lib
 
-c
-c Include the files with the various keywords and integer flags.
-c
-      include 'zdemparm.h'
-      include 'zdempprm.h'
-c
 c Include the files that specify the array dimensions
 c and define the common blocks.
 c
-      include 'zdemmax.h'
+      use zdemmax
       include 'zdemcomm.h'
       include 'zdemwork.h'
       include 'zdemout.h'
       include 'zdemenv.h'
       include 'zdemvars.h'
       include 'zdemloop.h'
+c
+c Include the files with the various keywords and integer flags.
+c
+      include 'zdemparm.h'
+      include 'zdempprm.h'
 c
 c Define local variables
 c
@@ -81,8 +81,10 @@ c
 c---------------------------------------------------------
 c INITIALIZATIONS
 c
+c Allocate allocatable arrays
 c Clear all needed arrays
 c
+      call allocarry
       call clrarry
 c
 c Read in the file name using the GNU Fortran compiler option
@@ -191,6 +193,9 @@ c
        call write_outs
   802  continue
        call banner_end_run(ifile,clen,bgin)
+
+c Deallocate allocated arrays
+      call deallocarry
 
       stop
       end
