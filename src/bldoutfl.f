@@ -25,10 +25,10 @@ c
 c-------Include Files---------------------------------------------------
 c
       use zdemmax
+      use zdemwork
       include 'zdemparm.h'
       include 'zdempprm.h'
       include 'zdemcomm.h'
-      include 'zdemwork.h'
       include 'zdemout.h'
 c-------Define Passed Variables-----------------------------------------
 c

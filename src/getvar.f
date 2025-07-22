@@ -48,8 +48,8 @@ c
 c Include files
 c
       use zdemmax
+      use zdemwork
       include 'zdemcomm.h'
-      include 'zdemwork.h'
       include 'zdemout.h'
       include 'zdempprm.h'
       include 'zdemparm.h'

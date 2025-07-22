@@ -57,8 +57,8 @@ c Include the files that specify the array dimensions
 c and define the common blocks.
 c
       use zdemmax
+      use zdemwork
       include 'zdemcomm.h'
-      include 'zdemwork.h'
       include 'zdemout.h'
       include 'zdemenv.h'
       include 'zdemvars.h'

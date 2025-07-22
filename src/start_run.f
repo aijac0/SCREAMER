@@ -34,10 +34,10 @@ c
 c Include files
 c
       use zdemmax
+      use zdemwork
       include 'zdemparm.h'
       include 'zdempprm.h'
       include 'zdemcomm.h'
-      include 'zdemwork.h'
       include 'zdemout.h'
       include 'zdemvars.h'
       include 'zdemloop.h'

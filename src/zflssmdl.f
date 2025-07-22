@@ -37,7 +37,7 @@ c
 c Include files
 c
       use zdemmax
-      include 'zdemwork.h'
+      use zdemwork
       include 'zdemcomm.h'
 c
 c Define passed variables

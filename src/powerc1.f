@@ -9,8 +9,8 @@ c 2015-06-23 RBS: Declared time_flag, half_step, whole_step internal to
 c                 function to eliminate compiler warnings
 c
       use zdemmax
+      use zdemwork
       include 'zdemparm.h'
-      include 'zdemwork.h'
 c
 c Declare passed variables
 c

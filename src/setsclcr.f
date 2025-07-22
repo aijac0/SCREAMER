@@ -7,9 +7,10 @@ c 2014-05-02 RBS: Changed integer*4 to integer
 c
 c
       use zdemmax
+      use zdemwork
       include 'zdemparm.h'
       include 'zdemcomm.h'
-      include 'zdemwork.h'
+
 c
 c Define passed variables
 c

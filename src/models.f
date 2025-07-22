@@ -30,8 +30,8 @@ c
 c Include files
 c
       use zdemmax
+      use zdemwork
       include 'zdemparm.h'
-      include 'zdemwork.h'
       include 'zdemout.h'
       include 'zdemcomm.h'
       include 'zdemvars.h'

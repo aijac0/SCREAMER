@@ -10,8 +10,8 @@ c
 c Calculates the current into a block.
 c
       use zdemmax
+      use zdemwork
       include 'zdemparm.h'
-      include 'zdemwork.h'
 
 c
 c Declare passed variables

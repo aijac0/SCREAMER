@@ -11,8 +11,8 @@ c       07/19/95, MLK, redo format statements
 c -----------------------------------------------------------------------
 c
       use zdemmax
+      use zdemwork
       include 'zdemcomm.h'
-      include 'zdemwork.h'
       include 'zdemout.h'
 c
       character  indexln*80

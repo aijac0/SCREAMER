@@ -22,9 +22,9 @@ c
 c-------Include Files---------------------------------------------------
 c
       use zdemmax
+      use zdemwork
       include 'zdemparm.h'
       include 'zdemcomm.h'
-      include 'zdemwork.h'
 c
 c-------Input Parameters------------------------------------------------
 c                                                                     */

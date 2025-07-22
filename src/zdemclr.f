@@ -15,14 +15,15 @@ c
 c Include the files specifying the array dimensions and the common blocks.
 c
       use zdemmax
+      use zdemwork
       include 'zdemcomm.h'
-      include 'zdemwork.h'
       include 'zdemout.h'
 c
 c Include the files with the various keywords and integer flags.
 c
       include 'zdemparm.h'
 c
+      
       do i=1,max_elem_parms
         do j=1,max_blocks
           do k=1,max_branches

@@ -2,9 +2,10 @@
      &           ic_type, ic_counter)
 c
       use zdemmax
+      use zdemwork
       include 'zdemparm.h'
       include 'zdemcomm.h'
-      include 'zdemwork.h'
+
 c
 c Define passed variables
 c

@@ -52,9 +52,9 @@ c      or impedance.
 c
 c Include common variable definitions
 c
+      use zdemwork            !working arrays in Zdem 
       use zdemmax             !parameters
       include   'zdemout.h'   !common blocks
-      include   'zdemwork.h'  !working arrays in Zdem 
 c
 c Define passed variables
 c
