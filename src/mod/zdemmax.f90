@@ -1,11 +1,11 @@
 !----------------------------------------------------------------------
-!    @(#)zdemmax.h   version 1.2   created 02/16/99 09:49:17
+!    @(#)zdemmax.f90   version 1.2   created 02/16/99 09:49:17
 !    Last modified:    4-Jan-1999 16:07:34   klf 
 !_Groups @(#) screamer
 !----------------------------------------------------------------------
 ! *********************************************************************
 ! This is a file giving the array dimensions for ZDEM.
-!    file zdemmax.h
+!    file zdemmax.f90
 !
 ! ---------------------------------------------------------------------
 !
@@ -25,13 +25,14 @@
 ! 2019-01-23 RBS: Increased max_iin_specs from 5 to 12 to match
 !                 max_elem_parms - used in zdemcomm.h
 ! 2025-06-23 AJC: Reduced max_nodes 40000 -> 4000 to compile on Mac Sequoia v15.5 8GB 8Core
-! 2025-07-14 AJC: Moved parameters into module
+! 2025-07-14 AJC: Moved file into a module
 !
 ! ---------------------------------------------------------------------
 !
 
 module zdemmax
       implicit none
+
       integer, parameter :: max_branches         =   25
       integer, parameter :: max_blocks           =   300
       integer, parameter :: max_nodes            =  4000
@@ -73,7 +74,7 @@ module zdemmax
       integer, parameter :: max_am           = max_nodes * 2
 !      integer, parameter :: max_band_matrix  = max_bb*max_band
 !      integer, parameter :: max_band_rhs     = max_bb
-!
+
 ! Parameters for the multiple shell model
 !
       integer, parameter :: max_shells = 20
