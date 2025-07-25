@@ -27,24 +27,27 @@ c
 c
 c Strip left blanks
 c
+
       start = 1
-      do while ((text(start:start) .eq. blank)
-     & .and.    (start .le. lentext))
+      do while (start < lentext)
+        if (text(start:start) /= blank) exit
         start = start + 1
       end do
+
 c
 c Return if all blanks
 c
-      if  (start .gt. lentext) then
+      if (start > lentext) then
         start = no_text
         end   = no_text
-       return
+        return
       end if
 c
 c Strip right blanks
 c
       end = lentext
-      do while  (text(end:end) .eq. blank)
+      do while (end >= 1)
+        if (text(end:end) /= blank) exit
         end = end - 1
       end do
 c
