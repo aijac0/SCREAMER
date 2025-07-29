@@ -1,24 +1,0 @@
-!!!!
-!TIME-STEP          2.0E-10RESOLUTION-TIME    1.50E-9END-TIME           4.00E-6NUMBER-PRINTS      1EXECUTE-CYCLES     ALLECHO               NOGRIDS              NOMAX-POINTS         800DETAIL-PRINTS      MIN!
-!
-!BRANCH!!RCG     1e12     4.00e-6
-!INITIAL   VC1     40.0e3!
-!RLS      0.0    25e-9
-!
-!
-RLS      0.0    0.0
-!
-VAR  R2  RSKIN
-5.88e7  0.01  10.0  0.20  0.10
-0.0  1
-!
-UFO R2
-$RCOAX
-!
-UFO VIN$VLOAD
-!
-UFO IIN
-$ILOAD
-!
-!RCG   1e-3   1e-12!
-!
