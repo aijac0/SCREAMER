@@ -29,7 +29,7 @@ c Strip left blanks
 c
 
       start = 1
-      do while (start < lentext)
+      do while (start <= lentext)
         if (text(start:start) /= blank) exit
         start = start + 1
       end do
