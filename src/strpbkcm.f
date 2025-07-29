@@ -27,9 +27,9 @@ c
 c Strip left blanks and commas.
 c
       start = 1
-      do while (((text(start:start) .eq. blank)
-     &   .or .   (text(start:start) .eq. comma))
-     &   .and.  (start .le. lentext))
+      do while (start <= lentext) 
+        if ((text(start:start) .ne. blank) .and.
+     &      (text(start:start) .ne. comma)) exit
 c         print '(a,i3)', ' start= ', start
         start = start + 1
       end do
