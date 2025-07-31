@@ -10,11 +10,12 @@ module zdemsolve
 
 !     
 !  Solver arrays
+! Dynamically allocated arrays are initialized in zdemalloc.f90 
 !
 
-      real*8 a(max_a)
-      real*8 a_prl(max_a)
-      real*8 am_band(max_am, max_am)
-      real*8 rhs_band(max_am)
+      REAL(KIND=8), ALLOCATABLE :: a(:)
+      REAL(KIND=8), ALLOCATABLE :: a_prl(:)
+      REAL(KIND=8), ALLOCATABLE :: am_band(:,:)
+      REAL(KIND=8), ALLOCATABLE :: rhs_band(:)
 
 end module zdemsolve
