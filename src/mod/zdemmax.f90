@@ -24,7 +24,6 @@
 ! 2018-05-29 RBS: Increased max_branches to 250 as per Stygar request
 ! 2019-01-23 RBS: Increased max_iin_specs from 5 to 12 to match
 !                 max_elem_parms - used in zdemcomm.h
-! 2025-06-23 AJC: Reduced max_nodes 40000 -> 4000 to compile on Mac Sequoia v15.5 8GB 8Core
 ! 2025-07-14 AJC: Moved file into a module
 !
 ! ---------------------------------------------------------------------
@@ -35,7 +34,7 @@ module zdemmax
 
       integer, parameter :: max_branches         =   25
       integer, parameter :: max_blocks           =   300
-      integer, parameter :: max_nodes            =  4000
+      integer, parameter :: max_nodes            =  40000
       integer, parameter :: max_vars             =     5
       integer, parameter :: max_cols             = 3*max_vars + 1
       integer, parameter :: max_elem_parms       =    12
