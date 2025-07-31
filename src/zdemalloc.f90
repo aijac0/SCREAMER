@@ -5,8 +5,15 @@
 !
 ! Include the files specifying the array dimensions and the common blocks.
 !
+      use zdemsolve
       use zdemmax
       use zdemwork
+
+! Solver arrays
+      IF (.NOT. ALLOCATED(a))               ALLOCATE(a(max_a))
+      IF (.NOT. ALLOCATED(a_prl))           ALLOCATE(a_prl(max_a))
+      IF (.NOT. ALLOCATED(am_band))         ALLOCATE(am_band(max_am, max_am))
+      IF (.NOT. ALLOCATED(rhs_band))        ALLOCATE(rhs_band(max_am))
 
 ! Voltages, currents, circuit elements, etc.
       IF (.NOT. ALLOCATED(v))               ALLOCATE(v(max_nodes, max_branches))
@@ -55,8 +62,15 @@
 !
 ! Include the files specifying the array dimensions and the common blocks.
 !
+      use zdemsolve
       use zdemmax
       use zdemwork
+
+! Solver arrays
+      IF (ALLOCATED(a))               DEALLOCATE(a)
+      IF (ALLOCATED(a_prl))           DEALLOCATE(a_prl)
+      IF (ALLOCATED(am_band))         DEALLOCATE(am_band)
+      IF (ALLOCATED(rhs_band))        DEALLOCATE(rhs_band)
 
 ! Voltages, currents, circuit elements, etc.
       IF (ALLOCATED(v))               DEALLOCATE(v)
