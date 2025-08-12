@@ -5,10 +5,12 @@ FC          = gfortran
 BASE_FFLAGS = -fallow-argument-mismatch -I mod -J mod
 DPFLAG      = -fdefault-double-8
 
+# directories
 SRCDIR      = src
 MODSRCDIR   = src/mod
 OBJDIR      = obj
 MODDIR      = mod
+DEPDIR      = dep
 
 # sources
 SRC_F    := $(wildcard $(SRCDIR)/*.f)
@@ -31,13 +33,16 @@ MOD_OBJ  := \
   $(patsubst $(MODSRCDIR)/%.f90, $(OBJDIR)/%.o, $(MOD_F90))
 
 ALL_OBJ  := $(MOD_OBJ) $(OBJ)
-DEP      := $(ALL_OBJ:.o=.d)
+
+# dependencies
+DEPS := $(wildcard $(DEPDIR)/*.d)
+-include $(DEPS)
 
 # ensure dirs
 $(OBJDIR) $(MODDIR):
 	mkdir -p $@
 
-# --- build order: non‑module objs wait for module objs ---
+# non-module objects get compiled before module objects
 $(OBJ): $(MOD_OBJ)
 
 # compile module sources
@@ -77,12 +82,7 @@ TARGETS := screamer64 screamer64_debug screamer64_warning \
 
 all: $(TARGETS)
 
-.PHONY: deps clean print-debug all $(TARGETS)
-
-deps: $(DEP)
-
-# optional auto-deps (use -MMD -MP in EXTRA if desired)
--include $(DEP)
+.PHONY: clean print-debug all $(TARGETS)
 
 clean:
 	-@rm -rf $(MODDIR) $(OBJDIR)
