@@ -40,12 +40,7 @@
 
 module zdemparm
       implicit none
-!
-! ***** Time flag parameters ******
-!
-      integer, parameter :: time_flag = 0
-      integer, parameter :: half_step = 1
-      integer, parameter :: whole_step = 2
+
 !
 ! ***** Set length of KEYWORD. *****
 !
