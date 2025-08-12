@@ -26,15 +26,18 @@ c only the first 134 area kept and an error is signalled.
 c X1 is parms(1), Y1 is parms(2), Z1 is parms(3),
 c X2 is parms(4), Y2 is parms(5), Z2 is parms(6)...
 c nparms is three times the number of triplets read in.
+
+c
+c Include the module containing the keywords.
+c
+      use zdemparm
+
 c
 c Define passed variables
 c
       real       parms(*)
       integer    nparms, eofflg, nlines, nerrors
-c
-c Include the common block containing the keywords.
-c
-      include  'zdemparm.h'
+
 c
 c Define internal variables
 c

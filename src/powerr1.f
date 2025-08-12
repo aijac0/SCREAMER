@@ -7,7 +7,7 @@ c                 function to eliminate compiler warnings
 c
       use zdemmax
       use zdemwork
-      include 'zdemparm.h'
+      use zdemparm
 c
 c Declare passed variables
 c

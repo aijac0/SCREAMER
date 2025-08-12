@@ -12,17 +12,17 @@ c---------------------------------------------------------------------
 
       subroutine readscreamerparameters(status)
       
+
+c Include the modules containing keywords and the integer flags,
+c and parameter which are to be filled by this subroutine.
       use zdemmax
-      include 'zdemcomm.h'
+      use zdemparm
+      use zdemcomm
       include 'zdemout.h'
-c
-c Include the files with the keywords and the integer flags as parameters.
-c
-      include 'zdemparm.h'
       include 'zdempprm.h'
       include 'zdemenv.h'
-
       include 'rdscrdat.h'
+
 c
 c Define passed variables
 c

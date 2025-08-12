@@ -27,16 +27,19 @@ c If more than 201 pairs are read in,
 c only the first 201 area kept and an error is signalled.
 c X1 is parms(1), Y1 is parms(2), X2 is parms(3), Y2 is parms(4), ...
 c num_parms is twice the number of pairs read in.
+
+c
+c Include the modules containing the keywords.
+c
+      use zdemparm
+      include  'zdempprm.h'
+      
 c
 c Define passed variables
 c
       real       parms(*)
       integer    nparams, eofflg, nlines, numerr
-c
-c Include the common block containing the keywords.
-c
-      include  'zdemparm.h'
-      include  'zdempprm.h'
+
 c
 c Various parameters and variable types.
 c

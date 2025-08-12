@@ -35,12 +35,13 @@ c Include files
 c
       use zdemmax
       use zdemwork
-      include 'zdemparm.h'
+      use zdemloop
+      use zdemcomm
+      use zdemparm
       include 'zdempprm.h'
-      include 'zdemcomm.h'
       include 'zdemout.h'
       include 'zdemvars.h'
-      include 'zdemloop.h'
+
 c
 c
 c
@@ -133,9 +134,14 @@ c
 c ----------------------------------------------------------------------
 c
 c
-      data icycle, esour / 0, 0.0 /
-      data ecap, eind, econ, eres / 0.0, 0.0, 0.0, 0.0 /
-      data elossind, elosscap / 0.0, 0.0 /
+      icycle = 0
+      esour = 0.0
+      ecap = 0.0
+      eind = 0.0
+      econ = 0.0
+      eres = 0.0
+      elossind = 0.0
+      elosscap = 0.0
       ecapsource = 0.0
       eindsource = 0.0
       nvar_node = 0

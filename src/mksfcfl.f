@@ -48,10 +48,10 @@ c
 c-------Include Files---------------------------------------------------
 c
       use zdemmax
-      include 'zdemparm.h'
+      use zdemparm
+      use zdemcomm
       include 'zdempprm.h'
       include 'zdemout.h'
-      include 'zdemcomm.h'
       include 'zdemenv.h'
       include 'version.h'
 c

@@ -9,7 +9,7 @@ c    07/19/95, MLK, Redo format statements
 c 2019-11-29 RBS: Adjusted the output formation for the blocks
 c -----------------------------------------------------------------------
       use zdemmax
-      include 'zdemcomm.h'
+      use zdemcomm
       include 'zdemout.h'
 c
       character  setupln*80

@@ -18,8 +18,8 @@ c-----------------------------------------------------------------------
       subroutine readscreleminit
       
       use zdemmax
-      include 'zdemcomm.h'
-      include 'zdemparm.h'
+      use zdemcomm
+      use zdemparm
       include 'zdemout.h'
       include 'zdempprm.h'
       include 'rdscrdat.h'

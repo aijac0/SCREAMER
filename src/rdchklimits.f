@@ -13,9 +13,9 @@ c---------------------------------------------------------------------
       subroutine checkscreamerlimits
       
       use zdemmax
-      include 'zdemcomm.h'
+      use zdemcomm
+      use zdemparm
       include 'zdemout.h'
-      include 'zdemparm.h'
       include 'zdempprm.h'
       include 'rdscrdat.h'
 

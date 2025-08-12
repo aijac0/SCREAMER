@@ -26,9 +26,9 @@ c-------Include Files---------------------------------------------------
 c
       use zdemmax
       use zdemwork
-      include 'zdemparm.h'
+      use zdemparm
+      use zdemcomm
       include 'zdempprm.h'
-      include 'zdemcomm.h'
       include 'zdemout.h'
 c-------Define Passed Variables-----------------------------------------
 c

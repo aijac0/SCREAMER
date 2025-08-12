@@ -15,19 +15,16 @@ c Called by: Program ZDEM
 c
 c
 c
-c Include the files specifying the array dimensions and the common
-c blocks.
+c Include the files specifying the array dimensions, common
+c blocks, various keywords and integer flags.
 c
       use zdemmax
       use zdemwork
-      include 'zdemcomm.h'
+      use zdemcomm
+      use zdemparm
       include 'zdemout.h'
       include 'zdemenv.h'
       include 'zdemvars.h'    
-c
-c Include the files with the various keywords and integer flags.
-c
-      include 'zdemparm.h'
       include 'zdempprm.h'
 c
 c Include file with version string

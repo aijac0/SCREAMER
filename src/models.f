@@ -31,9 +31,9 @@ c Include files
 c
       use zdemmax
       use zdemwork
-      include 'zdemparm.h'
+      use zdemparm
+      use zdemcomm
       include 'zdemout.h'
-      include 'zdemcomm.h'
       include 'zdemvars.h'
 c
 c Declare internal variables

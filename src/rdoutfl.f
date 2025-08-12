@@ -25,7 +25,7 @@ c
 c-----Include Files-----------------------------------------------------
 c
       use zdemmax
-      include 'zdemparm.h'
+      use zdemparm
 c
 c-----Input Parameters--------------------------------------------------
 c

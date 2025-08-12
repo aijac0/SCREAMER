@@ -16,8 +16,8 @@ c---------------------------------------------------------------------
       subroutine printscreamerparameters
       
       use zdemmax
-      include 'zdemcomm.h'
-      include 'zdemparm.h'
+      use zdemcomm
+      use zdemparm
       include 'rdscrdat.h'
       
       if (tstepflg .eq. noerr) then

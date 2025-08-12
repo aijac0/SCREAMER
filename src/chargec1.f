@@ -11,7 +11,7 @@ c Include files
 c
       use zdemmax
       use zdemwork
-      include 'zdemparm.h'
+      use zdemparm
 
 c
 c Declare passed variables

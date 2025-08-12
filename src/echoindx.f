@@ -12,7 +12,7 @@ c -----------------------------------------------------------------------
 c
       use zdemmax
       use zdemwork
-      include 'zdemcomm.h'
+      use zdemcomm
       include 'zdemout.h'
 c
       character  indexln*80

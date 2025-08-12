@@ -7,7 +7,7 @@ c Setup for adder block.
 c
       use zdemmax
       use zdemwork
-      include 'zdemcomm.h'
+      use zdemcomm
 c
 c Define passed variables
 c

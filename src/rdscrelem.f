@@ -73,21 +73,17 @@ c-----------------------------------------------------------------------
       subroutine readscreamerelements(status)
       
 c
-c Include the common blocks which are to be filled by the
-c this subroutine.
-c
+c Include the modules containing keywords and the integer flags,
+c and parameter which are to be filled by this subroutine.
       use zdemmax
-      include 'zdemcomm.h'
-      include 'zdemout.h'
-c
-c Include the files with the keywords and the integer flags as
-c parameters.
-c
-      include 'zdemparm.h'
+      use zdemcomm
+      use zdemparm
       include 'zdempprm.h'
       include 'zdemenv.h'
       include 'zdemfmt.h'
+      include 'zdemout.h'
       include 'rdscrdat.h'
+
 c
 c Declare passed variables
 c

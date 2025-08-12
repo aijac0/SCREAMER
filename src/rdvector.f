@@ -20,7 +20,7 @@ c
 c-------Include Files---------------------------------------------------
 c
       use zdemmax
-      include  'zdemparm.h'    ! Contains keywords
+      use zdemparm    ! Contains keywords
 c
 c-------Input Parameters------------------------------------------------
 c

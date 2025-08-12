@@ -8,8 +8,8 @@ c
 c
       use zdemmax
       use zdemwork
-      include 'zdemparm.h'
-      include 'zdemcomm.h'
+      use zdemparm
+      use zdemcomm
 
 c
 c Define passed variables
