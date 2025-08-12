@@ -61,27 +61,17 @@
 module zdemloop
       implicit none
  
-!
-! variables needed for main_loop, solver_screamer_matrix, start_run,
-! and zdem
-!
-      real tim
+! variables needed for main_loop, solver_screamer_matrix, start_run, zdem
+      real :: tim
 
-      integer
-     & i2, icb, icycle, itypcs,
-     & j, k, l, m, n, ncycle, nbm, ntot
+      integer :: i2, icb, icycle, itypcs
+      integer :: j, k, l, m, n
+      integer :: ncycle, nbm, ntot
 
-      character  cyclln*80
-
-      common /for_main_loop/
-     & tim,
-     & i2, icb, icycle, itypcs,
-     & j, k, l, m, n, ncycle, nbm, ntot,
-     & cyclln
+      character :: cyclln*80
 
 ! variables needed for file outputs
 
-      integer        iunit, ierr
-      common /files/ iunit, ierr
+      integer :: iunit, ierr
 
 end module zdemloop
