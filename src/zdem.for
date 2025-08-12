@@ -53,20 +53,18 @@ c ----------------------------------------------------------------------
 
 !$      use omp_lib
 
-c Include the files that specify the array dimensions
-c and define the common blocks.
+c Include the modules containing keywords and the integer flags,
+c and parameter which are to be filled by this subroutine.
 c
+
       use zdemmax
       use zdemwork
-      include 'zdemcomm.h'
+      use zdemcomm
+      use zdemloop
+      use zdemparm
       include 'zdemout.h'
       include 'zdemenv.h'
       include 'zdemvars.h'
-      include 'zdemloop.h'
-c
-c Include the files with the various keywords and integer flags.
-c
-      include 'zdemparm.h'
       include 'zdempprm.h'
 c
 c Define local variables
@@ -76,7 +74,7 @@ c
       integer       status
       integer       narg
       integer       nc, nt
-      integer       intsign, flag
+      integer       intsign, parseflag
 
 c---------------------------------------------------------
 c INITIALIZATIONS
@@ -102,10 +100,10 @@ c Input the number of threads for the program
 c
       if (narg > 1) then
         call get_command_argument(2,ithread)
-        call text_to_int (ithread(1:5),nt,flag)
+        call text_to_int (ithread(1:5),nt,parseflag)
 
       end if
-      If (flag > 0) then
+      If (parseflag > 0) then
         print '(a)', ' ### No thread number provided in input line'
       end if
 
