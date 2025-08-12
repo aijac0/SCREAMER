@@ -1,0 +1,127 @@
+ 
+********************************************************************************
+SCREAMER v4.4.3 Circuit Analysis Code:                                          
+********************************************************************************
+ 
+ 
+********************************************************************************
+RCOND Loss Model Test                                                           
+********************************************************************************
+ 
+ Time step          1.00000001E-10
+ Default Res-time   9.99999972E-10
+ End time           3.99999999E-06
+ Number of prints           5
+ max-pnts stored         3001
+
+ 
+********************************************************************************
+Listing of the User Circuit                                                     
+********************************************************************************
+ 
+ 
+************ Branch  1 ************
+ Block   1 : resistor and capacitor to ground.
+   R1= 1.000E+12   C1= 2.000E-06
+  Initial condition: Voltage on C1 =    4.000E+04
+ TXT Output Request for block   1.    Variable: Voltage across C1      
+  Values on the half time step will be used.
+ Block   2 : resistor and inductor in series.
+   R2= 0.000E+00   L2= 5.000E-07
+ Block   3 : resistor and inductor in series.
+   R2= 7.200E-02   L2= 0.000E+00
+     R2 is a variable element in block   3
+      RCOND resistive wall model  :
+   R1 = 7.200E-02   ER1 = 6.700E+02   ER2 = 1.000E+03
+   alpha1 = 4.450E-04   alpha2 = 1.300E-03   alpha3 = 4.450E-04
+
+ TXT Output Request for block   3.    Variable: Voltage across R2      
+  Values on the half time step will be used.
+ TXT Output Request for block   3.    Variable: Value of R2            
+  Values on the half time step will be used.
+ TXT Output Request for block   3.    Variable: Energy Dissipated in R2
+  Values on the half time step will be used.
+ Block   4 : resistor and capacitor to ground.
+   R1= 1.000E-03   C1= 0.000E+00
+ TXT Output Request for block   4.    Variable: Current in R1          
+  Values on the half time step will be used.
+ 
+********************************************************************************
+Initial SCREAMER Circuit Status                                                 
+********************************************************************************
+ 
+
+Time =  0.000E+00     Cycle =       0
+Energy from all sources:                           1.6000E+03
+L*I*I/2    energy stored in inductors:             0.0000E+00
+C*V*V/2    energy stored in capacitors:            1.6000E+03
+G*V*V      energy dissipated in shunt resistors:   0.0000E+00
+R*I*I      energy dissipated in series resistors:  0.0000E+00
+Ldot*I*I/2 energy in variable inductors:           0.0000E+00
+Cdot*V*V/2 energy in variable capacitors:          0.0000E+00
+Relative error in energy sum:                      0.0000E+00
+ 
+********************************************************************************
+SCREAMER Circuit Status for t > 0                                               
+********************************************************************************
+ 
+
+Time =  7.999E-07     Cycle =    8000
+Energy from all sources:                           1.6000E+03
+L*I*I/2    energy stored in inductors:             7.1769E+02
+C*V*V/2    energy stored in capacitors:            8.0449E+02
+G*V*V      energy dissipated in shunt resistors:   8.7444E-01
+R*I*I      energy dissipated in series resistors:  7.6965E+01
+Ldot*I*I/2 energy in variable inductors:           0.0000E+00
+Cdot*V*V/2 energy in variable capacitors:          0.0000E+00
+Relative error in energy sum:                      1.0953E-05
+
+Time =  1.600E-06     Cycle =   16000
+Energy from all sources:                           1.6000E+03
+L*I*I/2    energy stored in inductors:             8.1885E+02
+C*V*V/2    energy stored in capacitors:            1.4495E+01
+G*V*V      energy dissipated in shunt resistors:   3.8964E+00
+R*I*I      energy dissipated in series resistors:  7.6283E+02
+Ldot*I*I/2 energy in variable inductors:           0.0000E+00
+Cdot*V*V/2 energy in variable capacitors:          0.0000E+00
+Relative error in energy sum:                      4.3766E-05
+
+Time =  2.400E-06     Cycle =   24000
+Energy from all sources:                           1.6000E+03
+L*I*I/2    energy stored in inductors:             2.0550E+01
+C*V*V/2    energy stored in capacitors:            7.2348E+01
+G*V*V      energy dissipated in shunt resistors:   4.8257E+00
+R*I*I      energy dissipated in series resistors:  1.5023E+03
+Ldot*I*I/2 energy in variable inductors:           0.0000E+00
+Cdot*V*V/2 energy in variable capacitors:          0.0000E+00
+Relative error in energy sum:                     -4.1854E-06
+
+Time =  3.200E-06     Cycle =   32000
+Energy from all sources:                           1.6000E+03
+L*I*I/2    energy stored in inductors:             6.9012E+00
+C*V*V/2    energy stored in capacitors:            7.2278E+01
+G*V*V      energy dissipated in shunt resistors:   4.8390E+00
+R*I*I      energy dissipated in series resistors:  1.5160E+03
+Ldot*I*I/2 energy in variable inductors:           0.0000E+00
+Cdot*V*V/2 energy in variable capacitors:          0.0000E+00
+Relative error in energy sum:                     -1.1437E-05
+
+Time =  4.000E-06     Cycle =   40000
+Energy from all sources:                           1.6000E+03
+L*I*I/2    energy stored in inductors:             1.0245E+01
+C*V*V/2    energy stored in capacitors:            3.5680E+01
+G*V*V      energy dissipated in shunt resistors:   4.8711E+00
+R*I*I      energy dissipated in series resistors:  1.5492E+03
+Ldot*I*I/2 energy in variable inductors:           0.0000E+00
+Cdot*V*V/2 energy in variable capacitors:          0.0000E+00
+Relative error in energy sum:                     -2.7640E-05
+ 
+********************************************************************************
+End of Simulation                                                               
+********************************************************************************
+ 
+
+The SCREAMER input file used: untested/rcond_test.txt                                                         
+ Current time: 08:31
+ Run time:    0.117 seconds
+SCREAMER v4.4.3

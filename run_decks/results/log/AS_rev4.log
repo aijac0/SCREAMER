@@ -1,0 +1,129 @@
+ 
+********************************************************************************
+SCREAMER v4.4.3 Circuit Analysis Code:                                          
+********************************************************************************
+ 
+ 
+********************************************************************************
+PRE-CONCEPTUAL DESIGN OF THE Z-15 ACCELERATOR                                   
+********************************************************************************
+ 
+ Time step          9.99999982E-14
+ Default Res-time   1.00000001E-10
+ End time           4.00000005E-07
+ Number of prints           5
+ max-pnts stored         5001
+
+ 
+********************************************************************************
+Listing of the User Circuit                                                     
+********************************************************************************
+ 
+ 
+************ Branch  1 ************
+ Block   1 : voltage source described as a function of time.
+   R2= 2.500E-01   L2= 0.000E+00
+    Sin function:
+      Magnitude= 1.000E+06   Period= 4.000E-07   Tdelay= 0.000E+00
+ Block   2 : Transmission line with impedance varying linearly     
+   Tau= 2.000E-07   Zin= 2.500E-01   Zout= 2.500E-01   Tres= 1.000E-09
+ Block   3 : Transmission line with impedance varying linearly     
+   Tau= 4.670E-10   Zin= 2.000E+00   Zout= 2.000E+00   Tres= 2.000E-12
+ TXT Output Request for block   3.    Variable: Input Voltage          
+  Values on the half time step will be used.
+ TXT Output Request for block   3.    Variable: Input Current          
+  Values on the half time step will be used.
+ TXT Output Request for block   3.    Variable: Output Voltage         
+  Values on the half time step will be used.
+ TXT Output Request for block   3.    Variable: Output Current         
+  Values on the half time step will be used.
+ Block   4 : Transmission line with impedance varying linearly     
+   Tau= 4.670E-10   Zin= 2.000E+00   Zout= 2.000E+00   Tres= 2.000E-12
+ TXT Output Request for block   4.    Variable: Output Voltage         
+  Values on the half time step will be used.
+ TXT Output Request for block   4.    Variable: Output Current         
+  Values on the half time step will be used.
+ Block   5 : Transmission line with impedance varying linearly     
+   Tau= 4.670E-10   Zin= 2.000E+00   Zout= 2.000E+00   Tres= 2.000E-12
+ TXT Output Request for block   5.    Variable: Output Voltage         
+  Values on the half time step will be used.
+ TXT Output Request for block   5.    Variable: Output Current         
+  Values on the half time step will be used.
+ Block   6 : Transmission line with impedance varying linearly     
+   Tau= 4.670E-10   Zin= 2.000E+00   Zout= 2.000E+00   Tres= 2.000E-12
+ TXT Output Request for block   6.    Variable: Output Voltage         
+  Values on the half time step will be used.
+ TXT Output Request for block   6.    Variable: Output Current         
+  Values on the half time step will be used.
+ Block   7 : Transmission line with impedance varying linearly     
+   Tau= 4.670E-10   Zin= 2.000E+00   Zout= 2.000E+00   Tres= 2.000E-12
+ TXT Output Request for block   7.    Variable: Output Voltage         
+  Values on the half time step will be used.
+ TXT Output Request for block   7.    Variable: Output Current         
+  Values on the half time step will be used.
+ Block   8 : Transmission line with impedance varying linearly     
+   Tau= 4.670E-10   Zin= 2.000E+00   Zout= 2.000E+00   Tres= 2.000E-12
+ TXT Output Request for block   8.    Variable: Output Voltage         
+  Values on the half time step will be used.
+ TXT Output Request for block   8.    Variable: Output Current         
+  Values on the half time step will be used.
+ Block   9 : Transmission line with impedance varying linearly     
+   Tau= 4.670E-10   Zin= 2.000E+00   Zout= 2.000E+00   Tres= 2.000E-12
+ TXT Output Request for block   9.    Variable: Output Voltage         
+  Values on the half time step will be used.
+ TXT Output Request for block   9.    Variable: Output Current         
+  Values on the half time step will be used.
+ Block  10 : Transmission line with impedance varying linearly     
+   Tau= 4.670E-10   Zin= 2.000E+00   Zout= 2.000E+00   Tres= 2.000E-12
+ TXT Output Request for block  10.    Variable: Output Voltage         
+  Values on the half time step will be used.
+ TXT Output Request for block  10.    Variable: Output Current         
+  Values on the half time step will be used.
+ Block  11 : Transmission line with impedance varying linearly     
+   Tau= 4.670E-10   Zin= 2.000E+00   Zout= 2.000E+00   Tres= 2.000E-12
+ TXT Output Request for block  11.    Variable: Output Voltage         
+  Values on the half time step will be used.
+ TXT Output Request for block  11.    Variable: Output Current         
+  Values on the half time step will be used.
+ Block  12 : Transmission line with impedance varying linearly     
+   Tau= 4.670E-10   Zin= 2.000E+00   Zout= 2.000E+00   Tres= 2.000E-12
+ TXT Output Request for block  12.    Variable: Output Voltage         
+  Values on the half time step will be used.
+ TXT Output Request for block  12.    Variable: Output Current         
+  Values on the half time step will be used.
+ Block  13 : resistor and capacitor to ground.
+   R1= 1.000E-12   C1= 1.000E-12
+ 
+********************************************************************************
+SCREAMER Setup Parameters (for debugging)                                       
+********************************************************************************
+ 
+
+      Set-up Parameters For Screamer Code
+
+          HT          Tres         Tmax         Nprint  NB
+      0.100E-12  0.100E-09  0.400E-06     5     1
+
+
+ BR BL BT  IV  IB  I C IO      P1          P2          P3          P4          P5          P6          P7          P8
+  1    1    5    0    0    0    0   2.500E-01 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+  1    2    0    0    0    0    0   2.000E-07 2.500E-01 2.500E-01 1.000E-09 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+  1    3    0    0    0    0    0   4.670E-10 2.000E+00 2.000E+00 2.000E-12 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+  1    4    1    0    0    0    5   0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+  1    5    1    0    0    0    5   0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+  1    6    1    0    0    0    5   0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+  1    7    1    0    0    0    5   0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+  1    8    0    0    0    0    0   4.670E-10 2.000E+00 2.000E+00 2.000E-12 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+  1    9    1    0    0    0    5   0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+  1   10    1    0    0    0    5   0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+  1   11    0    0    0    0    0   4.670E-10 2.000E+00 2.000E+00 2.000E-12 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+  1   12    1    0    0    0    5   0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+  1   13    1    0    0    0    5   0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+  1   14    0    0    0    0    0   4.670E-10 2.000E+00 2.000E+00 2.000E-12 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+  1   15    1    0    0    0    5   0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+  1   16    1    0    0    0    5   0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+  1   17    0    0    0    0    0   4.670E-10 2.000E+00 2.000E+00 2.000E-12 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+  1   18    1    0    0    0    5   0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+  1   19    1    0    0    0    5   0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+  1   20    0    0    0    0    0   4.670E-10 2.000E+00 2.000E+00 2.000E-12 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+  1   21    1    0    0    0    5   0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00

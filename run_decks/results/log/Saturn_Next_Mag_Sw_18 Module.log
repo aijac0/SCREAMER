@@ -1,0 +1,185 @@
+ 
+********************************************************************************
+SCREAMER v4.4.3 Circuit Analysis Code:                                          
+********************************************************************************
+ 
+ 
+********************************************************************************
+SATURN_Next Magnetically Switched Option -- ALL LEVELS                          
+********************************************************************************
+ 
+ Time step          2.00000003E-10
+ Default Res-time   9.99999972E-10
+ End time           1.76000003E-06
+ Number of prints           1
+ max-pnts stored         3000
+
+ 
+********************************************************************************
+Listing of the User Circuit                                                     
+********************************************************************************
+ 
+ 
+************ Branch  1 ************
+ Block   1 : resistor and capacitor to ground.
+   R1= 1.000E+12   C1= 4.050E-07
+  Initial condition: Voltage on C1 =    5.370E+06
+ CSV Output Request for block   1.    Variable: Current in C1          
+  Values on the half time step will be used.
+ CSV Output Request for block   1.    Variable: Voltage across C1      
+  Values on the half time step will be used.
+ CSV Output Request for block   1.    Variable: Power Stored in C1     
+  Values on the half time step will be used.
+ Block   2 : resistor and inductor in series.
+   R2= 0.000E+00   L2= 7.200E-07
+ Block   3 : resistor and inductor in series.
+   R2= 8.000E-02   L2= 0.000E+00
+ Block   4 : resistor and capacitor to ground.
+   R1= 3.150E+01   C1= 0.000E+00
+ Block   5 : resistor and inductor in series.
+   R2= 0.000E+00   L2= 1.140E-07
+ CSV Output Request for block   5.    Variable: Output Energy          
+  Values on the half time step will be used.
+ CSV Output Request for block   5.    Variable: Output Voltage         
+  Values on the half time step will be used.
+ Block   6 : Transmission line with impedance varying linearly     
+   Tau= 7.500E-09   Zin= 6.900E-01   Zout= 2.600E-01   Tres= 1.000E-09
+ Block   7 : Transmission line with impedance varying linearly     
+   Tau= 3.360E-08   Zin= 2.600E-01   Zout= 2.600E-01   Tres= 1.000E-09
+ Block   8 : resistor and capacitor to ground.
+   R1= 2.700E+02   C1= 0.000E+00
+ CSV Output Request for block   8.    Variable: Voltage across R1      
+  Values on the half time step will be used.
+ Block   9 : Transmission line with impedance varying linearly     
+   Tau= 3.360E-08   Zin= 2.600E-01   Zout= 2.600E-01   Tres= 1.000E-09
+ CSV Output Request for block   9.    Variable: Output Energy          
+  Values on the half time step will be used.
+ CSV Output Request for block   9.    Variable: Output Voltage         
+  Values on the half time step will be used.
+ Block  10 : resistor and inductor in series.
+   R2= 0.000E+00   L2= 2.220E-08
+ Block  11 : resistor and inductor in series.
+   R2= 1.000E+06   L2= 0.000E+00
+     R2 is a variable element in block  11
+      Exponential model of a resistive switch:
+        Ropen= 1.100E+06   Rclose= 2.200E-02   Tswitch= 8.580E-07   Tau= 1.200E-08   Zswitch= 6.000E-02
+ CSV Output Request for block  11.    Variable: Voltage across R2      
+  Values on the half time step will be used.
+ CSV Output Request for block  11.    Variable: Output Voltage         
+  Values on the half time step will be used.
+ CSV Output Request for block  11.    Variable: Output Current         
+  Values on the half time step will be used.
+ Block  12 : Transmission line with impedance varying linearly     
+   Tau= 1.800E-08   Zin= 2.200E-01   Zout= 2.200E-01   Tres= 1.000E-09
+ Block  13 : resistor and capacitor to ground.
+   R1= 1.410E+02   C1= 0.000E+00
+ CSV Output Request for block  13.    Variable: Voltage across R1      
+  Values on the half time step will be used.
+ Block  14 : Transmission line with impedance varying linearly     
+   Tau= 1.800E-08   Zin= 2.200E-01   Zout= 2.200E-01   Tres= 1.000E-09
+ CSV Output Request for block  14.    Variable: Output Energy          
+  Values on the half time step will be used.
+ Block  15 : resistor and inductor in series.
+   R2= 0.000E+00   L2= 3.300E-10
+ CSV Output Request for block  15.    Variable: Output Voltage         
+  Values on the half time step will be used.
+ CSV Output Request for block  15.    Variable: Output Current         
+  Values on the half time step will be used.
+ Block  16 : resistor and inductor in series.
+   R2= 0.000E+00   L2= 2.690E-09
+     L2 is a variable element in block  16
+      Saturable core inductor switch model:
+        PkFrac= 3.860E-01   Rinner= 9.589E-01   Router= 9.910E-01   Width= 4.089E-01
+        H1= 0.000E+00   Hsat= 6.300E+04   Hrev= 1.000E-01   Bsat= 3.110E+01
+ Block  17 : resistor and inductor in series.
+   R2= 0.000E+00   L2= 3.300E-10
+ Block  18 : Transmission line with impedance varying linearly     
+   Tau= 3.000E-09   Zin= 2.800E-01   Zout= 1.200E-01   Tres= 1.000E-09
+ CSV Output Request for block  18.    Variable: Output Energy          
+  Values on the half time step will be used.
+ Block  19 : Transmission line with impedance varying linearly     
+   Tau= 6.675E-09   Zin= 1.200E-01   Zout= 1.200E-01   Tres= 1.000E-09
+ Block  20 : resistor and capacitor to ground.
+   R1= 3.530E+01   C1= 0.000E+00
+ CSV Output Request for block  20.    Variable: Voltage across R1      
+  Values on the half time step will be used.
+ Block  21 : Transmission line with impedance varying linearly     
+   Tau= 6.675E-09   Zin= 1.200E-01   Zout= 1.200E-01   Tres= 1.000E-09
+ CSV Output Request for block  21.    Variable: Output Energy          
+  Values on the half time step will be used.
+ Block  22 : Transmission line with impedance varying linearly     
+   Tau= 3.000E-09   Zin= 1.200E-01   Zout= 2.800E-01   Tres= 1.000E-09
+ Block  23 : resistor and inductor in series.
+   R2= 0.000E+00   L2= 1.700E-10
+ CSV Output Request for block  23.    Variable: Output Voltage         
+  Values on the half time step will be used.
+ CSV Output Request for block  23.    Variable: Output Current         
+  Values on the half time step will be used.
+ Block  24 : resistor and inductor in series.
+   R2= 0.000E+00   L2= 1.050E-09
+     L2 is a variable element in block  24
+      Saturable core inductor switch model:
+        PkFrac= 3.390E-01   Rinner= 9.589E-01   Router= 9.910E-01   Width= 1.593E-01
+        H1= 0.000E+00   Hsat= 9.900E+04   Hrev= 1.000E-01   Bsat= 3.110E+01
+ Block  25 : resistor and inductor in series.
+   R2= 0.000E+00   L2= 1.700E-10
+ Block  26 : Transmission line with impedance varying linearly     
+   Tau= 3.000E-09   Zin= 2.800E-01   Zout= 1.200E-01   Tres= 1.000E-09
+ Block  27 : Transmission line with impedance varying linearly     
+   Tau= 3.000E-09   Zin= 2.800E-01   Zout= 1.200E-01   Tres= 1.000E-09
+ Block  28 : Transmission line with impedance varying linearly     
+   Tau= 1.325E-08   Zin= 1.200E-01   Zout= 1.200E-01   Tres= 1.000E-09
+ Block  29 : Transmission line with impedance varying linearly     
+   Tau= 3.000E-09   Zin= 1.200E-01   Zout= 2.800E-01   Tres= 1.000E-09
+ Block  30 : resistor and inductor in series.
+   R2= 0.000E+00   L2= 3.300E-10
+ Block  31 : resistor and capacitor to ground.
+   R1= 1.056E-01   C1= 0.000E+00
+ CSV Output Request for block  31.    Variable: Voltage across R1      
+  Values on the half time step will be used.
+ CSV Output Request for block  31.    Variable: Current in R1          
+  Values on the half time step will be used.
+ CSV Output Request for block  31.    Variable: Power Dissipated in R1 
+  Values on the half time step will be used.
+ CSV Output Request for block  31.    Variable: Energy Dissipated in R1
+  Values on the half time step will be used.
+ 
+********************************************************************************
+Initial SCREAMER Circuit Status                                                 
+********************************************************************************
+ 
+
+Time =  0.000E+00     Cycle =       0
+Energy from all sources:                           5.8395E+06
+L*I*I/2    energy stored in inductors:             0.0000E+00
+C*V*V/2    energy stored in capacitors:            5.8395E+06
+G*V*V      energy dissipated in shunt resistors:   0.0000E+00
+R*I*I      energy dissipated in series resistors:  0.0000E+00
+Ldot*I*I/2 energy in variable inductors:           0.0000E+00
+Cdot*V*V/2 energy in variable capacitors:          0.0000E+00
+Relative error in energy sum:                      0.0000E+00
+ 
+********************************************************************************
+SCREAMER Circuit Status for t > 0                                               
+********************************************************************************
+ 
+
+Time =  1.760E-06     Cycle =    8800
+Energy from all sources:                           5.8395E+06
+L*I*I/2    energy stored in inductors:             1.1083E+06
+C*V*V/2    energy stored in capacitors:            4.6679E+05
+G*V*V      energy dissipated in shunt resistors:   3.8978E+06
+R*I*I      energy dissipated in series resistors:  7.2971E+05
+Ldot*I*I/2 energy in variable inductors:          -1.7718E+06
+Cdot*V*V/2 energy in variable capacitors:          0.0000E+00
+Relative error in energy sum:                     -2.4122E-01
+ 
+********************************************************************************
+End of Simulation                                                               
+********************************************************************************
+ 
+
+The SCREAMER input file used: Saturn_Next_Mag_Sw_18 Module.txt                                                
+ Current time: 08:50
+ Run time:    0.354 seconds
+SCREAMER v4.4.3

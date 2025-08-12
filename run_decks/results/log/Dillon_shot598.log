@@ -1,0 +1,259 @@
+ 
+********************************************************************************
+SCREAMER v4.4.3 Circuit Analysis Code:                                          
+********************************************************************************
+ 
+ 
+********************************************************************************
+TWA SUBMODULE CIRCUIT --- Corley's version                                      
+********************************************************************************
+ 
+ Time step          4.99999986E-10
+ Default Res-time   4.99999986E-10
+ End time           4.50000016E-06
+ Number of prints           1
+ max-pnts stored         3000
+
+ 
+********************************************************************************
+Listing of the User Circuit                                                     
+********************************************************************************
+ 
+ 
+************ Branch  1 ************
+ Block   1 : resistor and capacitor to ground.
+   R1= 1.000E+06   C1= 4.300E-08
+  Initial condition: Voltage on C1 =   -2.700E+06
+ CSV Output Request for block   1.    Variable: Voltage across C1      
+  Values on the half time step will be used.
+ Block   2 : resistor and inductor in series.
+   R2= 1.400E+00   L2= 1.100E-05
+ Block   3 : resistor and inductor in series.
+   R2= 4.890E-03   L2= 0.000E+00
+ CSV Output Request for block   3.    Variable: Current in R2          
+  Values on the half time step will be used.
+ CSV Output Request for block   3.    Variable: Power Dissipated in R2 
+  Values on the half time step will be used.
+ Block   4 : resistor and capacitor to ground.
+   R1= 6.000E+02   C1= 0.000E+00
+ Block   5 : resistor and capacitor to ground.
+   R1= 1.000E+04   C1= 0.000E+00
+ CSV Output Request for block   5.    Variable: Voltage across R1      
+  Values on the half time step will be used.
+ Block   6 : resistor and inductor in series.
+   R2= 0.000E+00   L2= 9.000E-07
+ Block   7 : Transmission line with impedance varying linearly     
+   Tau= 9.000E-09   Zin= 9.500E+01   Zout= 9.500E+01   Tres= 5.000E-10
+ Block   8 : Transmission line with impedance varying linearly     
+   Tau= 6.000E-09   Zin= 9.500E+01   Zout= 9.500E+01   Tres= 5.000E-10
+ Block   9 : resistor and capacitor to ground.
+   R1= 1.000E+06   C1= 9.000E-11
+ Block  10 : Transmission line with impedance varying linearly     
+   Tau= 1.180E-09   Zin= 3.600E+01   Zout= 6.400E+01   Tres= 5.000E-10
+ Block  11 : Transmission line with impedance varying linearly     
+   Tau= 2.500E-10   Zin= 3.600E+01   Zout= 3.600E+01   Tres= 2.000E-10
+ Block  12 : Transmission line with impedance varying linearly     
+   Tau= 2.275E-09   Zin= 6.000E+00   Zout= 6.000E+00   Tres= 5.000E-10
+ Block  13 : Transmission line with impedance varying linearly     
+   Tau= 7.760E-09   Zin= 6.000E+00   Zout= 3.817E+00   Tres= 5.000E-10
+ Block  14 : Transmission line with impedance varying linearly     
+   Tau= 1.827E-08   Zin= 3.817E+00   Zout= 3.817E+00   Tres= 5.000E-10
+ CSV Output Request for block  14.    Variable: Output Voltage         
+  Values on the half time step will be used.
+ CSV Output Request for block  14.    Variable: Output Current         
+  Values on the half time step will be used.
+ CSV Output Request for block  14.    Variable: Output Power           
+  Values on the half time step will be used.
+ Block  15 : Transmission line with impedance varying linearly     
+   Tau= 3.800E-08   Zin= 3.817E+00   Zout= 3.817E+00   Tres= 5.000E-10
+ Block  16 : Transmission line with impedance varying linearly     
+   Tau= 1.827E-08   Zin= 3.817E+00   Zout= 3.817E+00   Tres= 5.000E-10
+ CSV Output Request for block  16.    Variable: Input Voltage          
+  Values on the half time step will be used.
+ CSV Output Request for block  16.    Variable: Input Current          
+  Values on the half time step will be used.
+ Block  17 : Transmission line with impedance varying linearly     
+   Tau= 7.760E-09   Zin= 3.817E+00   Zout= 6.000E+00   Tres= 5.000E-10
+ Block  18 : Transmission line with impedance varying linearly     
+   Tau= 2.275E-09   Zin= 6.000E+00   Zout= 6.000E+00   Tres= 5.000E-10
+ Block  19 : Transmission line with impedance varying linearly     
+   Tau= 2.500E-10   Zin= 3.600E+01   Zout= 3.600E+01   Tres= 2.000E-10
+ Block  20 : Transmission line with impedance varying linearly     
+   Tau= 1.900E-09   Zin= 6.400E+01   Zout= 2.360E+01   Tres= 1.000E-10
+ Block  21 : resistor and capacitor to ground.
+   R1= 1.000E+06   C1= 9.000E-11
+ CSV Output Request for block  21.    Variable: Output Voltage         
+  Values on the half time step will be used.
+ Block  22 : Transmission line with impedance varying linearly     
+   Tau= 5.000E-10   Zin= 9.000E+01   Zout= 9.000E+01   Tres= 2.000E-10
+ Block  23 : resistor and inductor in series.
+   R2= 1.000E+06   L2= 5.100E-07
+     R2 is a variable element in block  23
+      Exponential model of a resistive switch:
+        Ropen= 1.000E+06   Rclose= 2.000E-01   Tswitch= 9.890E-07   Tau= 1.000E-08   Zswitch= 6.000E+00
+ CSV Output Request for block  23.    Variable: Charge through R2      
+  Values on the half time step will be used.
+ CSV Output Request for block  23.    Variable: Voltage across R2      
+  Values on the half time step will be used.
+ CSV Output Request for block  23.    Variable: Charge through R2      
+  Values on the half time step will be used.
+ Block  24 : Transmission line with impedance varying linearly     
+   Tau= 5.000E-10   Zin= 9.000E+01   Zout= 9.000E+01   Tres= 2.000E-10
+ Block  25 : Transmission line with impedance varying linearly     
+   Tau= 4.600E-10   Zin= 8.000E+01   Zout= 1.200E+01   Tres= 4.000E-11
+ Block  26 : Transmission line with impedance varying linearly     
+   Tau= 4.600E-10   Zin= 1.200E+01   Zout= 1.540E+01   Tres= 4.000E-11
+ Block  27 : Transmission line with impedance varying linearly     
+   Tau= 1.000E-09   Zin= 1.540E+01   Zout= 1.540E+01   Tres= 1.000E-10
+ CSV Output Request for block  27.    Variable: Output Voltage         
+  Values on the half time step will be used.
+ CSV Output Request for block  27.    Variable: Output Current         
+  Values on the half time step will be used.
+ Block  28 : Transmission line with impedance varying linearly     
+   Tau= 5.900E-10   Zin= 1.540E+01   Zout= 1.540E+01   Tres= 1.000E-10
+ Block  29 : Transmission line with impedance varying linearly     
+   Tau= 2.300E-10   Zin= 1.700E+01   Zout= 2.800E+01   Tres= 2.000E-11
+ Block  30 : Transmission line with impedance varying linearly     
+   Tau= 1.860E-10   Zin= 2.500E+01   Zout= 2.500E+01   Tres= 1.000E-11
+ Block  31 : resistor and capacitor to ground.
+   R1= 1.000E+06   C1= 1.000E-10
+ Block  32 : Transmission line with impedance varying linearly     
+   Tau= 2.300E-10   Zin= 2.500E+01   Zout= 2.500E+01   Tres= 2.000E-11
+ Block  33 : Transmission line with impedance varying linearly     
+   Tau= 1.500E-09   Zin= 5.000E+00   Zout= 5.000E+00   Tres= 1.000E-10
+ Block  34 : resistor and capacitor to ground.
+   R1= 1.000E+06   C1= 5.000E-10
+ Block  35 : Transmission line with impedance varying linearly     
+   Tau= 2.275E-09   Zin= 5.000E+00   Zout= 2.554E+00   Tres= 5.000E-10
+ Block  36 : Transmission line with impedance varying linearly     
+   Tau= 2.700E-08   Zin= 2.554E+00   Zout= 2.554E+00   Tres= 5.000E-10
+ CSV Output Request for block  36.    Variable: Output Voltage         
+  Values on the half time step will be used.
+ CSV Output Request for block  36.    Variable: Output Current         
+  Values on the half time step will be used.
+ Block  37 : Transmission line with impedance varying linearly     
+   Tau= 4.000E-09   Zin= 2.554E+00   Zout= 2.554E+00   Tres= 5.000E-10
+ Block  38 : Transmission line with impedance varying linearly     
+   Tau= 6.440E-09   Zin= 2.554E+00   Zout= 5.000E+00   Tres= 5.000E-10
+ Block  39 : resistor and capacitor to ground.
+   R1= 1.000E+06   C1= 4.000E-09
+ CSV Output Request for block  39.    Variable: Input Current          
+  Values on the half time step will be used.
+ CSV Output Request for block  39.    Variable: Output Power           
+  Values on the half time step will be used.
+ Block  40 : Transmission line with impedance varying linearly     
+   Tau= 4.450E-09   Zin= 1.120E+01   Zout= 1.120E+01   Tres= 5.000E-10
+ CSV Output Request for block  40.    Variable: Output Voltage         
+  Values on the half time step will be used.
+ Block  41 : resistor and inductor in series.
+   R2= 1.000E+06   L2= 5.000E-08
+     R2 is a variable element in block  41
+      Exponential model of a resistive switch:
+        Ropen= 1.000E+06   Rclose= 2.540E-01   Tswitch= 1.210E-06   Tau= 2.000E-08   Zswitch= 1.200E+01
+ CSV Output Request for block  41.    Variable: Current in R2          
+  Values on the half time step will be used.
+ ***** Block  41 has a top branch exiting it (branch  2) *****
+ Block  42 : Transmission line with impedance varying linearly     
+   Tau= 4.450E-09   Zin= 1.120E+01   Zout= 1.120E+01   Tres= 5.000E-10
+ Block  43 : Transmission line with impedance varying linearly     
+   Tau= 4.000E-09   Zin= 9.000E+00   Zout= 9.000E+00   Tres= 5.000E-10
+ CSV Output Request for block  43.    Variable: Output Current         
+  Values on the half time step will be used.
+ Block  44 : Transmission line with impedance varying linearly     
+   Tau= 1.900E-09   Zin= 9.000E+00   Zout= 4.200E+00   Tres= 5.000E-10
+ Block  45 : Transmission line with impedance varying linearly     
+   Tau= 4.400E-09   Zin= 4.200E+00   Zout= 4.200E+00   Tres= 5.000E-10
+ CSV Output Request for block  45.    Variable: Output Voltage         
+  Values on the half time step will be used.
+ CSV Output Request for block  45.    Variable: Output Current         
+  Values on the half time step will be used.
+ Block  46 : Transmission line with impedance varying linearly     
+   Tau= 1.070E-08   Zin= 4.200E+00   Zout= 4.200E+00   Tres= 5.000E-10
+ CSV Output Request for block  46.    Variable: Output Voltage         
+  Values on the half time step will be used.
+ CSV Output Request for block  46.    Variable: Output Current         
+  Values on the half time step will be used.
+ Block  47 : Transmission line with impedance varying linearly     
+   Tau= 1.492E-08   Zin= 4.200E+00   Zout= 4.200E+00   Tres= 5.000E-10
+ Block  48 : Transmission line with impedance varying linearly     
+   Tau= 1.900E-09   Zin= 4.200E+00   Zout= 7.000E+00   Tres= 5.000E-10
+ Block  49 : Transmission line with impedance varying linearly     
+   Tau= 2.270E-09   Zin= 1.100E+01   Zout= 1.100E+01   Tres= 5.000E-10
+ Block  50 : resistor and inductor in series.
+   R2= 0.000E+00   L2= 6.000E-09
+ CSV Output Request for block  50.    Variable: Current in R2          
+  Values on the half time step will be used.
+ Block  51 : Transmission line with impedance varying linearly     
+   Tau= 2.270E-09   Zin= 1.100E+01   Zout= 1.100E+01   Tres= 5.000E-10
+ Block  52 : Transmission line with impedance varying linearly     
+   Tau= 1.900E-09   Zin= 7.000E+00   Zout= 6.400E+00   Tres= 5.000E-10
+ Block  53 : Transmission line with impedance varying linearly     
+   Tau= 4.400E-09   Zin= 6.400E+00   Zout= 6.400E+00   Tres= 5.000E-10
+ CSV Output Request for block  53.    Variable: Output Voltage         
+  Values on the half time step will be used.
+ CSV Output Request for block  53.    Variable: Output Current         
+  Values on the half time step will be used.
+ Block  54 : Transmission line with impedance varying linearly     
+   Tau= 1.800E-08   Zin= 6.400E+00   Zout= 6.400E+00   Tres= 5.000E-10
+ CSV Output Request for block  54.    Variable: Output Voltage         
+  Values on the half time step will be used.
+ CSV Output Request for block  54.    Variable: Output Current         
+  Values on the half time step will be used.
+ Block  55 : Transmission line with impedance varying linearly     
+   Tau= 2.000E-08   Zin= 6.400E+00   Zout= 6.400E+00   Tres= 5.000E-10
+ Block  56 : Transmission line with impedance varying linearly     
+   Tau= 8.000E-09   Zin= 6.400E+00   Zout= 1.070E+01   Tres= 5.000E-10
+ Block  57 : resistor and capacitor to ground.
+   R1= 3.000E+00   C1= 3.000E-10
+ CSV Output Request for block  57.    Variable: Energy Dissipated in R1
+  Values on the half time step will be used.
+ CSV Output Request for block  57.    Variable: Voltage across R1      
+  Values on the half time step will be used.
+ CSV Output Request for block  57.    Variable: Current in R1          
+  Values on the half time step will be used.
+ 
+************ Branch  2 ************
+ Block   1 : resistor and capacitor to ground.
+   R1= 5.000E+05   C1= 6.000E-10
+ CSV Output Request for block   1.    Variable: Current in R1          
+  Values on the half time step will be used.
+ 
+********************************************************************************
+Initial SCREAMER Circuit Status                                                 
+********************************************************************************
+ 
+
+Time =  0.000E+00     Cycle =       0
+Energy from all sources:                           1.5674E+05
+L*I*I/2    energy stored in inductors:             0.0000E+00
+C*V*V/2    energy stored in capacitors:            1.5674E+05
+G*V*V      energy dissipated in shunt resistors:   0.0000E+00
+R*I*I      energy dissipated in series resistors:  0.0000E+00
+Ldot*I*I/2 energy in variable inductors:           0.0000E+00
+Cdot*V*V/2 energy in variable capacitors:          0.0000E+00
+Relative error in energy sum:                      0.0000E+00
+ 
+********************************************************************************
+SCREAMER Circuit Status for t > 0                                               
+********************************************************************************
+ 
+
+Time =  4.500E-06     Cycle =    9000
+Energy from all sources:                           1.5674E+05
+L*I*I/2    energy stored in inductors:             1.0399E+04
+C*V*V/2    energy stored in capacitors:            6.0421E+02
+G*V*V      energy dissipated in shunt resistors:   1.1114E+05
+R*I*I      energy dissipated in series resistors:  3.4620E+04
+Ldot*I*I/2 energy in variable inductors:           0.0000E+00
+Cdot*V*V/2 energy in variable capacitors:          0.0000E+00
+Relative error in energy sum:                      1.6210E-04
+ 
+********************************************************************************
+End of Simulation                                                               
+********************************************************************************
+ 
+
+The SCREAMER input file used: untested/Dillon_shot598.txt                                                     
+ Current time: 08:29
+ Run time:    1.076 seconds
+SCREAMER v4.4.3

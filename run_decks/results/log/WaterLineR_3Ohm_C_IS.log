@@ -1,0 +1,145 @@
+ 
+********************************************************************************
+SCREAMER v4.4.3 Circuit Analysis Code:                                          
+********************************************************************************
+ 
+ 
+********************************************************************************
+Water Line Calculations                                                         
+********************************************************************************
+ 
+ Time step          1.00000001E-10
+ Default Res-time   9.99999972E-10
+ End time           9.99999997E-07
+ Number of prints           5
+ max-pnts stored         3001
+
+ 
+********************************************************************************
+Listing of the User Circuit                                                     
+********************************************************************************
+ 
+ 
+************ Branch  1 ************
+ Block   1 : resistor and capacitor to ground.
+   R1= 1.000E+12   C1= 4.690E-08
+  Initial condition: Voltage on C1 =    3.000E+06
+ CSV Output Request for block   1.    Variable: Voltage across C1      
+  Values on the half time step will be used.
+ CSV Output Request for block   1.    Variable: Energy Stored in C1    
+  Values on the half time step will be used.
+ Block   2 : resistor and inductor in series.
+   R2= 6.400E-01   L2= 6.400E-07
+ Block   3 : resistor and inductor in series.
+   R2= 1.600E-01   L2= 1.600E-07
+ CSV Output Request for block   3.    Variable: Current in R2          
+  Values on the half time step will be used.
+ Block   4 : resistor and capacitor to ground.
+   R1= 1.000E+02   C1= 0.000E+00
+ CSV Output Request for block   4.    Variable: Voltage across R1      
+  Values on the half time step will be used.
+ Block   5 : resistor and inductor in series.
+   R2= 0.000E+00   L2= 0.000E+00
+ Block   6 : resistor and capacitor to ground.
+   R1= 1.000E+12   C1= 2.350E-08
+ CSV Output Request for block   6.    Variable: Voltage across C1      
+  Values on the half time step will be used.
+ CSV Output Request for block   6.    Variable: Energy Stored in C1    
+  Values on the half time step will be used.
+ Block   7 : resistor and inductor in series.
+   R2= 1.000E+12   L2= 5.000E-08
+     R2 is a variable element in block   7
+      Decay model of a resistive switch:
+        Ropen= 1.000E+06   Rclose= 1.000E-01   Tswitch= 2.450E-07   Tau= 1.000E-09
+ CSV Output Request for block   7.    Variable: Current in R2          
+  Values on the half time step will be used.
+ Block   8 : Transmission line with impedance varying linearly     
+   Tau= 1.000E-07   Zin= 3.000E+00   Zout= 3.000E+00   Tres= 1.000E-09
+ Block   9 : resistor and capacitor to ground.
+   R1= 3.000E+00   C1= 0.000E+00
+ CSV Output Request for block   9.    Variable: Current in R1          
+  Values on the half time step will be used.
+ CSV Output Request for block   9.    Variable: Voltage across R1      
+  Values on the half time step will be used.
+ CSV Output Request for block   9.    Variable: Energy Dissipated in R1
+  Values on the half time step will be used.
+ 
+********************************************************************************
+Initial SCREAMER Circuit Status                                                 
+********************************************************************************
+ 
+
+Time =  0.000E+00     Cycle =       0
+Energy from all sources:                           2.1105E+05
+L*I*I/2    energy stored in inductors:             0.0000E+00
+C*V*V/2    energy stored in capacitors:            2.1105E+05
+G*V*V      energy dissipated in shunt resistors:   0.0000E+00
+R*I*I      energy dissipated in series resistors:  0.0000E+00
+Ldot*I*I/2 energy in variable inductors:           0.0000E+00
+Cdot*V*V/2 energy in variable capacitors:          0.0000E+00
+Relative error in energy sum:                      0.0000E+00
+ 
+********************************************************************************
+SCREAMER Circuit Status for t > 0                                               
+********************************************************************************
+ 
+
+Time =  2.000E-07     Cycle =    2000
+Energy from all sources:                           2.1105E+05
+L*I*I/2    energy stored in inductors:             5.6519E+04
+C*V*V/2    energy stored in capacitors:            1.3828E+05
+G*V*V      energy dissipated in shunt resistors:   2.3975E+03
+R*I*I      energy dissipated in series resistors:  1.3872E+04
+Ldot*I*I/2 energy in variable inductors:           0.0000E+00
+Cdot*V*V/2 energy in variable capacitors:          0.0000E+00
+Relative error in energy sum:                      8.4799E-05
+
+Time =  4.000E-07     Cycle =    4000
+Energy from all sources:                           2.1105E+05
+L*I*I/2    energy stored in inductors:             5.2013E+04
+C*V*V/2    energy stored in capacitors:            6.5294E+04
+G*V*V      energy dissipated in shunt resistors:   6.5579E+04
+R*I*I      energy dissipated in series resistors:  2.8270E+04
+Ldot*I*I/2 energy in variable inductors:           0.0000E+00
+Cdot*V*V/2 energy in variable capacitors:          0.0000E+00
+Relative error in energy sum:                      5.0090E-04
+
+Time =  5.999E-07     Cycle =    6000
+Energy from all sources:                           2.1105E+05
+L*I*I/2    energy stored in inductors:             1.0641E+04
+C*V*V/2    energy stored in capacitors:            7.0785E+03
+G*V*V      energy dissipated in shunt resistors:   1.6094E+05
+R*I*I      energy dissipated in series resistors:  3.2412E+04
+Ldot*I*I/2 energy in variable inductors:           0.0000E+00
+Cdot*V*V/2 energy in variable capacitors:          0.0000E+00
+Relative error in energy sum:                      1.0750E-04
+
+Time =  7.999E-07     Cycle =    8000
+Energy from all sources:                           2.1105E+05
+L*I*I/2    energy stored in inductors:             1.9426E+03
+C*V*V/2    energy stored in capacitors:            1.9722E+03
+G*V*V      energy dissipated in shunt resistors:   1.7326E+05
+R*I*I      energy dissipated in series resistors:  3.3895E+04
+Ldot*I*I/2 energy in variable inductors:           0.0000E+00
+Cdot*V*V/2 energy in variable capacitors:          0.0000E+00
+Relative error in energy sum:                      9.7948E-05
+
+Time =  9.999E-07     Cycle =   10000
+Energy from all sources:                           2.1105E+05
+L*I*I/2    energy stored in inductors:             1.6144E+02
+C*V*V/2    energy stored in capacitors:            4.9708E+02
+G*V*V      energy dissipated in shunt resistors:   1.7644E+05
+R*I*I      energy dissipated in series resistors:  3.3969E+04
+Ldot*I*I/2 energy in variable inductors:           0.0000E+00
+Cdot*V*V/2 energy in variable capacitors:          0.0000E+00
+Relative error in energy sum:                      8.8545E-05
+ 
+********************************************************************************
+End of Simulation                                                               
+********************************************************************************
+ 
+
+The SCREAMER input file used: WaterLineR_3Ohm_C_IS.txt                                                        
+ Current time: 08:49
+ Run time:    0.244 seconds
+SCREAMER v4.4.3

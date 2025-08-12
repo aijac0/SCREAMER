@@ -1,0 +1,172 @@
+ 
+********************************************************************************
+SCREAMER v4.4.3 Circuit Analysis Code:                                          
+********************************************************************************
+ 
+ 
+********************************************************************************
+Cinco Brick Model with a pure LRC circuit                                       
+********************************************************************************
+ 
+ Time step          9.99999996E-13
+ Default Res-time   9.99999972E-10
+ End time           2.49999994E-06
+ Number of prints          10
+ max-pnts stored        20001
+
+ 
+********************************************************************************
+Listing of the User Circuit                                                     
+********************************************************************************
+ 
+ 
+************ Branch  1 ************
+ Block   1 : resistor and capacitor to ground.
+   R1= 1.000E+12   C1= 2.800E-07
+  Initial condition: Voltage on C1 =    1.000E+05
+ TXT Output Request for block   1.    Variable: Voltage across C1      
+  Values on the half time step will be used.
+ TXT Output Request for block   1.    Variable: Energy Stored in C1    
+  Values on the half time step will be used.
+ Block   2 : resistor and inductor in series.
+   R2= 0.000E+00   L2= 1.280E-07
+ Block   3 : resistor and capacitor to ground.
+   R1= 6.761E-01   C1= 0.000E+00
+ TXT Output Request for block   3.    Variable: Current in R1          
+  Values on the half time step will be used.
+ TXT Output Request for block   3.    Variable: Voltage across R1      
+  Values on the half time step will be used.
+ TXT Output Request for block   3.    Variable: Power Dissipated in R1 
+  Values on the half time step will be used.
+ TXT Output Request for block   3.    Variable: Energy Dissipated in R1
+  Values on the half time step will be used.
+ 
+********************************************************************************
+Initial SCREAMER Circuit Status                                                 
+********************************************************************************
+ 
+
+Time =  0.000E+00     Cycle =       0
+Energy from all sources:                           1.4000E+03
+L*I*I/2    energy stored in inductors:             0.0000E+00
+C*V*V/2    energy stored in capacitors:            1.4000E+03
+G*V*V      energy dissipated in shunt resistors:   0.0000E+00
+R*I*I      energy dissipated in series resistors:  0.0000E+00
+Ldot*I*I/2 energy in variable inductors:           0.0000E+00
+Cdot*V*V/2 energy in variable capacitors:          0.0000E+00
+Relative error in energy sum:                      0.0000E+00
+ 
+********************************************************************************
+SCREAMER Circuit Status for t > 0                                               
+********************************************************************************
+ 
+
+Time =  2.500E-07     Cycle =  250000
+Energy from all sources:                           1.4000E+03
+L*I*I/2    energy stored in inductors:             4.1320E+02
+C*V*V/2    energy stored in capacitors:            3.3124E+02
+G*V*V      energy dissipated in shunt resistors:   6.5704E+02
+R*I*I      energy dissipated in series resistors:  0.0000E+00
+Ldot*I*I/2 energy in variable inductors:           0.0000E+00
+Cdot*V*V/2 energy in variable capacitors:          0.0000E+00
+Relative error in energy sum:                      1.0596E-03
+
+Time =  5.000E-07     Cycle =  500000
+Energy from all sources:                           1.4000E+03
+L*I*I/2    energy stored in inductors:             7.5986E+01
+C*V*V/2    energy stored in capacitors:            4.8564E+00
+G*V*V      energy dissipated in shunt resistors:   1.3206E+03
+R*I*I      energy dissipated in series resistors:  0.0000E+00
+Ldot*I*I/2 energy in variable inductors:           0.0000E+00
+Cdot*V*V/2 energy in variable capacitors:          0.0000E+00
+Relative error in energy sum:                      1.0218E-03
+
+Time =  7.500E-07     Cycle =  750000
+Energy from all sources:                           1.4000E+03
+L*I*I/2    energy stored in inductors:             2.8816E+00
+C*V*V/2    energy stored in capacitors:            3.3691E+01
+G*V*V      energy dissipated in shunt resistors:   1.3634E+03
+R*I*I      energy dissipated in series resistors:  0.0000E+00
+Ldot*I*I/2 energy in variable inductors:           0.0000E+00
+Cdot*V*V/2 energy in variable capacitors:          0.0000E+00
+Relative error in energy sum:                     -4.4468E-06
+
+Time =  1.000E-06     Cycle = 1000000
+Energy from all sources:                           1.4000E+03
+L*I*I/2    energy stored in inductors:             9.3224E+00
+C*V*V/2    energy stored in capacitors:            3.5836E+00
+G*V*V      energy dissipated in shunt resistors:   1.3893E+03
+R*I*I      energy dissipated in series resistors:  0.0000E+00
+Ldot*I*I/2 energy in variable inductors:           0.0000E+00
+Cdot*V*V/2 energy in variable capacitors:          0.0000E+00
+Relative error in energy sum:                      1.5951E-03
+
+Time =  1.250E-06     Cycle = 1250000
+Energy from all sources:                           1.4000E+03
+L*I*I/2    energy stored in inductors:             7.2663E-01
+C*V*V/2    energy stored in capacitors:            5.4580E-01
+G*V*V      energy dissipated in shunt resistors:   1.3995E+03
+R*I*I      energy dissipated in series resistors:  0.0000E+00
+Ldot*I*I/2 energy in variable inductors:           0.0000E+00
+Cdot*V*V/2 energy in variable capacitors:          0.0000E+00
+Relative error in energy sum:                      5.2011E-04
+
+Time =  1.500E-06     Cycle = 1500000
+Energy from all sources:                           1.4000E+03
+L*I*I/2    energy stored in inductors:             2.0261E-01
+C*V*V/2    energy stored in capacitors:            6.7514E-01
+G*V*V      energy dissipated in shunt resistors:   1.3995E+03
+R*I*I      energy dissipated in series resistors:  0.0000E+00
+Ldot*I*I/2 energy in variable inductors:           0.0000E+00
+Cdot*V*V/2 energy in variable capacitors:          0.0000E+00
+Relative error in energy sum:                      2.3821E-04
+
+Time =  1.750E-06     Cycle = 1750000
+Energy from all sources:                           1.4000E+03
+L*I*I/2    energy stored in inductors:             1.7678E-01
+C*V*V/2    energy stored in capacitors:            2.3937E-02
+G*V*V      energy dissipated in shunt resistors:   1.3995E+03
+R*I*I      energy dissipated in series resistors:  0.0000E+00
+Ldot*I*I/2 energy in variable inductors:           0.0000E+00
+Cdot*V*V/2 energy in variable capacitors:          0.0000E+00
+Relative error in energy sum:                     -2.4545E-04
+
+Time =  2.000E-06     Cycle = 2000000
+Energy from all sources:                           1.4000E+03
+L*I*I/2    energy stored in inductors:             3.5781E-03
+C*V*V/2    energy stored in capacitors:            2.3432E-02
+G*V*V      energy dissipated in shunt resistors:   1.3995E+03
+R*I*I      energy dissipated in series resistors:  0.0000E+00
+Ldot*I*I/2 energy in variable inductors:           0.0000E+00
+Cdot*V*V/2 energy in variable capacitors:          0.0000E+00
+Relative error in energy sum:                     -3.6952E-04
+
+Time =  2.250E-06     Cycle = 2250000
+Energy from all sources:                           1.4000E+03
+L*I*I/2    energy stored in inductors:             7.4942E-03
+C*V*V/2    energy stored in capacitors:            1.1417E-02
+G*V*V      energy dissipated in shunt resistors:   1.3995E+03
+R*I*I      energy dissipated in series resistors:  0.0000E+00
+Ldot*I*I/2 energy in variable inductors:           0.0000E+00
+Cdot*V*V/2 energy in variable capacitors:          0.0000E+00
+Relative error in energy sum:                     -3.7528E-04
+
+Time =  2.500E-06     Cycle = 2500000
+Energy from all sources:                           1.4000E+03
+L*I*I/2    energy stored in inductors:             2.8090E-03
+C*V*V/2    energy stored in capacitors:            2.3202E-05
+G*V*V      energy dissipated in shunt resistors:   1.3995E+03
+R*I*I      energy dissipated in series resistors:  0.0000E+00
+Ldot*I*I/2 energy in variable inductors:           0.0000E+00
+Cdot*V*V/2 energy in variable capacitors:          0.0000E+00
+Relative error in energy sum:                     -3.8679E-04
+ 
+********************************************************************************
+End of Simulation                                                               
+********************************************************************************
+ 
+
+The SCREAMER input file used: cinco_1_brick_LRC.txt                                                           
+ Current time: 08:22
+ Run time:    4.078 seconds
+SCREAMER v4.4.3
