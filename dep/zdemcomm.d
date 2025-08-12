@@ -1,0 +1,1 @@
+obj/zdemcomm.o: obj/zdemmax.o
