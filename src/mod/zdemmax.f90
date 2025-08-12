@@ -66,13 +66,13 @@ module zdemmax
 !
 ! Set (dependent on above) dimensions of scratch arrays.
 !
-      integer, parameter :: max_bb           = max_nodes * max_vars * max_branches
-      integer, parameter :: max_cc           = max_bb
-      integer, parameter :: max_a            = max_bb * max_cols
-      integer, parameter :: max_x            = max_bb
-      integer, parameter :: max_am           = max_nodes * 2
-!      integer, parameter :: max_band_matrix  = max_bb*max_band
-!      integer, parameter :: max_band_rhs     = max_bb
+      integer, parameter :: max_bb           = max_nodes * max_vars * max_branches         ! Unused outside module
+      integer, parameter :: max_a            = max_bb * max_cols                           ! Determines size of arrays {a, a_prl}
+      integer, parameter :: max_am           = max_nodes * 2                               ! Determines size of arrays {am_band, rhs_band}      
+      integer, parameter :: max_cc           = max_bb                                      ! Unused outside module
+      integer, parameter :: max_x            = max_bb                                      ! Unused outside module
+!      integer, parameter :: max_band_matrix  = max_bb*max_band                             ! Unused outside module
+!      integer, parameter :: max_band_rhs     = max_bb                                      ! Unused outside module
 
 ! Parameters for the multiple shell model
 !
