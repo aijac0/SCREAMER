@@ -79,11 +79,11 @@ c
 c---------------------------------------------------------
 c INITIALIZATIONS
 c
-c Allocate allocatable arrays
+c Allocate allocatable arrays using problem size upper bound
 c Clear all needed arrays
 c
-      call allocarry
-      call clrarry
+      call preallocarry
+      call preclrarry
 c
 c Read in the file name using the GNU Fortran compiler option
 c
@@ -157,6 +157,12 @@ c
         call close_outfile(iunit,ierr)
         goto 802
       endif
+
+c Allocate allocatable arrays using input problem size
+c Clear all needed arrays
+c
+      call postallocarry
+      call postclrarry
 
 c
 c---------------------------------------------------------
