@@ -1,40 +1,33 @@
-! -----------------------------
-      subroutine allocarry
+!------------------------------------------------------------------------------
 !
+!
+!
+!------------------------------------------------------------------------------
+
+! -----------------------------------------------------------------------------
 ! Subroutine created to dynamically allocate arrays declared with ALLOCATABLE
-!
-! Include the files specifying the array dimensions and the common blocks.
-!
+! These arrays are to be allocated BEFORE input is read
+! Dimensions are set based on their upper bound defined in zdemmax.f90
+subroutine preallocarry
       use zdemsolve
       use zdemmax
+      use zdemcomm
       use zdemwork
-
-! Solver arrays
-      IF (.NOT. ALLOCATED(a))               ALLOCATE(a(max_a))
-      IF (.NOT. ALLOCATED(a_prl))           ALLOCATE(a_prl(max_a))
-      IF (.NOT. ALLOCATED(am_band))         ALLOCATE(am_band(max_am, max_am))
-      IF (.NOT. ALLOCATED(rhs_band))        ALLOCATE(rhs_band(max_am))
 
 ! Voltages, currents, circuit elements, etc.
       IF (.NOT. ALLOCATED(v))               ALLOCATE(v(max_nodes, max_branches))
       IF (.NOT. ALLOCATED(vold))            ALLOCATE(vold(max_nodes, max_branches))
       IF (.NOT. ALLOCATED(vn))              ALLOCATE(vn(max_nodes, max_branches))
-      IF (.NOT. ALLOCATED(zir))             ALLOCATE(zir(max_nodes, max_branches))
-      IF (.NOT. ALLOCATED(zirn))            ALLOCATE(zirn(max_nodes, max_branches))
-      IF (.NOT. ALLOCATED(zirold))          ALLOCATE(zirold(max_nodes, max_branches))
-      IF (.NOT. ALLOCATED(zib))             ALLOCATE(zib(max_nodes, max_branches))
       IF (.NOT. ALLOCATED(g))               ALLOCATE(g(max_nodes, max_branches))
+      IF (.NOT. ALLOCATED(zir))             ALLOCATE(zir(max_nodes, max_branches))
       IF (.NOT. ALLOCATED(zlr))             ALLOCATE(zlr(max_nodes, max_branches))
       IF (.NOT. ALLOCATED(c))               ALLOCATE(c(max_nodes, max_branches))
-      IF (.NOT. ALLOCATED(rr))              ALLOCATE(rr(max_nodes, max_branches))
-      IF (.NOT. ALLOCATED(gdot))            ALLOCATE(gdot(max_nodes, max_branches))
-      IF (.NOT. ALLOCATED(zlrdot))          ALLOCATE(zlrdot(max_nodes, max_branches))
       IF (.NOT. ALLOCATED(cdot))            ALLOCATE(cdot(max_nodes, max_branches))
-      IF (.NOT. ALLOCATED(rrdot))           ALLOCATE(rrdot(max_nodes, max_branches))
+      IF (.NOT. ALLOCATED(rr))              ALLOCATE(rr(max_nodes, max_branches))
       IF (.NOT. ALLOCATED(zlrechk))         ALLOCATE(zlrechk(max_nodes, max_branches))
       IF (.NOT. ALLOCATED(cechk))           ALLOCATE(cechk(max_nodes, max_branches))
       IF (.NOT. ALLOCATED(vsour))           ALLOCATE(vsour(max_branches))
-      IF (.NOT. ALLOCATED(uservars))        ALLOCATE(uservars(max_blocks, max_branches, max_uservars))
+      IF (.NOT. ALLOCATED(zirn))            ALLOCATE(zirn(max_nodes, max_branches))
       IF (.NOT. ALLOCATED(nr))              ALLOCATE(nr(max_branches))
 
 ! Various indexing arrays
@@ -50,18 +43,53 @@
       IF (.NOT. ALLOCATED(lasttabm_time))   ALLOCATE(lasttabm_time(max_var_elem))
       IF (.NOT. ALLOCATED(nbv))             ALLOCATE(nbv(0:max_branches))
       IF (.NOT. ALLOCATED(nbe))             ALLOCATE(nbe(max_branches))
+      IF (.NOT. ALLOCATED(uservars))        ALLOCATE(uservars(max_blocks, max_branches, max_uservars))
       IF (.NOT. ALLOCATED(nadd_array))      ALLOCATE(nadd_array(max_branches))
 
-      end subroutine
+end subroutine
 
-! ---------------------------
+! -----------------------------------------------------------------------------
+! Subroutine created to dynamically allocate arrays declared with ALLOCATABLE
+! These arrays are to be allocated AFTER input is read & BEFORE solver routine
+! Dimensions are set based on the size of problem read from input
+subroutine postallocarry
+      use zdemsolve
+      use zdemmax
+      use zdemcomm
+      use zdemwork
 
-      subroutine deallocarry
-!
+! Bounds of array dimensions which reflect actual size of input problem
+! Each n_X variable has a counterpart max_X defined in zdemwork.f90
+      integer :: n_branches, n_blocks, n_nodes, n_vars
+      integer :: n_a, n_am
+
+! Set bounds of array dimensions
+      n_branches = max_branches
+      n_blocks = max_blocks
+      n_nodes = nbr
+      n_vars = max_vars
+      n_a = n_nodes * n_vars * n_branches * n_cols
+      n_am = n_nodes * 2
+
+! Solver arrays
+      IF (.NOT. ALLOCATED(a))               ALLOCATE(a(n_a))
+      IF (.NOT. ALLOCATED(a_prl))           ALLOCATE(a_prl(n_a))
+      IF (.NOT. ALLOCATED(am_band))         ALLOCATE(am_band(n_am, n_am))
+      IF (.NOT. ALLOCATED(rhs_band))        ALLOCATE(rhs_band(n_am))
+
+! Voltages, currents, circuit elements, etc.
+      IF (.NOT. ALLOCATED(zirold))          ALLOCATE(zirold(n_nodes, n_branches))
+      IF (.NOT. ALLOCATED(zib))             ALLOCATE(zib(n_nodes, n_branches))
+      IF (.NOT. ALLOCATED(gdot))            ALLOCATE(gdot(n_nodes, n_branches))
+      IF (.NOT. ALLOCATED(zlrdot))          ALLOCATE(zlrdot(n_nodes, n_branches))
+      IF (.NOT. ALLOCATED(rrdot))           ALLOCATE(rrdot(n_nodes, n_branches))
+
+end subroutine
+
+! -----------------------------------------------------------------------------
 ! Subroutine created to deallocate arrays declared with ALLOCATABLE
 !
-! Include the files specifying the array dimensions and the common blocks.
-!
+subroutine deallocarry
       use zdemsolve
       use zdemmax
       use zdemwork
@@ -90,6 +118,9 @@
       IF (ALLOCATED(rrdot))           DEALLOCATE(rrdot)
       IF (ALLOCATED(zlrechk))         DEALLOCATE(zlrechk)
       IF (ALLOCATED(cechk))           DEALLOCATE(cechk)
+      IF (ALLOCATED(vsour))           DEALLOCATE(vsour)
+      IF (ALLOCATED(uservars))        DEALLOCATE(uservars)
+      IF (ALLOCATED(nr))              DEALLOCATE(nr)
 
 ! Various indexing arrays
       IF (ALLOCATED(iflg))            DEALLOCATE(iflg)
