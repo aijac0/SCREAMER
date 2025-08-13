@@ -1,4 +1,4 @@
-      subroutine clrarry
+      subroutine preclrarry
 c
 c Subroutine created to clear all common arrays prior to run
 c to prevent potential data from being used from prior run
@@ -103,26 +103,18 @@ c
           v(i,j) = 0.0
           vold(i,j) = 0.0
           vn(i,j) = 0.0
-          zir(i,j) = 0.0
-          zirn(i,j) = 0.0
-          zirold(i,j) = 0.0
-          zib(i,j) = 0.0
           g(i,j) = 0.0
           c(i,j) = 0.0
           rr(i,j) = 0.0
-          gdot(i,j) = 0.0
-          rrdot(i,j) = 0.0
           zlrechk(i,j) = 0.0
           cechk(i,j) = 0.0
           iflg(i,j) = 0
+          zir(i,j) = 0.0
         end do
       end do
 
       do i=1,max_branches
-        vsour(i) = 0.0
-        nbe(i) = 0
         nr(i) = 0
-        nadd_array(i) = 0
       end do
 
       do i=1,max_blocks
@@ -145,7 +137,6 @@ c
         end do
       end do 
 
-c works below
       do i=1,2
         do j=1,max_volt_source
           indexvs(i,j) = 0
@@ -182,8 +173,52 @@ c works below
         lasttabm_time(i) = 0
       end do 
 
-      do i = 1,maxout
-        scale_out(i) = 1.0
+      do i=1,max_branches
+        vsour(i) = 0.0
+        nbe(i) = 0
+        nadd_array(i) = 0
+      end do
+
+      end subroutine
+
+
+      subroutine postclrarry
+c
+c Subroutine created to clear all common arrays prior to run
+c to prevent potential data from being used from prior run
+c These arrays are allocated in postallocarry AFTER input is read
+c
+c Include the modules containing keywords and the integer flags,
+c and parameter which are to be filled by this subroutine.
+c
+      use zdemmax
+      use zdemwork
+      use zdemcomm
+      use zdemparm
+      include 'zdemout.h'
+
+! Bounds of array dimensions which reflect actual size of input problem
+! Each n_X variable has a counterpart max_X defined in zdemwork.f90
+      integer :: n_branches, n_blocks, n_nodes, n_vars
+      integer :: n_a, n_am
+
+! Set bounds of array dimensions
+      n_branches = max_branches
+      n_blocks = max_blocks
+      n_nodes = nbr
+      n_vars = max_vars
+      n_a = n_nodes * n_vars * n_branches * n_cols
+      n_am = n_nodes * 2
+
+! Clear arrays
+      do i=1,n_nodes
+        do j=1,n_branches
+          zirn(i,j) = 0.0
+          zirold(i,j) = 0.0
+          zib(i,j) = 0.0
+          gdot(i,j) = 0.0
+          rrdot(i,j) = 0.0
+        end do
       end do
 
       end subroutine
