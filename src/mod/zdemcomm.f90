@@ -46,7 +46,7 @@ module zdemcomm
       real :: value_init(max_init_cond)
       real :: voltf_parms(max_volt_func_parms, max_volt_source)
 
-      integer :: iset, iswitch, itabnum, nb, ncurrsource, ninit_cond, nmitline
+      integer :: iset, iswitch, itabnum, nb, nbr, ncurrsource, ninit_cond, nmitline
       integer :: nprint, ntransformer, ntransline, nvar, nvoltsource
       integer :: icbranch_end(max_branches)
       integer :: icurrf(max_curr_source)
