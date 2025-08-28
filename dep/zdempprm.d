@@ -1,0 +1,1 @@
+obj/zdempprm.o: obj/zdemwork.o
