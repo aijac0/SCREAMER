@@ -26,7 +26,7 @@ c Include the common block for plotting so that we can set some
 c initial plotting values.
 c
       use zdemmax
-      include   'zdemout.h'
+      use zdemout
 c
 c
 c Define passed variables

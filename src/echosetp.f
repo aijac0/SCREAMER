@@ -10,7 +10,7 @@ c 2019-11-29 RBS: Adjusted the output formation for the blocks
 c -----------------------------------------------------------------------
       use zdemmax
       use zdemcomm
-      include 'zdemout.h'
+      use zdemout
 c
       character  setupln*80
       parameter (setupln = 'SCREAMER Setup Parameters (for debugging)')

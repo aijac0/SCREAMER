@@ -1,8 +1,8 @@
       integer function ifnodreq (otype, lastnode, numnodes)
 
       use zdemmax
-      include 'zdempprm.h'
-      include 'zdemout.h'
+      use zdempprm
+      use zdemout
 c
 c Define passed variables
 c

@@ -51,8 +51,8 @@ c
       use zdemwork
       use zdemcomm
       use zdemparm
-      include 'zdemout.h'
-      include 'zdempprm.h'
+      use zdemout
+      use zdempprm
 
 c
 c Define passed variables

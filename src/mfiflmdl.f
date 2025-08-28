@@ -55,7 +55,7 @@ c
 c Define included variables
 c
       use zdemmax             !parameters
-      include   'zdemout.h'   !common blocks
+      use zdemout             !common blocks
 c
 c
 c Define passed variables

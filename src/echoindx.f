@@ -13,7 +13,7 @@ c
       use zdemmax
       use zdemwork
       use zdemcomm
-      include 'zdemout.h'
+      use zdemout
 c
       character  indexln*80
       parameter (indexln = 'SCREAMER Setup Indicies (for debugging)')

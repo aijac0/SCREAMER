@@ -22,10 +22,10 @@ c
       use zdemwork
       use zdemcomm
       use zdemparm
-      include 'zdemout.h'
-      include 'zdemenv.h'
-      include 'zdemvars.h'    
-      include 'zdempprm.h'
+      use zdemvars
+      use zdemout
+      use zdemenv 
+      use zdempprm
 c
 c Include file with version string
 c

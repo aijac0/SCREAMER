@@ -54,7 +54,7 @@ c Include common variable definitions
 c
       use zdemwork            !working arrays in Zdem 
       use zdemmax             !parameters
-      include   'zdemout.h'   !common blocks
+      use zdemout             !common blocks
 c
 c Define passed variables
 c

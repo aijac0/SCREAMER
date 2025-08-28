@@ -53,7 +53,7 @@ c
 c Include files
 c
       use zdemmax             !parameters
-      include   'zdemout.h'   !common blocks
+      use zdemout             !common blocks
 c
 c Declare passed variables
 c

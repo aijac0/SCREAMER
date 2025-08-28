@@ -42,14 +42,14 @@ c
       use zdemcomm
       use zdemloop
       use zdemparm
-      include 'zdemout.h'
-      include 'zdemenv.h'
-      include 'zdemvars.h'
+      use zdemout
+      use zdemenv
+      use zdemvars
 
 c
 c Include the files with the various keywords and integer flags.
 c
-      include 'zdempprm.h'
+      use zdempprm
 c
 c Define internal variables
 c

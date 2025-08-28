@@ -28,8 +28,8 @@ c
       use zdemwork
       use zdemparm
       use zdemcomm
-      include 'zdempprm.h'
-      include 'zdemout.h'
+      use zdempprm
+      use zdemout
 c-------Define Passed Variables-----------------------------------------
 c
       real      tim,      ! Current problem time at whole time step

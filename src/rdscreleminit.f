@@ -20,8 +20,8 @@ c-----------------------------------------------------------------------
       use zdemmax
       use zdemcomm
       use zdemparm
-      include 'zdemout.h'
-      include 'zdempprm.h'
+      use zdemout
+      use zdempprm
       include 'rdscrdat.h'
 
       character  echoln*80

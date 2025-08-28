@@ -35,11 +35,6 @@ module zdemwork
       implicit none
 
 !
-! Whether or not arrays in module are allocated
-!
-      logical, private :: is_allocated = .false.
-
-!
 ! These parameters reflect actual size of problem
 ! Initialized with upper bounds set by zdemmax
 ! Recalculated after reading input

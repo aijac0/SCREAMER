@@ -13,7 +13,7 @@ c                 commented out at this time.
 c
 c-----------------------------------------------------------------------
       use zdemmax
-      include 'zdemout.h'
+      use zdemout
 
 c Define passed variables
 c

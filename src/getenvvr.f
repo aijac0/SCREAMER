@@ -51,7 +51,7 @@ c
 c
 c-----Include Files-----------------------------------------------------
 c
-      include 'zdemenv.h'
+      use zdemenv
 c
 c-----Passed variables
 c

@@ -18,7 +18,7 @@ c
 c-------Include Files---------------------------------------------------
 c
       use zdemmax
-      include 'zdemout.h'
+      use zdemout
 c
 c-------Input Parameters------------------------------------------------
 c

@@ -19,7 +19,7 @@ c
       use zdemwork
       use zdemcomm
       use zdemparm
-      include 'zdemout.h'
+      use zdemout
       
       do i=1,max_elem_parms
         do j=1,max_blocks
@@ -195,7 +195,7 @@ c
       use zdemwork
       use zdemcomm
       use zdemparm
-      include 'zdemout.h'
+      use zdemout
 
 ! Bounds of array dimensions which reflect actual size of input problem
 ! Each n_X variable has a counterpart max_X defined in zdemwork.f90

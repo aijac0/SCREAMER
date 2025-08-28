@@ -12,7 +12,7 @@ c 2014-05-02 RBS: Change real*4 to real
 c 2015-06-23 RBS: diel1 explicit integer math in line 54. dcm1n unused
 c
       use zdemmax           ! parameters
-      include 'zdemout.h'   ! common blocks
+      use zdemout           ! common blocks
 c
 c Declare passed variables
 c

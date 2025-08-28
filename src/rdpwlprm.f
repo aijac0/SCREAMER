@@ -32,7 +32,7 @@ c
 c Include the modules containing the keywords.
 c
       use zdemparm
-      include  'zdempprm.h'
+      use zdempprm
       
 c
 c Define passed variables

@@ -48,9 +48,9 @@ c
       use zdemmax
       use zdemcomm
       use zdemparm
-      include 'zdemout.h'
-      include 'zdempprm.h'
-      include 'zdemenv.h'
+      use zdemout
+      use zdempprm
+      use zdemenv
       include 'version.h'
       include 'rdscrdat.h'
 

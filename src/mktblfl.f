@@ -44,9 +44,9 @@ c
       use zdemmax
       use zdemparm
       use zdemcomm
-      include 'zdempprm.h'
-      include 'zdemout.h'
-      include 'zdemenv.h'
+      use zdempprm
+      use zdemout
+      use zdemenv
 c
 c-------Input Parameters------------------------------------------------
 c     NONE

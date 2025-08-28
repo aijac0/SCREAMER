@@ -10,7 +10,7 @@ c initial plotting values.
 c
 c
       use zdemmax
-      include   'zdemout.h'
+      use zdemout
 c
 c Define passed variables
 c

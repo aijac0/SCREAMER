@@ -38,9 +38,9 @@ c
       use zdemloop
       use zdemcomm
       use zdemparm
-      include 'zdempprm.h'
-      include 'zdemout.h'
-      include 'zdemvars.h'
+      use zdempprm
+      use zdemout
+      use zdemvars
 
 c
 c

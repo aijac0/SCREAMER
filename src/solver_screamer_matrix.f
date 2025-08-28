@@ -31,10 +31,10 @@ c
       use zdemloop
       use zdemcomm
       use zdemparm
-      include 'zdemout.h'
-      include 'zdemenv.h'
-      include 'zdemvars.h'
-      include 'zdempprm.h'
+      use zdemout
+      use zdemenv
+      use zdemvars
+      use zdempprm
       include 'version.h'
 
 c

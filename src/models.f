@@ -33,8 +33,8 @@ c
       use zdemwork
       use zdemparm
       use zdemcomm
-      include 'zdemout.h'
-      include 'zdemvars.h'
+      use zdemout
+      use zdemvars
 c
 c Declare internal variables
 c

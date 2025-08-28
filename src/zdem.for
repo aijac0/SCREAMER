@@ -62,10 +62,10 @@ c
       use zdemcomm
       use zdemloop
       use zdemparm
-      include 'zdemout.h'
-      include 'zdemenv.h'
-      include 'zdemvars.h'
-      include 'zdempprm.h'
+      use zdemout
+      use zdemenv
+      use zdemvars
+      use zdempprm
 c
 c Define local variables
 c

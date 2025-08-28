@@ -23,7 +23,7 @@ c  2014-02-06 RBS: Changed real*4 to real
 c
 c-----Include Files-----------------------------------------------------
 c
-      INCLUDE 'zdemenv.h'
+      use zdemenv
 c
 c-----Input Parameters--------------------------------------------------
 c

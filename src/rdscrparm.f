@@ -18,9 +18,9 @@ c and parameter which are to be filled by this subroutine.
       use zdemmax
       use zdemparm
       use zdemcomm
-      include 'zdemout.h'
-      include 'zdempprm.h'
-      include 'zdemenv.h'
+      use zdemout
+      use zdempprm
+      use zdemenv
       include 'rdscrdat.h'
 
 c
