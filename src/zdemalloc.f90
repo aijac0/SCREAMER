@@ -1,9 +1,3 @@
-!------------------------------------------------------------------------------
-!
-!
-!
-!------------------------------------------------------------------------------
-
 ! -----------------------------------------------------------------------------
 ! Subroutine created to dynamically allocate arrays declared with ALLOCATABLE
 ! These arrays are to be allocated BEFORE input is read
@@ -60,13 +54,14 @@ subroutine postallocarry
 
 ! Bounds of array dimensions which reflect actual size of input problem
 ! Each n_X variable has a counterpart max_X defined in zdemwork.f90
-      integer :: n_branches, n_blocks, n_nodes, n_vars
+      integer :: n_branches, n_blocks, n_nodes, n_vars, n_cols
       integer :: n_a, n_am
 
 ! Set bounds of array dimensions
       n_branches = max_branches
       n_blocks = max_blocks
-      n_nodes = nbr
+      n_nodes = nbr 
+      n_cols = max_cols
       n_vars = max_vars
       n_a = n_nodes * n_vars * n_branches * n_cols
       n_am = n_nodes * 2
